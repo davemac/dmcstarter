@@ -29,7 +29,7 @@ Add theme supports
 if ( ! function_exists( 'dmcstarter_theme_support' ) ) {
 	function dmcstarter_theme_support() {
 		// Add language supports.
-		load_theme_textdomain( 'dmcstarter', get_template_directory() . '/lang' );
+		load_theme_textdomain( 'dmcstarter', get_template_directory() . '/languages' );
 
 		// Add theme support for HTML5 Semantic Markup
 		add_theme_support( 'html5', array( 'comment-form', 'comment-list' ) );
@@ -54,7 +54,7 @@ if ( ! function_exists( 'dmcstarter_theme_support' ) ) {
 
 		// add_post_type_support( 'jetpack-portfolio', 'archive' );
 
-		// Add post thumbnail supports. http://codex.wordpress.org/Post_Thumbnails
+		// Add post thumbnail supports
 		add_theme_support( 'post-thumbnails' );
 		// set_post_thumbnail_size(150, 150, false);
 		// add_image_size( 'fd-lrg', 1024, 99999 );
@@ -65,10 +65,10 @@ if ( ! function_exists( 'dmcstarter_theme_support' ) ) {
 		// rss feed
 		add_theme_support( 'automatic-feed-links' );
 
-		// Add post formats support. http://codex.wordpress.org/Post_Formats
+		// Add post formats support
 		add_theme_support( 'post-formats', array( 'video' ) );
 
-		// Add menu support. http://codex.wordpress.org/Function_Reference/register_nav_menus
+		// Add menu support
 		register_nav_menus(
 			array(
 				'primary'    => __( 'Primary Navigation', 'dmcstarter' ),
