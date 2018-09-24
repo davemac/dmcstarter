@@ -1,0 +1,9 @@
+*.DS_Store
+node_modules
+build
+backups
+npm-debug.log
+/css/*
+/bower_components/*
+.sass-cache
+img/zeplin

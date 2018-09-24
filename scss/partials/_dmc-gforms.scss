@@ -1,0 +1,238 @@
+#gform_wrapper_1 {
+	margin-bottom: 2rem;
+
+	.home & {
+		width: 100%;
+	}
+
+	.top_label .gfield_label {
+		color: $primary-color;
+		font-size: rem-calc(15);
+		font-weight: 400;
+		margin-top: 1rem;
+		margin-bottom: 0;
+	}
+
+	.gfield_required {
+		position: absolute;
+		color: #c30;
+		font-size: rem-calc(32);
+		font-weight: $font-weight-bold;
+		line-height: 1;
+
+		&::after {
+			position: absolute;
+			top: 3px;
+			left: 20px;
+			font-size: rem-calc(12);
+			font-weight: $font-weight-normal;
+			content: '(required)';
+		}
+	}
+
+	input[type='text'],
+	input[type='url'],
+	input[type='email'],
+	input[type='tel'],
+	input[type='number'],
+	input[type='password'],
+	textarea {
+		height: rem-calc(42);
+		color: #242526;
+		font-size: rem-calc(18);
+		margin: 0;
+		padding: rem-calc(5);
+		border: 1px solid scale-color($secondary-color, $lightness: 65%);
+		border-radius: $global-radius;
+
+		&:focus {
+			border: 2px solid scale-color($primary-color, $lightness: 18%);
+		}
+
+		&::-webkit-input-placeholder {
+			color: #bbb;
+			font-size: rem-calc(15);
+			line-height: 1.5;
+		}
+
+		&:-moz-placeholder {
+			color: #bbb;
+			font-size: rem-calc(15);
+			line-height: 1.5;
+		}
+
+		&::-moz-placeholder {
+			color: #bbb;
+			font-size: rem-calc(15);
+			line-height: 1.5;
+		}
+
+		&::-ms-input-placeholder {
+			color: #bbb;
+			font-size: rem-calc(15);
+			line-height: 1.5;
+		}
+
+		&:read-only {
+			font-size: rem-calc(22);
+			font-weight: $font-weight-bold;
+			box-shadow: none;
+			border-color: transparent;
+			background: none;
+
+			&:focus {
+				border: none;
+				background: none;
+			}
+		}
+
+		&.gf_coupon_code {
+			display: inline-block;
+		}
+	}
+
+	textarea {
+		height: auto;
+		padding: rem-calc(10);
+	}
+
+	// styles selects 
+
+	&.gf_browser_chrome,
+	&.gf_browser_safari {
+		.ginput_complex .ginput_right select,
+		select.gfield_select {
+			-webkit-appearance: none;
+			height: 42px;
+			color: #333;
+			font-size: 16px;
+			padding: 8px 25px 8px 15px;
+			border: 2px solid #edeef1;
+			border-radius: $global-radius;
+
+			option {
+				font-size: rem-calc(16);
+			}
+		}
+	}
+
+	// add dropdown arrow for selects
+
+	.ginput_right.address_country,
+	.ginput_container_select {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			border: inset 5px;
+			border-color: rgba( $primary-color, 1 ) transparent transparent transparent;
+			border-top-style: solid;
+		}
+	}
+
+	input[type='button'] {
+		&#gf_coupon_button {
+			font-size: rem-calc(14);
+			margin: 0 0 0 1rem;
+			padding: 10px 15px;
+			border-radius: $global-radius;
+		}
+	}
+
+	.dmc-read-only {
+		margin-top: 0;
+
+		label {
+			display: none;
+		}
+	}
+
+	// removes sub labels
+	// #input_1_1_3_container,
+	// #input_1_1_6_container,
+	// #input_1_2_1_container,
+	// #input_1_2_2_container,
+	// #input_1_3_1_container,
+	// #input_1_3_3_container,
+	// #input_1_3_4_container,
+	// #input_1_3_5_container {
+	//     label {
+	//         display: none;
+	//     }
+	// }
+
+	.gfield_checkbox li {
+		margin: 0 0 1rem 0;
+	}
+
+	ul.gfield_checkbox li input[type='checkbox'] {
+		margin: 3px 0 0;
+		font-size: 2rem;
+	}
+
+	.gfield_price {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		background-color: $silver;
+		border-top: 3px solid $primary-color;
+
+		&.gfield_total {
+			margin-top: 0;
+			border-top: none;
+			border-bottom: 3px solid $primary-color;
+		}
+
+		.ginput_product_price_label {
+			display: none;
+			font-weight: 700;
+			font-family: $header-font-family;
+			font-size: rem-calc(22);
+		}
+
+		.ginput_product_price,
+		.ginput_container_total {
+			color: $primary-color;
+			font-weight: $font-weight-bold;
+			font-family: $header-font-family;
+			font-size: rem-calc(42);
+
+			&::after {
+				padding-left: 0.5rem;
+				font-size: rem-calc(17);
+				content: 'inc GST';
+			}
+		}
+
+		.ginput_product_price {
+			font-size: rem-calc(32);
+		}
+	}
+
+	.gform_button {
+		font-size: rem-calc(16);
+		font-weight: $font-weight-bold;
+		border-radius: $global-radius;
+	}
+
+	.paypal-types {
+		float: right;
+		width: 40%;
+	}
+}
+
+.gform_confirmation_wrapper {
+	.gform_confirmation_message {
+		width: 80%;
+		margin: 0 auto;
+		padding: 2rem 2rem;
+		text-align: center;
+		font-size: rem-calc(18);
+		color: $primary-color;
+		font-weight: 600;
+		background: scale-color( $primary-color, $alpha: -92% );
+		border: 2px solid scale-color( $primary-color, $alpha: -67% );
+	}
+}

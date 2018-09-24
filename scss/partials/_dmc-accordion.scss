@@ -1,0 +1,87 @@
+.accordion {
+	$pad-content: rem-calc(30);
+
+	.pad-right {
+		@media #{$medium-up} {
+			display: inline-block;
+			width: 135px;
+		}
+	}
+
+	counter-reset: section;
+
+	.accordion-navigation {
+		position: relative;
+		padding-bottom: 0.75rem;
+
+		> a {
+			&::after {
+				float: right;
+				margin: -1.75rem 0 0;
+				content: '\f078';
+				font-family: FontAwesome, sans-serif;
+				font-style: normal;
+				font-weight: $font-weight-normal;
+				text-decoration: inherit;
+				color: #fff;
+				font-size: rem-calc(24);
+
+				@media #{$medium-only} {
+					margin: -2.25rem 0 0;
+				}
+			}
+
+			h3 {
+				margin: 0;
+				color: #fff;
+				font-size: rem-calc(21);
+				font-weight: $font-weight-normal;
+				text-transform: none;
+
+				&.include-counter {
+					margin: 0 0 0 rem-calc(30);
+
+					&::before {
+						counter-increment: section;
+						content: counters(section, '.') ' ';
+						position: absolute;
+						top: 0.45rem;
+						left: 1rem;
+						font-size: rem-calc(36);
+						font-weight: $font-weight-bold;
+
+						@media #{$small-only} {
+							top: 0.6rem;
+							font-size: 150%;
+						}
+					}
+				}
+
+				@media #{$small-only} {
+					font-size: 100%;
+				}
+			}
+		}
+
+		&.active {
+			> a {
+				&::after {
+					content: '\f077';
+				}
+			}
+
+			h3 {
+				font-weight: $font-weight-bold;
+			}
+		}
+
+		.content > p:last-child {
+			margin: 0;
+		}
+
+		.item-title {
+			font-size: rem-calc(22);
+			margin: 0 0 1rem 0;
+		}
+	}
+}

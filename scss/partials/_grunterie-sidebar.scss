@@ -1,0 +1,144 @@
+
+#sidebar .panel {
+	border: none;
+	background-color: #eee;
+	padding: rem-calc(24);
+
+	a:hover,
+	a:focus {
+		color: $secondary-color;
+	}
+}
+
+
+#sidebar {
+
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+	}
+
+	.widget {
+		margin-bottom: $content-padding * 4;
+
+		ul {
+			margin-bottom: 0;
+
+			li {
+				margin-bottom: 3px;
+			}
+		}
+
+		h4 {
+			font-size: rem-calc(20);
+			margin: 0 0 $content-padding 0;
+			padding-bottom: $content-padding;
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	.widget_nav_menu,
+	.widget_categories,
+	.widget_archive,
+	.widget_recent_entries,
+	.widget_text,
+	.widget_search,
+	.widget_wpcom_social_media_icons_widget {
+		padding: 0;
+		background: none;
+		border: none;
+	}
+}
+
+
+#sidebar {
+	// .widget_archive li a,
+	// .widget_recent_entries li a
+
+	.widget_nav_menu li a,
+	.widget_categories li a {
+		display: flex;
+		align-items: center;
+		height: 45px;
+		color: $primary-color;
+		margin-bottom: 5px;
+		padding-left: 1.25rem;
+		font-size: rem-calc(16);
+		font-weight: $font-weight-semi-bold;
+		line-height: 1.1;
+		text-decoration: none;
+		background: $bg-light;
+
+		&:hover {
+			color: #fff;
+			background-color: $primary-color;
+		}
+	}
+}
+
+
+#sidebar {
+	.single-dmc-staff #sidebar .widget_nav_menu li.menu-item-152 a,
+	.post-type-archive-dmc-staff #sidebar .widget_nav_menu li.menu-item-152 a {
+		color: #fff;
+		background-color: $primary-color !important;
+	}
+}
+
+
+#sidebar .screen-reader-text {
+	display: none;
+}
+
+
+#sidebar {
+	li.current-menu-item.active > a,
+	li.active .active .sub-menu .active > a {
+		color: #fff;
+		background-color: $primary-color;
+	}
+
+	.sub-menu {
+		display: none;
+	}
+
+	.active {
+
+		.sub-menu {
+			display: block;
+
+			li {
+				margin: 0;
+
+				a {
+					color: scale-color(#656565, $lightness: 35%);
+					font-size: rem-calc(14);
+					font-weight: $font-weight-normal;
+					margin-bottom: 2px;
+					padding-left: 2.5rem;
+					border: 1px solid scale-color(#95989a, $lightness: 35%);
+					background-color: #fff;
+
+					&:hover {
+						color: $primary-color;
+					}
+				}
+
+				&.current-menu-item.active > a {
+					color: $primary-color;
+					background-color: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+@media #{$large-up} {
+
+	#sidebar {
+		order: 1;
+		width: rem-calc(300);
+		margin: rem-calc(65) rem-calc(43) 0 0;
+	}
+}

@@ -1,0 +1,380 @@
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+/// triangles
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+	@include pseudo($pos: $position);
+	width: 0;
+	height: 0;
+
+	@if $round {
+		border-radius: 3px;
+	}
+
+	@if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+		margin-top: 0 - round( $size / 2.5 );
+	}
+
+	@else if $direction == up {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+		margin-bottom: 0 - round( $size / 2.5 );
+	}
+
+	@else if $direction == right {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-left: $size solid $color;
+		margin-right: -$size;
+	}
+
+	@else if  $direction == left {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-right: $size solid $color;
+		margin-left: -$size;
+	}
+}
+
+/// feature text
+
+@mixin feature-text() {
+	text-shadow: 0 1px 1px rgba( 0, 0, 0, 0.7);
+}
+
+/// circular crop
+
+@mixin circle($width, $color) {
+	width: $width;
+	height: $width;
+	background: $color;
+	border-radius: $width/2;
+}
+
+/// colour overlay
+
+@mixin colour-overlay( $bgattrib: cover, $bgcolour: rgba( 74, 74, 74, 0.4 ) ) {
+	background-color: $bgcolour;
+	background-size: $bgattrib;
+	background-blend-mode: multiply;
+}
+
+/// truncate element at a specific width
+
+@mixin truncate( $truncation-boundary ) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/// animate an element
+
+@mixin dmc-animate( $ttime, $defaultscale: 1, $endscale: 1.6 ) {
+	transform: scale($defaultscale);
+	transition: all #{$ttime}ms;
+
+	&:hover {
+		transform: scale($endscale);
+	}
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+/// http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+
+@mixin alpha-attribute($attribute, $color, $background) {
+	$percent: alpha($color) * 100%;
+	$opaque: opacify($color, 1);
+	$solid-color: mix($opaque, $background, $percent);
+	#{$attribute}: $solid-color;
+	#{$attribute}: $color;
+}
+
+/// https://www.sitepoint.com/using-sass-build-color-palettes
+
+/**
+ * Function defining the difference between 2 colors
+ *
+ * @param {Color} $a - first color
+ * @param {Color} $b - second color
+ *
+ * @return {Map}  The color operations to do in order to find $b from $a where keys are the color functions to apply and values are the values to pass to these functions
+ */
+
+@function color-diff($a, $b) {
+	$sat: saturation($a) - saturation($b);
+	$lig:  lightness($a) -  lightness($b);
+	$fn-sat: if($sat > 0, 'desaturate', 'saturate');
+	$fn-lig: if($lig > 0, 'darken', 'lighten');
+
+	@return (
+		adjust-hue: -(hue($a) - hue($b)),
+		#{$fn-sat}: abs($sat),
+		#{$fn-lig}: abs($lig)
+	);
+}
+
+/**
+ * Compute the diff for each color from the initial palette
+ *
+ * @param {Map} $palette - palette
+ *
+ * @requires {function} color-diff
+ *
+ * @return {List} list of diffs
+ */
+
+@function palette-diff($palette) {
+	$base: map-get($palette, base);
+	$colors: map-get($palette, colors);
+
+	$diffs: ();
+
+	@each $color in $colors {
+		$diffs: append($diffs, color-diff($base, $color));
+	}
+
+	@return $diffs;
+}
+
+/**
+ * Initial palette used to define the diff between the base color and each color from the palette. There can be as many colors as one wants.
+ *
+ * @Link https://ton.twitter.com/i/ton/data/dm/487926326314418176/487926326322823168/8M2k8xOp.png Initial color palette
+ *
+ * @type Map
+ */
+$base-palette: (
+	base: #ff6351,
+	colors: #cfdfe8 #bfb9c3 #cf9192 #ff6351 #bf4a3c #7f3128 #732c24
+) !default;
+
+/**
+ * Palette diffs
+ * Same length as colors key from map-palette
+ *
+ * @type List
+ */
+$palette-diffs: palette-diff($base-palette);
+
+/**
+ * Apply differences returned from `color-diff` function to a color in order to retrieve the second color
+ *
+ * @param {Color} $color - color to transform
+ * @param {Map} $diff - diff map
+ *
+ * @return {Color} transformed color
+ */
+
+@function apply-diff($color, $diff) {
+	// We call the $key (function),
+	// passing the $color and the $value as parameters
+	// e.g. `call(adjust-hue, #BADA55, 42)`
+
+	@each $key, $value in $diff {
+		$color: call($key, $color, $value);
+	}
+
+	@return $color;
+}
+
+/**
+ * Create a palette from a base color
+ *
+ * @param {Color} $base-color - base color for the palette
+ *
+ * @requires {function} palette-diff
+ * @requires {function} apply-diff
+ * @requires {variable} $base-palette
+ *
+ * @return {List} list of colors
+ */
+
+@function create-palette($base-color) {
+	$colors: ();
+
+	@each $diff in $palette-diffs {
+		$colors: append($colors, apply-diff($base-color, $diff));
+	}
+
+	@return $colors;
+}
+
+/**
+ * Create a list of colors from the base color
+ * then turn in into a map with explicit keys
+ *
+ * @param {Color} $base-color - base color for the palette
+ *
+ * @requires {function} create-palette
+ *
+ * @return {Map}
+ */
+
+@function palette($base-color) {
+	$colors: create-palette($base-color);
+	$keys: 'lightest' 'lighter' 'light' 'base' 'dark' 'darker' 'darkest';
+	$palette: ();
+
+	@for $i from 1 through min(length($colors), length($keys)) {
+		$palette: map-merge($palette, (nth($keys, $i): nth($colors, $i)));
+	}
+
+	@return $palette;
+}
+
+/**
+ * Create and apply a palette
+ *
+ * @param {Color} $base-color - base color
+ *
+ * @requires {function} create-palette
+ */
+
+@mixin draw-palette($base-color) {
+	$palette: create-palette($base-color);
+	$length: length($palette);
+	$color-stops: append((), nth($palette, 1), comma);
+	$stop-size: 100 / $length;
+
+	@for $i from 1 through $length {
+		$color: nth($palette, $i);
+
+		@if $i > 1 {
+			$color-stops: append($color-stops, $color $stop-size * ($i - 1) * 1%);
+		}
+
+		$color-stops: append($color-stops, $color $stop-size * $i * 1%);
+	}
+
+	background: nth($palette, ceil($length / 2));
+	background: linear-gradient(to right, $color-stops);
+}
+
+// Palettes
+// Change a value to see the palette adjusted
+// .test-1 { @include draw-palette(green) }
+// .test-2 { @include draw-palette(tomato) }
+// .test-3 { @include draw-palette(deepskyblue) }
+// .test-4 { @include draw-palette(gold) }
+// .test-5 { @include draw-palette(magenta) }
+// .test-6 { @include draw-palette(silver) }
+
+// // Demo styles
+// .test {
+//   margin: 1em 0;
+//   height: 6em;
+// }
+
+// .p {
+//   text-align: center;
+// }
+
+
+/// https://css-tricks.com/snippets/sass/material-shadows-mixin/
+
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+@function top-shadow($depth) {
+	$primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+	$blur: nth(1.5 3 10 14 19, $depth) * 4px;
+	$color: rgba(#000, nth(0.12 0.16 0.19 0.25 0.3, $depth));
+
+	@return 0 $primary-offset $blur $color;
+}
+
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+@function bottom-shadow($depth) {
+	$primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+	$blur: nth(1 3 3 5 6, $depth) * 4px;
+	$color: rgba(#000, nth(0.24 0.23 0.23 0.22 0.22, $depth));
+
+	@return 0 $primary-offset $blur $color;
+}
+
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+
+@mixin card($depth) {
+	@if $depth < 1 {
+		box-shadow: none;
+	}
+
+	@else if $depth > 5 {
+		@warn 'Invalid $depth `#{$depth}` for mixin `card`.';
+	}
+
+	@else {
+		box-shadow: bottom-shadow($depth), top-shadow($depth);
+	}
+}
+
+// ul {
+//   list-style: none;
+//   padding: 1em;
+// }
+
+// li {
+//   width: 10em;
+//   height: 10em;
+//   margin: 1em;
+//   line-height: 10em;
+//   border: 1px solid rgba(black, .1);
+//   text-align: center;
+//   float: left;
+// }
+
+// @for $i from 2 through 6 {
+//   li:nth-of-type(#{$i}) {
+//     @include card($i - 1);
+//   }
+// }

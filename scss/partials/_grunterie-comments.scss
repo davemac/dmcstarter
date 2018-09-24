@@ -1,0 +1,81 @@
+#respond,
+#comments {
+	background: none;
+}
+
+#comments {
+	margin-top: 2rem;
+}
+
+.comments-title {
+	padding: 1rem 0;
+	border-top: 1px solid tint($primary-color, 75%);
+	border-bottom: 1px solid tint($primary-color, 75%);
+}
+
+ol.comment-list {
+	list-style: none;
+	margin: 1.5rem 0 0;
+
+	.comment {
+		margin-bottom: 1rem;
+		border-bottom: 1px solid tint($primary-color, 75%);
+
+		& > article {
+			display: flex;
+		}
+
+		.avatar {
+			border-radius: 50%;
+		}
+
+		.author-meta {
+			padding-bottom: 1rem;
+
+			cite.fn {
+				font-style: normal;
+				font-weight: $font-weight-bold;
+				margin-right: rem-calc(8);
+			}
+
+			time a {
+				font-size: rem-calc(13);
+			}
+
+			.comment-edit-link {
+				font-size: rem-calc(13);
+			}
+		}
+
+		.comment-author {
+			flex: 1 0 12%;
+			max-width: rem-calc(65);
+		}
+
+		.comment-body {
+			padding: 1rem 0;
+
+			p {
+				margin-bottom: 0.5rem;
+				font-size: rem-calc(14);
+				line-height: 1.5;
+			}
+		}
+
+		.comment-reply-link {
+			font-size: rem-calc(16);
+			font-weight: $font-weight-bold;
+		}
+
+		&.comment-author-pkaan {
+			padding: rem-calc(10);
+			background-color: tint($secondary-color, 90%);
+			border: none;
+		}
+	}
+
+	.children {
+		list-style: none;
+		padding-left: rem-calc(64);
+	}
+}

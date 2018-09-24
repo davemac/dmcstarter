@@ -1,0 +1,158 @@
+// flex media object https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+
+.media {
+	display: flex;
+	align-items: flex-start;
+
+	.media-figure {
+		width: rem-calc(90);
+		margin-right: $content-padding * 2;
+		padding-left: $content-padding * 2;
+		border-left: 3px solid #000;
+
+		@media #{$medium-up} {
+			width: rem-calc(170);
+		}
+	}
+
+	.media-body {
+		flex: 0 1 auto;
+	}
+
+}
+
+img.alignright {
+	float: right;
+	margin: 0 0 rem-calc(18) rem-calc(18);
+
+	@media #{$small-only} {
+		float: none;
+		margin-left: 0;
+	}
+}
+
+img.alignleft {
+	float: left;
+	margin: 0 rem-calc(18) rem-calc(18) 0;
+
+	@media #{$small-only} {
+		float: none;
+		margin-right: 0;
+	}
+}
+
+img.aligncenter {
+	display: block;
+	margin: rem-calc(18) auto;
+}
+
+.img-featured {
+	margin-bottom: 1rem;
+}
+
+// Fix gallery images display
+
+.gallery {
+	dt,
+	dl {
+		display: inline-block;
+	}
+
+	dl {
+		margin-left: rem-calc(9);
+		margin-right: rem-calc(9);
+	}
+}
+
+// responsive fix for Jetpack tiled galleries
+
+.tiled-gallery {
+	.gallery-row {
+		float: none !important;
+		width: 100% !important;
+	}
+}
+
+// Add HTML5 Caption Class for Images
+
+figure {
+	width: 100%;
+	margin: 0;
+
+	@media #{$medium-up} {
+		width: auto;
+	}
+
+	&.figure {
+		margin: 0 auto;
+		display: table;
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			font-size: rem-calc(14);
+			line-height: 1.4;
+			font-style: italic;
+			padding: rem-calc(8) rem-calc(10);
+			color: #999;
+			display: table-caption;
+			caption-side: bottom;
+			margin: 0;
+			background-color: $bg-light;
+		}
+	}
+}
+
+.wp-caption {
+	.img-featured {
+		margin-bottom: 0;
+	}
+
+	.wp-caption-text {
+		color: #333;
+		font-size: rem-calc(13);
+		margin: 0;
+		padding: 0.6rem 1rem 0.55rem;
+		background-color: $bg-light;
+		border-radius: 0 0 $global-radius $global-radius;
+	}
+}
+
+figure.alignright.figure {
+	float: right;
+	margin: 0 0 rem-calc(18) rem-calc(18);
+
+	@media #{$small-only} {
+		float: none;
+		margin-left: 0;
+	}
+}
+
+figure.alignleft.figure {
+	float: left;
+	margin: 0 rem-calc(18) rem-calc(18) 0;
+
+	@media #{$small-only} {
+		float: none;
+		margin-right: 0;
+	}
+}
+
+.mfp-bottom-bar {
+	display: flex;
+	justify-content: space-between;
+
+	.mfp-title {
+		font-size: rem-calc(18);
+		font-weight: $font-weight-bold;
+	}
+
+	.image-source-link {
+		font-size: rem-calc(13);
+		font-weight: $font-weight-normal;
+		color: #fff;
+		text-decoration: underline;
+	}
+}

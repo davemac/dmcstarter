@@ -1,0 +1,30 @@
+.tabs {
+	margin-bottom: -1px !important;
+
+	.tab-title {
+		&.active {
+			font-weight: $font-weight-bold;
+		}
+
+		&:last-child {
+			margin-left: 5px;
+		}
+
+		& > a:hover {
+			color: #fff;
+			background: $primary-color;
+		}
+	}
+}
+
+.tabs-content {
+	.content {
+		padding: 2rem;
+		border: 1px solid $secondary-color;
+		background: #fff;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

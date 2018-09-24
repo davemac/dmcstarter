@@ -1,0 +1,128 @@
+
+#searchform {
+	position: relative;
+	margin-right: rem-calc(17);
+
+	input[type='text'] {
+		margin: 0;
+		padding-right: 80px;
+
+		&::-webkit-input-placeholder {
+			color: #bbb;
+		}
+
+		&::-moz-placeholder {
+			color: #bbb;
+		}
+
+		&:-ms-input-placeholder {
+			color: #bbb;
+		}
+
+		&:-moz-placeholder {
+			color: #bbb;
+		}
+
+		&:focus {
+			border: 1px solid scale-color(#ccc, $lightness: 18%);
+		}
+	}
+
+	input[type='submit'] {
+		position: absolute;
+		right: rem-calc(-17);
+		bottom: 0;
+		margin: 0;
+		width: rem-calc(100);
+		border-radius: rem-calc(17);
+	}
+}
+
+
+/// for mag glass search button within search input (as per iOS search)
+
+// .expanding-sf {
+// 	overflow: hidden;
+// 	width: rem-calc(240);
+
+// 	.form {
+// 		position: relative;
+// 		width: 100%;
+
+// 		.toggle,
+// 		#searchform #searchsubmit,
+// 		.icn {
+// 			position: absolute;
+// 			top: 0;
+// 			right: 0;
+// 			height: rem-calc(47);
+// 			width: rem-calc(47);
+// 			padding: rem-calc(8);
+// 			color: #000;
+// 			text-align: center;
+// 			background-color: $primary-color;
+// 			border: none;
+// 			border-radius: $global-radius;
+// 			cursor: pointer;
+
+// 			&::after {
+// 				content: '\f002';
+// 				font-family: FontAwesome;
+// 				font-size: 1.6rem;
+// 				line-height: 1.2;
+// 			}
+// 		}
+
+// 		input[type='text'] {
+
+// 			&::-webkit-input-placeholder {
+// 				color: #676667;
+// 			}
+
+// 			&::-moz-placeholder {
+// 				color: #676667;
+// 			}
+
+// 			&:-ms-input-placeholder {
+// 				color: #676667;
+// 			}
+
+// 			&:-moz-placeholder {
+// 				color: #676667;
+// 			}
+
+// 			&:focus {
+// 				border: 1px solid scale-color( $anchor-font-color, $lightness: 18% );
+// 			}
+// 		}
+
+// 		#searchsubmit {
+// 			background: url('../img/ic-search.png') no-repeat center center !important;
+// 		}
+
+// 		#searchform {
+// 			width: 100%;
+// 			height: rem-calc(47);
+// 			margin: 0;
+// 			opacity: 0;
+// 			transition: 600ms ease-in-out;
+// 			visibility: hidden;
+
+// 			#s {
+// 				height: 100%;
+// 				color: $body-font-color;
+// 				font-size: rem-calc(14);
+// 				padding: 0 rem-calc(15);
+// 				background-color: $bg-light;
+// 				border: 1px solid #444;
+// 			}
+// 		}
+
+// 		&:hover #searchform {
+// 			width: 100%;
+// 			opacity: 1;
+// 			transition: 600ms ease-in-out;
+// 			visibility: visible;
+// 		}
+// 	}
+// }

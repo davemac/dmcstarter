@@ -1,0 +1,69 @@
+{
+    "key": "group_5a2d1844732cd",
+    "title": "Page hero home",
+    "fields": [
+        {
+            "key": "field_5a94ffa3a5f50",
+            "label": "Page hero image",
+            "name": "dmc_page_hero_images",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5a2d1844750af",
+            "min": 1,
+            "max": 4,
+            "layout": "block",
+            "button_label": "Add hero image",
+            "sub_fields": [
+                {
+                    "key": "field_5a2d1844750af",
+                    "label": "Page hero image",
+                    "name": "dmc_page_hero_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "fd-med",
+                    "library": "all",
+                    "min_width": 1920,
+                    "min_height": 600,
+                    "min_size": "",
+                    "max_width": 1920,
+                    "max_height": 600,
+                    "max_size": ".4",
+                    "mime_types": "jpg,png,webp"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526968114
+}
