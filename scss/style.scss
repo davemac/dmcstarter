@@ -2,26 +2,27 @@
 
 @import 'helpers/dmc_mixins';
 
-@import 'partials/grunterie-admin-bar';
+@import 'partials/dmc-admin-bar';
 @import 'partials/dmc-flex-layouts';
 
-@import 'partials/grunterie-header';
-@import 'partials/grunterie-content';
+@import 'partials/dmc-header';
+@import 'partials/dmc-content';
 // @import 'partials/dmc-content-article';
 // @import 'partials/dmc-cards';
-@import 'partials/grunterie-slider';
-@import 'partials/grunterie-pagination';
-@import 'partials/grunterie-comments';
-@import 'partials/grunterie-sidebar';
-@import 'partials/grunterie-footer';
-@import 'partials/grunterie-images';
+@import 'partials/dmc-slider';
+@import 'partials/dmc-pagination';
+@import 'partials/dmc-comments';
+@import 'partials/dmc-sidebar';
+@import 'partials/dmc-footer';
+@import 'partials/dmc-images';
 
 @import 'partials/dmc-buttons';
 @import 'partials/dmc-search-form';
 @import 'partials/dmc-gforms';
+@import 'partials/dmc-icons';
+
 // @import 'partials/dmc-tables';
 // @import 'partials/dmc-accordion';
 // @import 'partials/dmc-pullquote';
 // @import 'partials/dmc-woocommerce';
 // @import 'partials/dmc-greyscale';
-@import 'partials/dmc-icons';

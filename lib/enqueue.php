@@ -71,21 +71,21 @@ add_filter( 'script_loader_tag', 'dmc_defer_scripts', 10, 3 );
 
 
 // vendor styles
-if ( ! function_exists( 'grunterie_enqueue_style' ) ) {
-	function grunterie_enqueue_style() {
+if ( ! function_exists( 'dmcstarter_enqueue_style' ) ) {
+	function dmcstarter_enqueue_style() {
 
 		// Google fonts
 		wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700', array(), 'false', 'all' );
 
 		// main stylesheet
-		wp_enqueue_style( 'grunterie-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );
+		wp_enqueue_style( 'dmcstarter-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );
 
 		// vendor styles
 		wp_enqueue_style( 'vendor', get_template_directory_uri() . '/css/vendor.css', array(), 'false', 'all' );
 
 	}
 }
-add_action( 'wp_enqueue_scripts', 'grunterie_enqueue_style' );
+add_action( 'wp_enqueue_scripts', 'dmcstarter_enqueue_style' );
 
 
 // only load WooCommerce styles and scripts on WooCommerce pages
