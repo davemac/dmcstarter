@@ -3,12 +3,12 @@ p {
 }
 
 article {
-	padding: $content-padding / 3;
+	padding: $content-spacing / 3;
 	background-color: $bg-light;
 
 	@media #{$medium-up} {
 		margin-bottom: 3rem;
-		padding: $content-padding;
+		padding: $content-spacing;
 	}
 
 	.holder {

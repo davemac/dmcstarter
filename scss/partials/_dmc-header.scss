@@ -231,7 +231,7 @@ $topbar-link-color: $primary-color;
 	}
 
 	.dropdown-wrapper-child {
-		margin: $content-padding 0 0;
+		margin: $content-spacing 0 0;
 		list-style: none;
 
 		a {
@@ -267,7 +267,7 @@ ul.off-canvas-list {
 
 			li a {
 				font-size: rem-calc(14);
-				padding-left: $content-padding;
+				padding-left: $content-spacing;
 			}
 		}
 	}

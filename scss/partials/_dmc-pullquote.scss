@@ -1,12 +1,12 @@
 .pullquote {
-	padding: $content-padding 0 $content-padding * 3;
+	padding: $content-spacing 0 $content-spacing * 3;
 
 	@media #{$medium-up} {
 		.type-post & {
-			margin-left: ( - $content-padding * 4 );
+			margin-left: ( - $content-spacing * 4 );
 
 			.bdrh {
-				padding-left: $content-padding * 2;
+				padding-left: $content-spacing * 2;
 				border-left: 3px solid #000;
 			}
 		}
@@ -14,7 +14,7 @@
 
 	.media-figure {
 		width: rem-calc(125);
-		margin-right: ( $content-padding * 2 );
+		margin-right: ( $content-spacing * 2 );
 
 		@media #{$small-only} {
 			display: none;

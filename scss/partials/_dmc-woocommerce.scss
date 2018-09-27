@@ -131,7 +131,7 @@ $cart-color: $charcoal;
 			display: flex !important;
 			justify-content: space-between;
 			width: 100%;
-			padding: rem-calc(22) $content-padding rem-calc(20) !important;
+			padding: rem-calc(22) $content-spacing rem-calc(20) !important;
 			font-size: rem-calc(14) !important;
 			font-weight: $font-weight-normal;
 			text-transform: initial;
@@ -156,7 +156,7 @@ $cart-color: $charcoal;
 
 	.woocommerce-checkout {
 		h3 {
-			padding-bottom: $content-padding;
+			padding-bottom: $content-spacing;
 		}
 
 		label {
@@ -164,7 +164,7 @@ $cart-color: $charcoal;
 		}
 
 		#customer_details {
-			padding-bottom: $content-padding;
+			padding-bottom: $content-spacing;
 		}
 
 		.woocommerce-checkout-review-order-table {
@@ -175,8 +175,8 @@ $cart-color: $charcoal;
 			display: flex;
 			justify-content: space-between;
 			width: 40%;
-			margin-top: $content-padding;
-			padding: rem-calc(22) $content-padding*2 rem-calc(20);
+			margin-top: $content-spacing;
+			padding: rem-calc(22) $content-spacing*2 rem-calc(20);
 			font-size: rem-calc(14);
 			font-weight: $font-weight-normal;
 			text-transform: initial;
@@ -246,14 +246,14 @@ $cart-color: $charcoal;
 			position: relative;
 
 			img {
-				padding-top: $content-padding;
+				padding-top: $content-spacing;
 				border-bottom: 1px solid $bg-light;
 			}
 
 			.woocommerce-loop-product__title,
 			.price {
 				font-size: rem-calc(15);
-				padding: 0 $content-padding $content-padding/2 !important;
+				padding: 0 $content-spacing $content-spacing/2 !important;
 			}
 
 			.woocommerce-products-compare-compare-button {
@@ -274,11 +274,11 @@ $cart-color: $charcoal;
 		max-width: 75rem;
 
 		@media #{$large-up} {
-			padding: $content-padding*4 0;
+			padding: $content-spacing*4 0;
 		}
 
 		.woocommerce-product-gallery__image {
-			margin-bottom: $content-padding;
+			margin-bottom: $content-spacing;
 		}
 
 		p {
@@ -287,7 +287,7 @@ $cart-color: $charcoal;
 
 		div.summary {
 			max-width: rem-calc(360);
-			padding: 0 $content-padding/2;
+			padding: 0 $content-spacing/2;
 
 			@media #{$medium-up} {
 				padding: 0;
@@ -306,7 +306,7 @@ $cart-color: $charcoal;
 		}
 
 		.woocommerce-product-details__short-description {
-			margin-bottom: $content-padding;
+			margin-bottom: $content-spacing;
 		}
 
 		table.shop_attributes {
@@ -314,7 +314,7 @@ $cart-color: $charcoal;
 		}
 
 		p.price {
-			margin-top: $content-padding*2;
+			margin-top: $content-spacing*2;
 			color: $body-font-color;
 			font-size: rem-calc(15);
 		}
@@ -345,8 +345,8 @@ $cart-color: $charcoal;
 				display: flex;
 				justify-content: space-between;
 				width: 100%;
-				margin-top: $content-padding;
-				padding: rem-calc(22) $content-padding*2 rem-calc(20);
+				margin-top: $content-spacing;
+				padding: rem-calc(22) $content-spacing*2 rem-calc(20);
 				font-size: rem-calc(14);
 				font-weight: $font-weight-normal;
 				text-transform: initial;
@@ -394,12 +394,12 @@ $cart-color: $charcoal;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
-	padding: 0 $content-padding/2;
+	padding: 0 $content-spacing/2;
 	border-top: 1px solid $third-color;
 
 	@media #{$large-up} {
-		margin-top: $content-padding*2;
-		padding: $content-padding*3 0 0;
+		margin-top: $content-spacing*2;
+		padding: $content-spacing*3 0 0;
 	}
 }
 
@@ -415,11 +415,11 @@ $cart-color: $charcoal;
 	}
 
 	h2 {
-		margin-bottom: $content-padding;
+		margin-bottom: $content-spacing;
 		font-size: rem-calc(23);
 
 		@media #{$medium-up} {
-			margin-bottom: $content-padding*2;
+			margin-bottom: $content-spacing*2;
 		}
 	}
 
@@ -430,7 +430,7 @@ $cart-color: $charcoal;
 
 	.document {
 		min-width: 268px;
-		margin-bottom: $content-padding;
+		margin-bottom: $content-spacing;
 	}
 }
 
@@ -458,16 +458,16 @@ $cart-color: $charcoal;
 }
 
 .related.products {
-	padding-top: $content-padding;
+	padding-top: $content-spacing;
 	border-top: 1px solid $third-color;
 
 	@media #{$medium-up} {
-		margin-top: $content-padding*2;
-		padding-top: $content-padding*3;
+		margin-top: $content-spacing*2;
+		padding-top: $content-spacing*3;
 	}
 
 	h2 {
-		margin: 0 0 $content-padding*2;
+		margin: 0 0 $content-spacing*2;
 		font-size: rem-calc(35);
 		text-align: center;
 	}
@@ -542,7 +542,7 @@ $cart-color: $charcoal;
 
 .tax-product_cat {
 	.category-meta {
-		margin: $content-padding*2 auto;
+		margin: $content-spacing*2 auto;
 
 		h2 {
 			margin-left: rem-calc(30);

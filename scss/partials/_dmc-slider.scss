@@ -225,7 +225,7 @@
 
 
 #blog-slider {
-	margin-top: $content-padding*2;
+	margin-top: $content-spacing*2;
 
 	.slick-slide {
 		max-width: 1200px;
@@ -277,10 +277,10 @@
 		justify-content: center;
 		max-width: 375px;
 		text-align: left;
-		padding: $content-padding $content-padding*2;
+		padding: $content-spacing $content-spacing*2;
 
 		h3 {
-			margin: 0 0 $content-padding 0;
+			margin: 0 0 $content-spacing 0;
 			font-size: rem-calc(23);
 		}
 

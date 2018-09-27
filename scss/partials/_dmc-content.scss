@@ -54,10 +54,10 @@
 
 .container {
 	background: $bg-light;
-	padding-bottom: $content-padding;
+	padding-bottom: $content-spacing;
 
 	@media #{$medium-up} {
-		padding-bottom: $content-padding*3;
+		padding-bottom: $content-spacing*3;
 	}
 
 	h1 {
@@ -106,7 +106,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: rem-calc(20) $content-padding;
+		padding: rem-calc(20) $content-spacing;
 		background-color: $primary-color;
 		color: #fff;
 		transition: transform 600ms ease-in-out;
@@ -218,11 +218,11 @@
 }
 
 #content {
-	padding: 0 $content-padding/2;
+	padding: 0 $content-spacing/2;
 
 	@media #{$large-up} {
 		margin: 0 auto;
-		padding: 0 0 $content-padding*4;
+		padding: 0 0 $content-spacing*4;
 
 		.blog &,
 		.category & {

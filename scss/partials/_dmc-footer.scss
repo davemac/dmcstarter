@@ -1,19 +1,19 @@
 .full-width {
 	background-color: $primary-color;
-	padding-top: $content-padding;
+	padding-top: $content-spacing;
 
 	@media #{$medium-up} {
-		padding-top: $content-padding*3;
+		padding-top: $content-spacing*3;
 	}
 
 	.calls {
 		text-align: center;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-		padding-bottom: $content-padding/2;
+		padding-bottom: $content-spacing/2;
 
 		@media #{$medium-up} {
 			text-align: left;
-			padding-bottom: $content-padding*2;
+			padding-bottom: $content-spacing*2;
 		}
 	}
 
@@ -47,10 +47,10 @@
 		}
 
 		&.link {
-			padding: 0 $content-padding/2;
+			padding: 0 $content-spacing/2;
 
 			@media #{$large-up} {
-				padding: 0 $content-padding 0 0;
+				padding: 0 $content-spacing 0 0;
 			}
 		}
 	}
@@ -66,15 +66,15 @@
 		margin: 0;
 
 		@media #{$medium-up} {
-			margin: 0 0 $content-padding/2;
+			margin: 0 0 $content-spacing/2;
 		}
 	}
 
 	.footer-links {
-		padding: $content-padding;
+		padding: $content-spacing;
 
 		@media #{$medium-up} {
-			padding-bottom: $content-padding*2;
+			padding-bottom: $content-spacing*2;
 		}
 
 		ul {
@@ -103,7 +103,7 @@
 	a {
 		color: $bg-light;
 		font-size: rem-calc(12);
-		padding-left: $content-padding;
+		padding-left: $content-spacing;
 
 		&:hover,
 		&:focus {
