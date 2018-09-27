@@ -19,18 +19,17 @@ function jptweak_remove_share() {
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
 
-if ( ! function_exists( 'dmc_display_share' ) ) {
-	function dmc_display_share() {
-		if ( function_exists( 'sharing_display' ) ) {
-			sharing_display( '', true );
-		}
+function dmc_display_share() {
+	if ( function_exists( 'sharing_display' ) ) {
+		sharing_display( '', true );
+	}
 
-		if ( class_exists( 'Jetpack_Likes' ) ) {
-			$custom_likes = new Jetpack_Likes();
-			echo $custom_likes->post_likes( '' );
-		}
+	if ( class_exists( 'Jetpack_Likes' ) ) {
+		$custom_likes = new Jetpack_Likes();
+		echo $custom_likes->post_likes( '' );
 	}
 }
+
 
 // remove sharing metaboxes on custom post edit screens that don't need them
 if ( is_admin() ) :
