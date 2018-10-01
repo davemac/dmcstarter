@@ -1,8 +1,28 @@
 <?php
 
-/**
- * adds ACF options page
- */
+// Hide ACF in admin menu for certain URLs
+function dmc_hide_acf_admin() {
+
+	// Get the current site url
+	$site_url = get_bloginfo( 'url' );
+
+	// An array of protected site urls
+	$protected_urls = array(
+		'https://sitename.com.au',
+	);
+
+	if ( in_array( $site_url, $protected_urls, true ) ) {
+		// Hide the ACF menu item
+		return false;
+
+	} else {
+		return true;
+	}
+}
+add_filter( 'acf/settings/show_admin', 'dmc_hide_acf_admin' );
+
+
+// adds ACF options page
 if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page(
 		array(
