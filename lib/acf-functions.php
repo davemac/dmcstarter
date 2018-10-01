@@ -8,7 +8,8 @@ function dmc_hide_acf_admin() {
 
 	// An array of protected site urls
 	$protected_urls = array(
-		'https://sitename.com.au',
+		'https://prod.com.au',
+		'https://staging.com.au',
 	);
 
 	if ( in_array( $site_url, $protected_urls, true ) ) {
