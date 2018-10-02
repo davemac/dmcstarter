@@ -93,7 +93,7 @@ module.exports = function(grunt) {
             theme: {
                 expand: true,
                 cwd: '.',
-                src: [ '**', '!**/.git/**', '!**/node_modules/**', '!**/backups/**', '!**/build/**', '!**/bower_components/**', '!**/scss/**', '!**/Gruntfile.js', '!**/package.json', '!**/.DS_Store', '!**/README.md', '!**/config.rb', '!**/.jshintrc', '!**/.sass-cache', '!**/.bowerrc', '!**/bower.json', '!**/phpcs.xml' ],
+                src: ['**', '!**/.git/**', '!**/node_modules/**', '!**/backups/**', '!**/build/**', '!**/bower_components/**', '!**/scss/**', '!**/Gruntfile.js', '!**/package.json', '!**/package-lock.json', '!**/.DS_Store', '!**/README.md', '!**/config.rb', '!**/.jshintrc', '!**/.sass-cache', '!**/.bowerrc', '!**/bower.json', '!**/phpcs.xml' ],
                 dest: 'build/',
             },
         },
@@ -124,16 +124,20 @@ module.exports = function(grunt) {
 
         // For build processing: bust cache on these files
         cacheBust: {
-            options: {
-                assets: ['css/style.css', 'js/bower.min.js'],
-                baseDir: 'build/',
-            },
-            staging: {
-                options: {
-                    jsonOutput: true,
-                },
-                src: ['build/lib/enqueue.php']
-            },
+        	options: {
+        		jsonOutput: true,
+        		baseDir: 'build/',
+        		assets: [
+        			'css/style.css',
+        			'js/bower.min.js'
+        		],
+        	},
+        	production: {
+        		options: {
+        			jsonOutput: false,
+        		},
+        		src: ['build/lib/enqueue.php']
+        	},
         },
 
         // deploy files using rsync
@@ -232,8 +236,16 @@ module.exports = function(grunt) {
     grunt.renameTask('rsync', 'deploy');
 
     grunt.registerTask('style', ['sass']);
-    grunt.registerTask('build', ['style', 'copy:theme', 'postcss', 'cacheBust:staging']);
-    grunt.registerTask('buildbower', ['bower_concat', 'uglify:bower']);
+    grunt.registerTask('build', [
+        'style',
+        'clean:build',
+        'copy:theme',
+        'postcss', 'cacheBust:production'
+    ]);
+    grunt.registerTask('buildbower', [
+        'bower_concat',
+        'uglify:bower'
+    ]);
     grunt.registerTask('sassclean', ['sassyclean']);
     grunt.registerTask('default', ['style', 'watch']);
 };
