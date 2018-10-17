@@ -2,8 +2,6 @@
 
 // Hide ACF in admin menu for certain URLs
 function dmc_hide_acf_admin() {
-
-	// Get the current site url
 	$site_url = get_bloginfo( 'url' );
 
 	// An array of protected site urls
@@ -27,11 +25,11 @@ add_filter( 'acf/settings/show_admin', 'dmc_hide_acf_admin' );
 if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page(
 		array(
-			'page_title'    => 'Sitewide options',
-			'menu_title'    => 'Sitewide options',
-			'menu_slug'     => 'site-global-settings',
-			'position'      => 2,
-			'capability'    => 'edit_posts',
+			'page_title' => 'Sitewide options',
+			'menu_title' => 'Sitewide options',
+			'menu_slug'  => 'site-global-settings',
+			'position'   => 2,
+			'capability' => 'edit_posts',
 		)
 	);
 }
@@ -64,23 +62,23 @@ function dmc_button_repeater() {
 		<?php
 		while ( have_rows( 'dmc_buttons' ) ) :
 			the_row();
-		?>
-		<?php
-		if ( get_sub_field( 'dmc_button' ) ) :
-			$dmc_button = get_sub_field( 'dmc_button' );
-			$dmc_button_label = $dmc_button['text'];
-			$dmc_button_url = $dmc_button['url'];
-			$dmc_button_target = $dmc_button['target'];
-		?>
+			?>
+			<?php
+			if ( get_sub_field( 'dmc_button' ) ) :
+				$dmc_button        = get_sub_field( 'dmc_button' );
+				$dmc_button_label  = $dmc_button['text'];
+				$dmc_button_url    = $dmc_button['url'];
+				$dmc_button_target = $dmc_button['target'];
+				?>
 			<a href="<?php echo $dmc_button_url; ?>" class="button medium">
 				<?php echo $dmc_button_label; ?>
 			</a>   
-		<?php
+				<?php
 		endif;
 		endwhile;
 		?>
 	</div>
-	<?php
+		<?php
 	endif;
 
 }
@@ -90,7 +88,7 @@ function dmc_button_repeater() {
 function dmc_display_acf_image( $acffield, $imagesize ) {
 
 	$image = get_sub_field( $acffield );
-	$size = $imagesize;
+	$size  = $imagesize;
 	if ( $image ) {
 		$default_attr = array(
 			'class' => 'img-featured wp-acf-image',
@@ -146,11 +144,11 @@ function dmc_format_acf_date() {
 
 		// Create PHP DateTime object from Date/Time Picker Value
 		// expects the value to be saved in the format Y-m-d
-		$format_in = 'Y-m-d';
+		$format_in  = 'Y-m-d';
 		$format_out = 'j F Y';
-		$date = DateTime::createFromFormat( $format_in, $dmc_get_date );
-		$output = '';
-		$output .= '<p class="resource-date">' . $date->format( $format_out ) . '</p>';
+		$date       = DateTime::createFromFormat( $format_in, $dmc_get_date );
+		$output     = '';
+		$output    .= '<p class="resource-date">' . $date->format( $format_out ) . '</p>';
 		echo $output;
 	}
 }

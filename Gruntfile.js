@@ -240,7 +240,8 @@ module.exports = function(grunt) {
         'style',
         'clean:build',
         'copy:theme',
-        'postcss', 'cacheBust:production'
+        'postcss', 
+        'cacheBust:production'
     ]);
     grunt.registerTask('buildbower', [
         'bower_concat',

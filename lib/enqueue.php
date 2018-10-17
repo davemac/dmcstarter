@@ -59,7 +59,7 @@ function dmc_defer_scripts( $tag, $handle, $src ) {
 		// 'devicepx',
 		// 'jquery-migrate',
 	);
-	if ( in_array( $handle, $defer_scripts ) ) {
+	if ( in_array( $handle, $defer_scripts, true ) ) {
 		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
 	}
 	return $tag;

@@ -269,7 +269,7 @@ function dmc_display_acf_img_bg( $dmc_set_id = null ) {
 //  display random ACF repeater sub field image URL for CSS background attribute
 function dmc_display_acf_random_img_bg() {
 	$dmc_page_hero_image = get_field( 'dmc_page_hero_images' );
-	$rand                = rand( 0, ( count( $dmc_page_hero_image ) - 1 ) );
+	$rand                = wp_rand( 0, ( count( $dmc_page_hero_image ) - 1 ) );
 	$rand_sub            = $dmc_page_hero_image[ $rand ]['dmc_page_hero_image'];
 
 	$dmc_random_img_url = $rand_sub['url'];

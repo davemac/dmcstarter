@@ -41,9 +41,8 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 /// Simple Mixin to loop through all of the Social Site Names and Output them
 
 @mixin social() {
-
 	@each $item,
-	$name in $fa {
+		$name in $fa {
 		@include social__names($item);
 	}
 }

@@ -76,7 +76,7 @@ if ( have_comments() ) :
 		$comments_number = get_comments_number();
 		if ( '1' === $comments_number ) {
 			/* translators: %s: post title */
-			printf( _x( 'One Response to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() );
+			printf( _x( 'One Response to &ldquo;%s&rdquo;', 'comments title', 'dmcstarter' ), get_the_title() );
 		} else {
 			printf(
 				/* translators: 1: number of comments, 2: post title */
@@ -115,7 +115,7 @@ if ( have_comments() ) :
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 		?>
 		<p class="no-comments">
-			<?php esc_html_e( 'Comments are closed.', 'twentyseventeen' ); ?>
+			<?php esc_html_e( 'Comments are closed.', 'dmcstarter' ); ?>
 		</p>
 		<?php
 	endif;

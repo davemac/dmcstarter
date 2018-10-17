@@ -2,7 +2,7 @@
 
 // change Jetpack Infinite Scroll button label
 function filter_jetpack_infinite_scroll_js_settings( $settings ) {
-	$settings['text'] = __( 'Load more projects ...', 'l18n' );
+	$settings['text'] = __( 'Load more projects ...', 'dmcstarter' );
 	return $settings;
 }
 add_filter( 'infinite_scroll_js_settings', 'filter_jetpack_infinite_scroll_js_settings' );
