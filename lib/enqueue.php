@@ -82,36 +82,36 @@ add_action( 'wp_enqueue_scripts', 'dmcstarter_enqueue_style' );
 
 
 // only load WooCommerce styles and scripts on WooCommerce pages
-function dmc_conditionally_load_woc_js_css() {
-	if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() ) {
+// function dmc_conditionally_load_woc_js_css() {
+// 	if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() ) {
 
-		## Dequeue scripts.
-		wp_dequeue_script( 'woocommerce' );
-		wp_dequeue_script( 'wc-add-to-cart' );
-		wp_dequeue_script( 'wc-cart-fragments' );
+// 		## Dequeue scripts.
+// 		wp_dequeue_script( 'woocommerce' );
+// 		wp_dequeue_script( 'wc-add-to-cart' );
+// 		wp_dequeue_script( 'wc-cart-fragments' );
 
-		## Dequeue styles.
-		wp_dequeue_style( 'woocommerce-general' );
-		wp_dequeue_style( 'woocommerce-layout' );
-		wp_dequeue_style( 'woocommerce-smallscreen' );
+// 		## Dequeue styles.
+// 		wp_dequeue_style( 'woocommerce-general' );
+// 		wp_dequeue_style( 'woocommerce-layout' );
+// 		wp_dequeue_style( 'woocommerce-smallscreen' );
 
-	}
-}
-add_action( 'wp_enqueue_scripts', 'dmc_conditionally_load_woc_js_css' );
+// 	}
+// }
+// add_action( 'wp_enqueue_scripts', 'dmc_conditionally_load_woc_js_css' );
 
 
-function dmc_load_wc_js_css_exceptions() {
-	if ( function_exists( 'is_woocommerce' ) ) {
-		if ( is_singular( 'jetpack-portfolio' ) || ( is_front_page() ) ) {
+// function dmc_load_wc_js_css_exceptions() {
+// 	if ( function_exists( 'is_woocommerce' ) ) {
+// 		if ( is_singular( 'jetpack-portfolio' ) || ( is_front_page() ) ) {
 
-			// ## Enqueue scripts.
-			wp_enqueue_script( 'woocommerce' );
+// 			// ## Enqueue scripts.
+// 			wp_enqueue_script( 'woocommerce' );
 
-			// ## Enqueue styles.
-			wp_enqueue_style( 'woocommerce-general' );
-			// wp_enqueue_style( 'woocommerce-layout' );
-			wp_enqueue_style( 'woocommerce-smallscreen' );
-		}
-	}
-}
-add_action( 'wp_enqueue_scripts', 'dmc_load_wc_js_css_exceptions' );
+// 			// ## Enqueue styles.
+// 			wp_enqueue_style( 'woocommerce-general' );
+// 			// wp_enqueue_style( 'woocommerce-layout' );
+// 			wp_enqueue_style( 'woocommerce-smallscreen' );
+// 		}
+// 	}
+// }
+// add_action( 'wp_enqueue_scripts', 'dmc_load_wc_js_css_exceptions' );

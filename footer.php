@@ -38,7 +38,7 @@
 				Heading
 			</h4>
 			<?php
-			echo dmc_display_wc_account_links();
+			// echo dmc_display_wc_account_links();
 			?>
 		</div>
 
