@@ -127,10 +127,6 @@ $topbar-link-color: $primary-color;
 
 		& > li:not(.has-form) {
 
-			&.active > a {
-				color: $primary-color !important;
-			}
-
 			a:not(.button) {
 				position: relative;
 				display: block;
@@ -144,6 +140,10 @@ $topbar-link-color: $primary-color;
 				&:last-child {
 					padding-right: rem-calc(10);
 				}
+			}
+
+			&.active > a {
+				color: $primary-color;
 			}
 
 			&.has-dropdown > a::after {
