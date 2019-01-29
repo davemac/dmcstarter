@@ -268,14 +268,20 @@ function dmc_display_acf_img_bg( $dmc_set_id = null ) {
 
 //  display random ACF repeater sub field image URL for CSS background attribute
 function dmc_display_acf_random_img_bg() {
-	$dmc_page_hero_image = get_field( 'dmc_page_hero_images' );
-	$rand                = wp_rand( 0, ( count( $dmc_page_hero_image ) - 1 ) );
-	$rand_sub            = $dmc_page_hero_image[ $rand ]['dmc_page_hero_image'];
+	$page_hero_images = get_field( 'dmc_page_hero_images' );
 
-	$dmc_random_img_url = $rand_sub['url'];
+	$count = count( $page_hero_images );
+	if ( 1 === $count ) {
+		$rand = 0;
+	} else {
+		$rand = wp_rand( 0, ( $count - 1 ) );
+	}
 
-	if ( $dmc_page_hero_image ) {
-		$image_src = $dmc_random_img_url;
+	$rand_sub_field = $page_hero_images[ $rand ]['dmc_page_hero_image'];
+	$rand_img_url   = $rand_sub_field['url'];
+
+	if ( $page_hero_images ) {
+		$image_src = $rand_img_url;
 	};
 	printf( 'style="background-image: url(%s);"', esc_url( $image_src ) );
 }
