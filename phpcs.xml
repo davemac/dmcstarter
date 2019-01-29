@@ -9,9 +9,9 @@
   <!-- Include the WordPress-Extra ruleset, with some exclusions. -->
   <rule ref="WordPress-Extra">
  	<exclude-pattern>**/wp-content/plugins/**</exclude-pattern>
-    <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
+    <!-- <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
     <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
-    <exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.Indent" /> -->
   <!--   <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
     <exclude name="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeKeyFound" /> -->
   </rule>

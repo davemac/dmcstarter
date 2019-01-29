@@ -1,0 +1,80 @@
+.mainnav {
+	flex: 0 1 85%;
+}
+
+.tab-bar {
+	background: none;
+
+	@media #{$medium-up} {
+		display: none;
+	}
+
+	.menu-icon {
+		span {
+			&::after {
+				box-shadow:
+					0 0 0 1.5px $primary-color,
+					0 9px 0 1.5px $primary-color,
+					0 18px 0 1.5px $primary-color;
+			}
+		}
+	}
+}
+
+.top-bar-section {
+	ul.main-menu {
+		display: flex;
+		list-style: none;
+		margin: 0;
+
+		.divider {
+			display: none !important;
+		}
+
+		> li:not(.has-form) {
+			padding: 0 rem-calc(22);
+
+			&:last-child {
+				padding-right: rem-calc(10);
+			}
+
+			a:not(.button) {
+				position: relative;
+				display: block;
+				width: 100%;
+				color: $topbar-link-color;
+				font-size: rem-calc(14);
+				font-weight: $font-weight-normal;
+				line-height: 1;
+			}
+
+			&.active > a {
+				color: $primary-color;
+			}
+
+			&.has-dropdown > a::after {
+				position: absolute;
+				top: 7px;
+				right: 5px;
+				border: inset 5px;
+				content: '';
+				display: block;
+				height: 0;
+				width: 0;
+				border-color: $primary-color transparent transparent transparent;
+				border-top-style: solid;
+				margin-top: -2.5px;
+			}
+		}
+
+		.single-product & li.menu-item-shop > a,
+		.tax-prodcat & li.menu-item-products a,
+		.single-jetpack-portfolio & li.menu-item-inspiration a,
+		.parent-pageid-19 & li.menu-item-about a,
+		.single-post & li.menu-item-blog a,
+		.category & li.menu-item-blog a,
+		.date & li.menu-item-blog a {
+			color: $primary-color;
+		}
+	}
+}

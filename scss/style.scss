@@ -1,11 +1,17 @@
 @import 'app';
 
-@import 'helpers/dmc_mixins';
+// @import 'helpers/dmc_mixins';
 
 @import 'partials/dmc-admin-bar';
 @import 'partials/dmc-flex-layouts';
 
 @import 'partials/dmc-header';
+@import 'partials/dmc-navigation';
+@import 'partials/dmc-megamenu';
+@import 'partials/dmc-offcanvas';
+
+@import 'partials/dmc-hero';
+
 @import 'partials/dmc-content';
 // @import 'partials/dmc-content-article';
 // @import 'partials/dmc-cards';

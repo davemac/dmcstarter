@@ -41,9 +41,9 @@ function dmc_register_sidebars() {
 
 	register_sidebar(
 		array(
-			'name'          => 'Blog sidebar',
+			'name'          => 'News sidebar',
 			'id'            => 'sidebar-news',
-			'description'   => 'Widgets placed here will appear in the sidebar on Blog pages',
+			'description'   => 'Widgets placed here will appear in the sidebar on News pages',
 			'before_widget' => '<section id="%1$s" class="panel widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h4>',

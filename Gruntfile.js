@@ -151,7 +151,7 @@ module.exports = function(grunt) {
             staging: {
                 options: {
                     src: "./build/",
-                    dest: "/var/www/wordpress/wp-content/themes/[themename]",
+                    dest: "~/www/wp-content/themes/[themename]",
                     host: "[sitename]-s",
                 }
             }

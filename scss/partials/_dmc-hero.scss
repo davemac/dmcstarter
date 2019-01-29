@@ -1,0 +1,49 @@
+.page-hero {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-bottom: rem-calc(45);
+	background-position: center;
+	background-size: cover;
+
+	@media #{$medium-up} {
+		margin-bottom: rem-calc(45);
+	}
+
+	.has-post-thumbnail &,
+	.post-type-archive-jetpack-portfolio &,
+	.blog &,
+	.category & {
+		min-height: rem-calc(200);
+
+		@media #{$large-up} {
+			min-height: rem-calc(400);
+		}
+	}
+
+	.sub-title {
+		width: 100%;
+		text-align: center;
+		background-color: transparentize($secondary-color, 0.56);
+
+		h1 {
+			margin: 0;
+			color: #fff;
+			font-size: rem-calc(56);
+			font-weight: $font-weight-bold;
+
+			span {
+				color: $primary-color;
+			}
+
+		}
+	}
+
+	.blend-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		// background-color: transparentize($secondary-color, 0.7);
+	}
+}
