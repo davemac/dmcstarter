@@ -4,7 +4,7 @@ if ( $post_object ) :
 
 	$post = $post_object;
 	setup_postdata( $post );
-?> 
+	?> 
 
 	<div <?php post_class( 'card' ); ?> id="post-<?php the_ID(); ?>">
 		<a href="<?php the_permalink(); ?>">
@@ -26,6 +26,7 @@ if ( $post_object ) :
 			</div>
 		</a>
 	</div>
-<?php
-wp_reset_postdata();
-endif; ?>
+
+	<?php
+	wp_reset_postdata();
+endif;

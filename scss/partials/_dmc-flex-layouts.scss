@@ -1,5 +1,6 @@
 /// define variables for later use
 $content-spacing: rem-calc(25);
+$global-radius: 8px;
 
 .flex-row {
 	display: flex;
@@ -50,9 +51,9 @@ $content-spacing: rem-calc(25);
 	justify-content: space-between;
 	max-width: $row-width;
 
-	>* {
+	> * {
 		@media #{$medium-up} {
-			flex-basis: calc(50% - 25px);
+			flex-basis: calc(50% - $content-spacing);
 			margin-bottom: rem-calc(50);
 		}
 	}
@@ -60,7 +61,7 @@ $content-spacing: rem-calc(25);
 	@supports (display: grid) {
 		display: grid;
 
-		>* {
+		> * {
 			margin-bottom: 0;
 		}
 
@@ -146,6 +147,7 @@ $content-spacing: rem-calc(25);
 	display: flex;
 	justify-content: center;
 	max-width: $row-width;
+	padding: 0 $content-spacing;
 
 	@media #{$medium-up} {
 		article {

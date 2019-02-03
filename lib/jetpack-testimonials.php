@@ -1,6 +1,6 @@
 <?php
 
-// better display chosen Jetpack testimonials for page
+// display chosen Jetpack testimonials for page
 // $page_id = page to get the testimonial repeater values from
 // $testiomnial_row = the specific testimonial repeater row to retrieve
 if ( ! function_exists( 'dmc_show_hero_testimonial' ) ) {
@@ -10,13 +10,10 @@ if ( ! function_exists( 'dmc_show_hero_testimonial' ) ) {
 		<div class="flex-row testimonials">
 
 			<?php
-			// get all the testimonials selected by the page ID
 			$rows = get_field( 'dmc_testimonials_display', $page_id );
-			// get the first row
+			// get the required row
 			$dmc_testimonial = $rows[ $testiomnial_row ]['dmc_testimonial'];
-			//  get the testimonial ID
 			$dmc_test_id = $dmc_testimonial->ID;
-			// get testimonial title and content
 			$dmc_test_title   = $dmc_testimonial->post_title;
 			$dmc_test_content = $dmc_testimonial->post_content;
 			// apply the content filters to the raw, unfiltered post content
@@ -42,7 +39,7 @@ if ( ! function_exists( 'dmc_show_hero_testimonial' ) ) {
 } // End if().
 
 
-// display chosen jetpack testimonials
+// display chosen jetpack testimonials for current page
 if ( ! function_exists( 'dmc_show_page_testimonials' ) ) {
 	function dmc_show_page_testimonials() {
 

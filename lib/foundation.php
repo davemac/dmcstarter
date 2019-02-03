@@ -1,38 +1,7 @@
 <?php
-// Pagination
-function dmcstarter_pagination() {
-	global $wp_query;
 
-	$big = 999999999; // This needs to be an unlikely integer
+// A fallback when no navigation is selected by default, otherwise it throws some nasty errors
 
-	// For more options and info view the docs for paginate_links()
-	// http://codex.wordpress.org/Function_Reference/paginate_links
-	$paginate_links = paginate_links(
-		array(
-			'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-			'current'   => max( 1, get_query_var( 'paged' ) ),
-			'total'     => $wp_query->max_num_pages,
-			'mid_size'  => 5,
-			'prev_next' => true,
-			'prev_text' => __( '&laquo;' ),
-			'next_text' => __( '&raquo;' ),
-			'type'      => 'list',
-		)
-	);
-
-	// Display the pagination if more than one page is found
-	if ( $paginate_links ) {
-		echo '<div class="pagination-centered">';
-		echo $paginate_links;
-		echo '</div><!--// end .pagination -->';
-	}
-}
-
-
-/**
- * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
- * From required+ Foundation http://themes.required.ch
- */
 function dmcstarter_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	// Translators 1: Link to Menus, 2: Link to Customize

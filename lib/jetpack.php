@@ -34,11 +34,11 @@ function dmc_display_share() {
 // remove sharing metaboxes on custom post edit screens that don't need them
 if ( is_admin() ) :
 	function remove_jetpack_sharing_metabox() {
-		remove_meta_box( 'sharing_meta', 'page', 'advanced' );
-		remove_meta_box( 'sharing_meta', 'jetpack-portfolio', 'advanced' );
+		remove_meta_box( 'sharing_meta', 'page', 'side' );
+		remove_meta_box( 'sharing_meta', 'jetpack-portfolio', 'side' );
 		remove_meta_box( 'sharing_meta', 'jetpack-testimonial', 'side' );
-		remove_meta_box( 'sharing_meta', 'guest-author', 'advanced' );
-		// remove_meta_box( 'sharing_meta', 'dmc-staff', 'advanced' );
+		remove_meta_box( 'sharing_meta', 'guest-author', 'side' );
+		// remove_meta_box( 'sharing_meta', 'dmc-staff', 'side' );
 	}
 	add_action( 'do_meta_boxes', 'remove_jetpack_sharing_metabox' );
 endif;

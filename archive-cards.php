@@ -17,23 +17,15 @@
 			?>
 		</ul>
 
-		<?php
-		if ( function_exists( 'dmcstarter_pagination' ) ) {
-			dmcstarter_pagination();
-		} elseif ( is_paged() ) {
-			?>
-			<nav id="post-nav">
-				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'dmcstarter' ) ); ?></div>
-				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'dmcstarter' ) ); ?></div>
-			</nav>
-		<?php
-		}
-		?>
+		<?php dmc_display_pagination(); ?>
 
 	</article>
 
-	<?php get_sidebar(); ?>
+	<?php
+	get_sidebar();
+	?>
 
 </div>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

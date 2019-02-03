@@ -73,7 +73,7 @@
 		flex-grow: 1;
 		padding: 1rem;
 
-		& > * + * {
+		> * + * {
 			margin-top: 0.75rem;
 		}
 
@@ -93,7 +93,7 @@
 			font-size: rem-calc(14);
 		}
 
-		& > :last-child {
+		> :last-child {
 			margin-top: auto;
 			padding-top: 0.75rem;
 		}

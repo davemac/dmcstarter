@@ -191,7 +191,7 @@ function dmcstarter_image_editor( $html, $id, $alt, $title ) {
 } /* end dmcstarter_image_editor */
 
 
-function dmc_change_post_object() {
+function dmc_change_post_object_labels() {
 	global $wp_post_types;
 	$labels                     = &$wp_post_types['recipe']->labels;
 	$labels->name               = 'Wholefood Recipes';
@@ -208,4 +208,4 @@ function dmc_change_post_object() {
 	$labels->menu_name          = 'Wholefood Recipes';
 	$labels->name_admin_bar     = 'Wholefood Recipes';
 }
-add_action( 'init', 'dmc_change_post_object' );
+add_action( 'init', 'dmc_change_post_object_labels' );

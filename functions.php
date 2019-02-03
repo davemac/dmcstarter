@@ -27,6 +27,9 @@ require_once get_template_directory() . '/lib/acf-functions.php';
 // Widgets setup
 require_once get_template_directory() . '/lib/widgets.php';
 
+// pagination
+require_once get_template_directory() . '/lib/pagination.php';
+
 // post meta functions (entry meta, post authors etc)
 require_once get_template_directory() . '/lib/post-meta.php';
 
