@@ -193,19 +193,19 @@ function dmcstarter_image_editor( $html, $id, $alt, $title ) {
 
 function dmc_change_post_object_labels() {
 	global $wp_post_types;
-	$labels                     = &$wp_post_types['recipe']->labels;
-	$labels->name               = 'Wholefood Recipes';
-	$labels->singular_name      = 'Wholefood Recipe';
-	$labels->add_new            = 'Add New Wholefood Recipe';
-	$labels->add_new_item       = 'Add New Wholefood Recipe';
-	$labels->edit_item          = 'Edit Wholefood Recipe';
-	$labels->new_item           = 'New Wholefood Recipe';
-	$labels->view_item          = 'View Wholefood Recipe';
-	$labels->search_items       = 'Search Wholefood Recipes';
-	$labels->not_found          = 'No Wholefood Recipes found';
-	$labels->not_found_in_trash = 'No Wholefood Recipes found in Trash';
-	$labels->all_items          = 'All Wholefood Recipes';
-	$labels->menu_name          = 'Wholefood Recipes';
-	$labels->name_admin_bar     = 'Wholefood Recipes';
+	$labels                     = &$wp_post_types['post']->labels;
+	$labels->name               = 'Articles';
+	$labels->singular_name      = 'Article';
+	$labels->add_new            = 'Add New Article';
+	$labels->add_new_item       = 'Add New Article';
+	$labels->edit_item          = 'Edit Article';
+	$labels->new_item           = 'New Article';
+	$labels->view_item          = 'View Article';
+	$labels->search_items       = 'Search Articles';
+	$labels->not_found          = 'No Articles found';
+	$labels->not_found_in_trash = 'No Articles found in Trash';
+	$labels->all_items          = 'All Articles';
+	$labels->menu_name          = 'Articles';
+	$labels->name_admin_bar     = 'Articles';
 }
 add_action( 'init', 'dmc_change_post_object_labels' );
