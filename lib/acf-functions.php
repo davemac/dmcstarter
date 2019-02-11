@@ -114,16 +114,20 @@ function dmc_display_file_upload( $acffield, $subfield ) {
 		$url           = $file['url'];
 		$title         = $file['title'];
 
+		$post_type = get_post_type( get_the_ID() );
+		$obj               = get_post_type_object( $post_type );
+		$content_type_name = $obj->labels->singular_name;
+
 		$filesize = filesize( get_attached_file( $attachment_id ) );
 
 		$filetype = wp_check_filetype( $url );
-		$fileext  = $filetype['ext'];
+		$fileext  = strtoupper( $filetype['ext'] );
 
 		$filesize = size_format( $filesize );
 		?>
 
-		<a href="<?php echo esc_url( $url ); ?>" title="<?php echo esc_attr( $title ); ?>" class="button round">
-			Download <?php echo esc_html( $title ); ?> 
+		<a href="<?php echo esc_url( $url ); ?>" title="<?php echo esc_attr( $title ); ?>" class="button download large">
+			Download a PDF version of this <?php echo esc_attr( $content_type_name ); ?>
 			<span>
 				<?php echo ' (' . $fileext . ' ' . $filesize . ')'; ?>
 			</span>
@@ -131,26 +135,6 @@ function dmc_display_file_upload( $acffield, $subfield ) {
 		<?php
 		endif;
 
-}
-
-
-// get ACF date/time picker field value and return human readable date/time format
-function dmc_format_acf_date() {
-
-	$dmc_get_date = get_field( 'dmc_resource_date', $post->ID );
-	if ( $dmc_get_date ) {
-		// if there is multiple dates, get the first one only
-		// $dmc_get_first_date = $dmc_get_dates[0]['dmc_start_date_time'];
-
-		// Create PHP DateTime object from Date/Time Picker Value
-		// expects the value to be saved in the format Y-m-d
-		$format_in  = 'Y-m-d';
-		$format_out = 'j F Y';
-		$date       = DateTime::createFromFormat( $format_in, $dmc_get_date );
-		$output     = '';
-		$output    .= '<p class="resource-date">' . $date->format( $format_out ) . '</p>';
-		echo $output;
-	}
 }
 
 
