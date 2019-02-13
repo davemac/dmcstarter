@@ -16,6 +16,8 @@ function dmcstarter_startup() {
 	// additional post related cleaning
 	add_filter( 'img_caption_shortcode', 'dmcstarter_cleaner_caption', 10, 3 );
 	add_filter( 'get_image_tag', 'dmcstarter_image_editor', 0, 4 );
+	// tracking pixels
+	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
 
 } /* end dmcstarter_startup */
 
@@ -54,7 +56,7 @@ function dmcstarter_theme_support() {
 	// add_image_size( 'fd-lrg', 1024, 99999 );
 	// add_image_size( 'fd-med', 768, 99999 );
 	// add_image_size( 'fd-sm', 320, 9999 );
-	add_image_size( 'dmc-slider', 1440, 600 );
+	add_image_size( 'dmc-hero', 1440, 600 );
 
 	// rss feed
 	add_theme_support( 'automatic-feed-links' );

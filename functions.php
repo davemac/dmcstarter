@@ -69,5 +69,8 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 // ACF content blocks page builder
 // require_once get_template_directory() . '/lib/content-blocks.php';
 
+// Tracking pixels
+// require_once get_template_directory() . '/lib/tracking/dmc_linkedin_pixel.php';
+
 // RSS customisation functions
 // require_once get_template_directory() . '/lib/rss.php';
