@@ -1,7 +1,7 @@
 .page-numbers {
 	color: #999;
 
-	@include pagination;
+	// @include pagination;
 }
 
 .pagination-centered ul.page-numbers li {
@@ -14,14 +14,14 @@
 
 	span:hover a,
 	span a:focus {
-		background: $pagination-link-active-bg;
+		background: scale-color(#fff, $lightness: -10%);
 	}
 
 	span.current {
-		background: $pagination-link-current-background;
-		padding: $pagination-link-pad;
-		color: $pagination-link-current-font-color;
-		font-weight: $pagination-link-current-font-weight;
-		cursor: $pagination-link-current-cursor;
+		background: $primary-color;
+		padding: rem-calc(1 10 1);
+		color: #fff;
+		font-weight: $font-weight-bold;
+		cursor: default;
 	}
 }

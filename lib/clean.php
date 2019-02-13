@@ -34,8 +34,8 @@ function dmcstarter_theme_support() {
 
 	// custom logo
 	$defaults = array(
-		'height'      => 44,
-		'width'       => 151,
+		'height'      => 50,
+		'width'       => 400,
 		'flex-height' => false,
 		'flex-width'  => false,
 		'header-text' => array( 'site-title', 'site-description' ),
@@ -56,6 +56,7 @@ function dmcstarter_theme_support() {
 	// add_image_size( 'fd-lrg', 1024, 99999 );
 	// add_image_size( 'fd-med', 768, 99999 );
 	// add_image_size( 'fd-sm', 320, 9999 );
+	add_image_size( 'dmc-logo', 400, 50 ); // for site logo @2x
 	add_image_size( 'dmc-hero', 1440, 600 );
 
 	// rss feed
