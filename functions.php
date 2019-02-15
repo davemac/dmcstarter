@@ -70,7 +70,9 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 // require_once get_template_directory() . '/lib/content-blocks.php';
 
 // Tracking pixels
-// require_once get_template_directory() . '/lib/tracking/dmc_linkedin_pixel.php';
+// require_once get_template_directory() . '/lib/tracking/dmc-linkedin-pixel.php';
+// require_once get_template_directory() . '/lib/tracking/dmc-facebook-pixel.php';
+
 
 // RSS customisation functions
 // require_once get_template_directory() . '/lib/rss.php';

@@ -18,6 +18,7 @@ function dmcstarter_startup() {
 	add_filter( 'get_image_tag', 'dmcstarter_image_editor', 0, 4 );
 	// tracking pixels
 	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
+	// add_action( 'wp_head', 'dmc_facebook_pixel' );
 
 } /* end dmcstarter_startup */
 
