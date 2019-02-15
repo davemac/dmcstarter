@@ -1,3 +1,32 @@
+$font-family-sans-serif: 'proxima-nova', helvetica, arial, sans-serif;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+
+$primary-color: #546466;
+$secondary-color: #fcedc4;
+$third-color: #cedde6;
+$bg-light: #d5eae1;
+
+$body-font-color: $primary-color;
+
+// $header-font-family: $body-font-family;
+// $header-font-weight: $font-weight-normal;
+// $header-font-style: normal;
+$header-font-color: $primary-color;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $header-font-color;
+}
+
 @font-face {
 	font-family: proxima-nova;
 	src: url(../fonts/ProximaNova-Light.otf) format('opentype');
