@@ -17,7 +17,7 @@ while ( have_posts() ) :
 
 		<div class="flex-row dmc-max-two" id="content">
 
-			<article id="post-<?php the_ID(); ?>" role="main"> 
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main"> 
 
 				<h1 class="page-title">
 					<?php the_title(); ?>

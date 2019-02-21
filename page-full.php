@@ -21,7 +21,7 @@ while ( have_posts() ) :
 
 		<div class="flex-row" id="content">
 
-			<article id="post-<?php the_ID(); ?>" role="main"> 
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main"> 
 
 				<div class="entry-content">
 					<?php the_content(); ?>
