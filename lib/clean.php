@@ -2,7 +2,7 @@
 // theme setup
 
 if ( ! isset( $content_width ) ) {
-	$content_width = 900;
+	$content_width = 580;
 }
 
 // start all the functions
@@ -54,9 +54,7 @@ function dmcstarter_theme_support() {
 	// Add post thumbnail supports
 	add_theme_support( 'post-thumbnails' );
 	// set_post_thumbnail_size(150, 150, false);
-	// add_image_size( 'fd-lrg', 1024, 99999 );
-	// add_image_size( 'fd-med', 768, 99999 );
-	// add_image_size( 'fd-sm', 320, 9999 );
+	add_image_size( 'dmc-article-hero', 580, 450 );
 	add_image_size( 'dmc-logo', 400, 50 ); // for site logo @2x
 	add_image_size( 'dmc-hero', 1440, 600 );
 

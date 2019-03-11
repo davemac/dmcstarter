@@ -113,14 +113,16 @@ function dmc_display_post_tax_terms() {
 function dmc_get_post_tax_single_topic() {
 	global $post;
 	$taxonomy_pull         = get_object_taxonomies( $post );
-	$current_tax_name_slug = $taxonomy_pull[0];
-	$post_terms            = wp_get_object_terms( $post->ID, $current_tax_name_slug );
-	$output                = '';
-	// $output = $post_terms_test[0]->slug;
-	foreach ( $post_terms as $term ) {
-		$output .= $term->slug . ' ';
+	if ( $taxonomy_pull ) {
+		$current_tax_name_slug = $taxonomy_pull[0];
+		$post_terms            = wp_get_object_terms( $post->ID, $current_tax_name_slug );
+		$output                = '';
+		// $output = $post_terms_test[0]->slug;
+		foreach ( $post_terms as $term ) {
+			$output .= $term->slug . ' ';
+		}
+		return $output;
 	}
-	return $output;
 }
 
 
