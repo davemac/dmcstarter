@@ -4,9 +4,18 @@
 	// @include pagination;
 }
 
-.pagination ul.page-numbers li {
-	float: none;
-	display: inline-block;
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+
+	ul.page-numbers li {
+		display: flex;
+		display: inline-block;
+		font-size: rem-calc(22);
+		font-weight: $font-weight-light;
+	}
 }
 
 .page-numbers li {
