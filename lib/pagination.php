@@ -42,8 +42,8 @@ function dmcstarter_pagination() {
 
 	// Display the pagination if more than one page is found
 	if ( $paginate_links ) {
-		echo '<div class="pagination-centered">';
+		echo '<div class="pagination">';
 		echo $paginate_links;
-		echo '</div><!--// end .pagination -->';
+		echo '</div>';
 	}
 }

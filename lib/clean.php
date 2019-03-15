@@ -53,7 +53,6 @@ function dmcstarter_theme_support() {
 
 	// Add post thumbnail supports
 	add_theme_support( 'post-thumbnails' );
-	// set_post_thumbnail_size(150, 150, false);
 	add_image_size( 'dmc-article-hero', 580, 450 );
 	add_image_size( 'dmc-logo', 400, 50 ); // for site logo @2x
 	add_image_size( 'dmc-hero', 1440, 600 );
