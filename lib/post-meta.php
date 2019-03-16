@@ -126,6 +126,42 @@ function dmc_get_post_tax_single_topic() {
 }
 
 
+function dmc_display_tax_terms_links() {
+	global $post;
+
+	$taxonomy = get_object_taxonomies( $post );
+	if ( ! empty( $taxonomy ) ) {
+
+		$terms    = get_terms( $taxonomy[0] );
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+
+			ob_start();
+			?>
+
+			<ul id="terms-filter">  
+				<li class="left hide-for-small-only">
+					Categories:
+				</li>  
+				<?php
+				foreach ( $terms as $term ) {
+				?>
+					<li>
+						<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+							<?php echo esc_attr( $term->name ); ?>
+						</a>
+					</li>
+				<?php
+				}
+				?>
+			</ul>
+
+			<?php
+		}
+
+	}
+}
+
+
 function dmc_tax_terms_filter() {
 
 	$args      = array(
