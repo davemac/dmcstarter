@@ -9,20 +9,18 @@ jQuery( document ).ready( function( $ ) {
         speed: 3600,
         autoplaySpeed: 4800,
         adaptiveHeight: true,
-        responsive: [ {
+        responsive: [{
             breakpoint: 767,
             settings: {
-                arrows: true,
-                fade: false
-            }
-        }, {
+                arrows: false,
+            },
+			{
             breakpoint: 480,
             settings: {
                 arrows: false,
-                slidesToShow: 1,
-                dots: false
             }
-        } ]
+        }
+		}]
     });
 
     $( '#hero-slider' ).slick({

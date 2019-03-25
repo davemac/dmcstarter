@@ -5,6 +5,10 @@
 		display: none;
 		padding: 20px 0 0;
 		border-top: 1px solid #abc;
+
+		.holder {
+			text-align: left;
+		}
 	}
 
 	input {
@@ -46,7 +50,8 @@
 	#tab2:checked ~ #content2,
 	#tab3:checked ~ #content3,
 	#tab4:checked ~ #content4 {
-		display: block;
+		display: flex;
+		align-items: flex-start;
 	}
 
 	@media screen and (max-width: 800px) {

@@ -21,16 +21,23 @@
 	foreach ( $tab_repeater as $item ) {
 		$tab_title = $item['name'];
 		$tab_content = $item['biography'];
+		$position = $item['title'];
+		$image = $item['headshot'];
 		$tab_id = $count;
 	?>
 		<section id="content<?= $tab_id ?>">
-			<?= $tab_title ?>
-			<?php the_sub_field( 'title' ); ?>
-			<?= $tab_content ?>
-			<?php $headshot = get_sub_field( 'headshot' ); ?>
-			<?php if ( $headshot ) { ?>
-				<?php echo wp_get_attachment_image( $headshot, 'medium' ); ?>
+			<?php if ( $image ) { ?>
+				<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
 			<?php } ?>
+			<div class="holder">
+				<h3>
+					<?= $tab_title ?>
+				</h3>
+				<h4>
+					<?= $position ?>
+				</h4>
+				<?= $tab_content ?>
+			</div>
 		</section>
 
 		<?php
