@@ -1,40 +1,63 @@
-
 #searchform {
-	position: relative;
-	margin-right: rem-calc(17);
+	max-width: rem-calc(980);
+	width: 100%;
+	padding: 0 rem-calc(16);
+
+	@media #{$large-up} {
+		padding: 0;
+	}
+
+	.single-field-search {
+		position: relative;
+
+		@media #{$medium-up} {
+			width: 90%;
+		}
+
+		.fal {
+			position: absolute;
+			top: 6px;
+			left: 8px;
+		}
+	}
 
 	input[type='text'] {
-		margin: 0;
-		padding-right: 80px;
+		width: 100%;
+		min-height: 50px;
+		padding: 0 rem-calc(48) 0 0;
+		font-size: rem-calc(18);
+		font-weight: $font-weight-normal;
+		line-height: 2;
+		background-color: none;
 
-		&::-webkit-input-placeholder {
-			color: #bbb;
+		&::placeholder {
+			color: #fff;
+			opacity: 0.66;
+			padding-right: 50px;
 		}
 
-		&::-moz-placeholder {
-			color: #bbb;
-		}
-
-		&:-ms-input-placeholder {
-			color: #bbb;
-		}
-
-		&:-moz-placeholder {
-			color: #bbb;
+		&:placeholder-shown {
+			text-overflow: ellipsis;
 		}
 
 		&:focus {
-			border: 1px solid scale-color(#ccc, $lightness: 18%);
+			border: 1px solid scale-color($primary-color, $lightness: 18%);
 		}
 	}
 
 	input[type='submit'] {
 		position: absolute;
-		right: rem-calc(-17);
-		bottom: 0;
-		margin: 0;
-		width: rem-calc(100);
-		border-radius: rem-calc(17);
+		top: 6px;
+		right: 8px;
+		width: rem-calc(28);
+		height: rem-calc(28);
+		text-indent: -999px;
+		background-color: $primary-color;
+		background-image: url(../img/icn-search.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		border: none;
+		z-index: 9;
 	}
 }
 
