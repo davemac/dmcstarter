@@ -1,29 +1,35 @@
+// foundation components (to be removed eventually)
 @import 'app';
 
+// scss helper mixins and functions
 // @import 'helpers/dmc_mixins';
-@import 'fonts/dmc_fonts';
+
+// global settings
+@import 'globals/dmc_globals';
 
 @import 'partials/dmc-admin-bar';
+
+// layouts
 @import 'partials/dmc-flex-layouts';
 
 @import 'partials/dmc-header';
 @import 'partials/dmc-navigation';
-@import 'partials/dmc-megamenu';
+// @import 'partials/dmc-megamenu';
 @import 'partials/dmc-offcanvas';
 
-@import 'partials/dmc-hero';
+// hero image at top of pages
+// @import 'partials/dmc-hero';
 
 @import 'partials/dmc-content';
-// @import 'partials/dmc-content-article';
+@import 'partials/dmc-content-article';
 // @import 'partials/dmc-cards';
 // @import 'partials/dmc-card-author';
 
 // @import 'partials/dmc-animations';
-
 // @import 'partials/dmc-flex-video';
 
-@import 'partials/dmc-slider';
-@import 'partials/dmc-jetpack-testimonials';
+// @import 'partials/dmc-slider';
+// @import 'partials/dmc-jetpack-testimonials';
 
 @import 'partials/dmc-pagination';
 @import 'partials/dmc-comments';
@@ -33,7 +39,11 @@
 
 @import 'partials/dmc-buttons';
 @import 'partials/dmc-search-form';
-@import 'partials/dmc-gforms';
+
+// gravity forms
+// @import 'partials/dmc-gforms';
+
+// social media and other icons
 @import 'partials/dmc-icons';
 
 // @import 'partials/dmc-tables';
