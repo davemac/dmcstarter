@@ -29,6 +29,7 @@ require_once get_template_directory() . '/lib/widgets.php';
 
 // pagination
 require_once get_template_directory() . '/lib/pagination.php';
+require_once get_template_directory() . '/lib/prev-next.php';
 
 // post meta functions (entry meta, post authors etc)
 require_once get_template_directory() . '/lib/post-meta.php';
