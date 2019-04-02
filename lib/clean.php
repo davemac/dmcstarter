@@ -19,8 +19,7 @@ function dmcstarter_startup() {
 	// tracking pixels
 	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
 	// add_action( 'wp_head', 'dmc_facebook_pixel' );
-
-} /* end dmcstarter_startup */
+}
 
 
 // Add theme supports
@@ -48,8 +47,6 @@ function dmcstarter_theme_support() {
 	foreach ( $types as $type ) {
 		add_post_type_support( $type, 'excerpt' );
 	}
-
-	// add_post_type_support( 'jetpack-portfolio', 'archive' );
 
 	// Add post thumbnail supports
 	add_theme_support( 'post-thumbnails' );
@@ -90,17 +87,7 @@ add_action( 'after_setup_theme', 'dmcstarter_theme_support' );
 
 // wp_head cleanup
 function dmcstarter_head_cleanup() {
-	// windows live writer
-	remove_action( 'wp_head', 'wlwmanifest_link' );
-	// index link
-	remove_action( 'wp_head', 'index_rel_link' );
-	// previous link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-	// start link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-	// links for adjacent posts
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-	// WP version
+	// removeWP version
 	remove_action( 'wp_head', 'wp_generator' );
 	// remove WP version from css
 	add_filter( 'style_loader_src', 'dmcstarter_remove_wp_ver_css_js', 9999 );
