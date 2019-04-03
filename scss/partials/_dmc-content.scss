@@ -126,18 +126,6 @@
 	}
 }
 
-.vcard {
-	display: inline-block;
-	margin: 0;
-	border: none;
-	padding: 0 0 1rem;
-
-	.fn {
-		font-size: rem-calc(14);
-		font-weight: $font-weight-bold;
-	}
-}
-
 .prev-next {
 	display: flex;
 	justify-content: space-between;
@@ -148,13 +136,6 @@
 
 	.button {
 		border-radius: $global-radius;
-	}
-}
-
-.sharedaddy {
-	@media #{$medium-up} {
-		float: right;
-		margin-left: 2rem;
 	}
 }
 

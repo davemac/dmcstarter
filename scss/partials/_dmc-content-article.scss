@@ -54,6 +54,18 @@ article {
 		margin-top: rem-calc(5);
 		font-size: rem-calc(14);
 
+		.vcard {
+			display: inline-block;
+			margin: 0;
+			border: none;
+			padding: 0 0 1rem;
+
+			.fn {
+				font-size: rem-calc(14);
+				font-weight: $font-weight-bold;
+			}
+		}
+
 		time {
 			color: $primary-color;
 		}
