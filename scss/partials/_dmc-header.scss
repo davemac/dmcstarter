@@ -56,6 +56,11 @@ $topbar-link-color: $primary-color;
 		padding: rem-calc(30) rem-calc(40);
 	}
 
+	.custom-logo-link {
+		display: block;
+		max-width: rem-calc(304);
+	}
+
 	a,
 	p {
 		margin: 0;
