@@ -15,13 +15,12 @@
 
 	@supports (display: grid) {
 		display: grid;
-		// grid-template-columns: repeat(auto-fit, minmax(355px, 2fr));
 		grid-template-columns: 1fr;
 		grid-gap: rem-calc(30);
 		justify-content: center;
 
 		@media #{$medium-up} {
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 4fr));
 		}
 	}
 }
@@ -89,7 +88,7 @@
 		}
 
 		p {
-			color: $primary-color;
+			color: initial;
 			font-size: rem-calc(14);
 		}
 
