@@ -12,15 +12,16 @@ jQuery( document ).ready( function( $ ) {
         responsive: [{
             breakpoint: 767,
             settings: {
-                arrows: false,
-            },
-			{
+                arrows: false
+            }
+            }, {
             breakpoint: 480,
             settings: {
                 arrows: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
             }
-        }
-		}]
+        }]
     });
 
     $( '#hero-slider' ).slick({
