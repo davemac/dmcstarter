@@ -53,7 +53,7 @@ require_once get_template_directory() . '/lib/video.php';
 // require_once get_template_directory() . '/lib/dmc-set-post-terms.php';
 
 // Jetpack customisation functions
-// require_once get_template_directory() . '/lib/jetpack.php';
+require_once get_template_directory() . '/lib/jetpack.php';
 
 // jetpack-testimonials post-type and ACF customisation and display functions
 require_once get_template_directory() . '/lib/jetpack-testimonials.php';
