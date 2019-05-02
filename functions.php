@@ -34,6 +34,9 @@ require_once get_template_directory() . '/lib/prev-next.php';
 // post meta functions (entry meta, post authors etc)
 require_once get_template_directory() . '/lib/post-meta.php';
 
+// hero image functions
+require_once get_template_directory() . '/lib/hero-images.php';
+
 // slider function
 require_once get_template_directory() . '/lib/sliders.php';
 
