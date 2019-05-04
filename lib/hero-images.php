@@ -57,18 +57,22 @@ function dmc_display_acf_img_bg( $dmc_set_id = null ) {
 function dmc_display_acf_random_img_bg() {
 	$page_hero_images = get_field( 'dmc_page_hero_images' );
 
-	$count = count( $page_hero_images );
-	if ( 1 === $count ) {
-		$rand = 0;
-	} else {
-		$rand = wp_rand( 0, ( $count - 1 ) );
-	}
-
-	$rand_sub_field = $page_hero_images[ $rand ]['dmc_page_hero_image'];
-	$rand_img_url   = $rand_sub_field['url'];
-
 	if ( $page_hero_images ) {
-		$image_src = $rand_img_url;
-	};
-	printf( 'style="background-image: url(%s);"', esc_url( $image_src ) );
+
+		$count = count( $page_hero_images );
+		if ( 1 === $count ) {
+			$rand = 0;
+		} else {
+			$rand = wp_rand( 0, ( $count - 1 ) );
+		}
+
+		$rand_sub_field = $page_hero_images[ $rand ]['dmc_page_hero_image'];
+		$rand_img_url   = $rand_sub_field['url'];
+
+		if ( $page_hero_images ) {
+			$image_src = $rand_img_url;
+		};
+		printf( 'style="background-image: url(%s);"', esc_url( $image_src ) );
+
+	}
 }
