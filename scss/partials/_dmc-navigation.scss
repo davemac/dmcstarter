@@ -1,6 +1,6 @@
-.mainnav {
-	flex: 0 1 85%;
-}
+// .mainnav {
+// 	flex: 0 1 85%;
+// }
 
 .tab-bar {
 	background: none;
@@ -22,49 +22,79 @@
 }
 
 .top-bar-section {
+	background-color: $secondary-color;
+
 	ul.main-menu {
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		list-style: none;
-		margin: 0;
+		margin: 0 auto;
+		max-width: $row-width;
 
 		.divider {
 			display: none !important;
 		}
 
-		> li:not(.has-form) {
-			padding: 0 rem-calc(22);
+		ul {
+			min-width: 150px;
+			margin: 0;
+			list-style: none;
+			position: absolute;
+			z-index: 99;
+			top: -999em;
+			left: -999em;
+		}
 
-			&:last-child {
-				padding-right: rem-calc(10);
+		li {
+			display: inline-block;
+			position: relative;
+
+			&.focus,
+			&:hover {
+				> ul {
+					top: auto;
+					left: auto;
+				}
 			}
 
-			a:not(.button) {
-				position: relative;
+			li {
 				display: block;
-				width: 100%;
+
+				&.focus,
+				&:hover {
+					> ul {
+						left: 100%;
+						top: 0;
+					}
+				}
+			}
+
+			// &:last-child {
+			// 	padding-right: rem-calc(10) rem-calc(18);
+			// }
+
+			a {
+				display: block;
+				white-space: nowrap;
+				padding: rem-calc(16) rem-calc(22);
 				color: $topbar-link-color;
-				font-size: rem-calc(14);
-				font-weight: $font-weight-normal;
+				font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans', Tahoma, sans-serif;
+				font-size: rem-calc(16);
+				font-weight: $font-weight-bold;
 				line-height: 1;
 			}
+		}
 
-			&.active > a {
-				color: $primary-color;
-			}
+		// Active & hover styles
 
-			&.has-dropdown > a::after {
-				position: absolute;
-				top: 7px;
-				right: 5px;
-				border: inset 5px;
-				content: '';
-				display: block;
-				height: 0;
-				width: 0;
-				border-color: $primary-color transparent transparent transparent;
-				border-top-style: solid;
-				margin-top: -2.5px;
-			}
+		a:hover,
+		li:hover > a,
+		.focus > a,
+		.current-menu-item > a,
+		.current-menu-ancestor > a {
+			color: $topbar-link-color-active;
+			background-color: $primary-color;
 		}
 
 		.single-product & li.menu-item-shop > a,
@@ -75,6 +105,38 @@
 		.category & li.menu-item-blog a,
 		.date & li.menu-item-blog a {
 			color: $primary-color;
+		}
+
+		// First level item arrows
+
+		.menu-item-has-children {
+			> a {
+				&::before {
+					content: '';
+					position: absolute;
+					right: 8px;
+					top: 50%;
+					transform: translateY(-50%);
+					border: 4px solid transparent;
+					border-top-color: currentColor; // trick to always keep the arrow coloured the same as the menu item's text in each state 
+				}
+			}
+		}
+
+		// Submenu styles & second level item arrows
+
+		ul {
+			background-color: $secondary-color;
+
+			.menu-item-has-children {
+				> a {
+					&::before {
+						right: 2px;
+						border-top-color: transparent;
+						border-left-color: currentColor;
+					}
+				}
+			}
 		}
 	}
 }
