@@ -68,6 +68,12 @@ function dmc_display_post_type_label() {
 				Date Archive for <?php single_month_title( ' ' ); ?>
 			</span>
 			<?php
+		elseif ( is_search() ) :
+			?>
+			<span>
+				<?php esc_html_e( 'Search Results for', 'dmcstarter' ); ?> "<?php echo get_search_query(); ?>"
+			</span>
+			<?php
 	endif;
 
 		$template_type = ob_get_clean();
@@ -225,7 +231,7 @@ function dmcstarter_entry_meta() {
 
 	$output .= ' on <time class="updated" datetime="' . get_the_time( 'c' ) . '" pubdate>' . sprintf( __( '%s', 'dmcstarter' ), get_the_date(), get_the_date() ) . '</time> ';
 
-	if ( is_single( 'post' ) || is_front_page() || is_post_type_archive( 'post' ) || is_search() ) :
+	if ( is_single() || is_front_page() || is_post_type_archive( 'post' ) || is_search() ) :
 
 		$output .= dmc_display_post_tax_terms();
 

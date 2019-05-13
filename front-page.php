@@ -33,18 +33,7 @@ get_header();
 		</div>
 	</section>
 
-	<?php if ( have_rows( 'dmc_featured_content' ) ) : ?>
-
-		<section class="flex-row dmc-max-three cards featured-items">
-			<?php
-			while ( have_rows( 'dmc_featured_content' ) ) :
-				the_row();
-				get_template_part( 'content', 'dmc-featured' );
-			endwhile;
-			?>
-		</section>
-
-	<?php endif; ?>
+	<?php dmc_display_acf_featured_content(); ?>
 
 	<section class="flex-row featured-products">
 		<h2>

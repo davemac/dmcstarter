@@ -34,6 +34,24 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	);
 }
 
+
+// displays ACF dmc_featured_content repeater fields
+function dmc_display_acf_featured_content() {
+	if ( have_rows( 'dmc_featured_content' ) ) :
+		?>
+		<section class="featured-article">
+			<?php
+			while ( have_rows( 'dmc_featured_content' ) ) :
+				the_row();
+				get_template_part( 'content', 'dmc-featured' );
+			endwhile;
+			?>
+		</section>
+		<?php
+	endif;
+}
+
+
 /**
  * Google Maps Javascript API key for show map
  */

@@ -29,6 +29,11 @@ article {
 		@media #{$medium-up} {
 			font-size: rem-calc(32);
 		}
+
+		&.archive-title {
+			font-size: rem-calc(20);
+			margin: 0;
+		}
 	}
 
 	h2 {

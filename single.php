@@ -23,18 +23,14 @@ get_header()
 			<p class="entry-tags"><?php the_tags(); ?></p>
 
 			<div class="entry-author panel">
-				<div class="row collapse">
-					<div class="medium-2 columns">
-						<?php echo get_avatar( get_the_author_meta( 'user_email' ), 95 ); ?>
-					</div>
-					<div class="medium-10 columns">
-						<h4>
-							<?php the_author_posts_link(); ?>
-						</h4>
-						<p class="cover-description">
-							<?php the_author_meta( 'description' ); ?>
-						</p>
-					</div>
+				<?php echo get_avatar( get_the_author_meta( 'user_email' ), 95 ); ?>
+				<div class="holder">
+					<h4>
+						<?php the_author_posts_link(); ?>
+					</h4>
+					<p class="cover-description">
+						<?php the_author_meta( 'description' ); ?>
+					</p>
 				</div>
 			</div>
 
