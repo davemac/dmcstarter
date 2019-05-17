@@ -146,15 +146,18 @@ $global-radius: 8px;
 
 #content {
 	display: flex;
+	flex-flow: column;
 	justify-content: center;
 	max-width: $row-width;
-	padding: 0 $content-spacing;
+	padding: 0 $content-spacing/2;
 
 	@media #{$medium-up} {
+		flex-flow: row;
+
 		article {
 			// order: 2;
-			// flex-basis: calc(75% - 40px);
-			// max-width: rem-calc(860);
+			flex-basis: calc(75% - 40px);
+			max-width: rem-calc(860);
 
 			.page-template-page-full & {
 				flex-basis: 100%;
@@ -163,14 +166,14 @@ $global-radius: 8px;
 
 			.single-post &,
 			.archive.date & {
-				order: 1;
+				// order: 1;
 			}
 		}
 
 		#sidebar {
 			// order: 1;
-			// flex-basis: calc(25%);
-			// margin: rem-calc(65) 0 0 0;
+			flex-basis: calc(25%);
+			margin: rem-calc(65) 0 0 0;
 
 			.single-post &,
 			.archive.date & {
@@ -178,6 +181,10 @@ $global-radius: 8px;
 			}
 
 		}
+	}
+
+	@media #{$large-up} {
+		padding: 0 $content-spacing*2;
 	}
 }
 
