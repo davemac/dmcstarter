@@ -4,7 +4,7 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-?>
+	?>
 
 <div <?php post_class(); ?> >
 
@@ -36,7 +36,7 @@ while ( have_posts() ) :
 	</div>
 </div>
 
-<?php
+	<?php
 endwhile;
 
 get_footer();

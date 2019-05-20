@@ -25,7 +25,7 @@ get_header();
 
 			<?php
 			if ( have_posts() ) :
-			?>
+				?>
 				<section class="flex-row dmc-max-four cards">
 					<?php
 					while ( have_posts() ) :
@@ -34,11 +34,11 @@ get_header();
 					endwhile;
 					?>
 				</section>
-			<?php
-			else :
-				get_template_part( 'content', 'none' );
+				<?php
+				else :
+					get_template_part( 'content', 'none' );
 			endif; // end have_posts() check
-			?>
+				?>
 
 			<?php dmc_display_pagination(); ?>
 

@@ -6,7 +6,7 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-?>
+	?>
 
 	<div <?php post_class(); ?> >
 
@@ -30,14 +30,14 @@ while ( have_posts() ) :
 				<?php
 				$list_children = new WP_Query(
 					array(
-						'post_type' => 'page',
-						'orderby' => 'menu_order',
-						'order' => 'ASC',
+						'post_type'   => 'page',
+						'orderby'     => 'menu_order',
+						'order'       => 'ASC',
 						'post_parent' => $post->ID,
 					)
 				);
 				if ( $list_children->have_posts() ) :
-				?>
+					?>
 
 					<section class="flex-row dmc-max-four cards">
 						<?php
@@ -50,9 +50,10 @@ while ( have_posts() ) :
 						endwhile;
 						?>
 					</section>
-				<?php
+					<?php
 				endif;
-				?>   
+				?>
+				   
 
 			</article>
 
@@ -60,7 +61,7 @@ while ( have_posts() ) :
 
 	</div>
 
-<?php
+	<?php
 endwhile;
 
 get_footer();

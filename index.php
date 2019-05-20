@@ -49,7 +49,7 @@ get_header();
 						get_template_part( 'content', 'none' );
 
 				endif; // end have_posts() check
-				?>
+					?>
 
 			</section>
 

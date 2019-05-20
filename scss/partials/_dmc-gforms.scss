@@ -128,7 +128,7 @@
 			top: 20px;
 			right: 20px;
 			border: inset 5px;
-			border-color: rgba( $primary-color, 1 ) transparent transparent transparent;
+			border-color: rgba($primary-color, 1) transparent transparent transparent;
 			border-top-style: solid;
 		}
 	}
@@ -232,7 +232,7 @@
 		font-size: rem-calc(18);
 		color: $primary-color;
 		font-weight: 600;
-		background: scale-color( $primary-color, $alpha: -92% );
-		border: 2px solid scale-color( $primary-color, $alpha: -67% );
+		background: scale-color($primary-color, $alpha: -92%);
+		border: 2px solid scale-color($primary-color, $alpha: -67%);
 	}
 }

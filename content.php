@@ -6,7 +6,8 @@
 
 		<?php
 		the_post_thumbnail(
-			'medium', array(
+			'medium',
+			array(
 				'class' => 'attachment-masonry-thumb',
 			)
 		);

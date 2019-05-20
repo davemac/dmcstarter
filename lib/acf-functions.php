@@ -4,7 +4,6 @@
 function dmc_hide_acf_admin() {
 	$site_url = get_bloginfo( 'url' );
 
-	// An array of protected site urls
 	$protected_urls = array(
 		'https://prod.com.au',
 		'https://staging.com.au',

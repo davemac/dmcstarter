@@ -7,7 +7,7 @@ get_header()
 	<?php
 	while ( have_posts() ) :
 		the_post();
-	?>
+		?>
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<header>
@@ -40,7 +40,7 @@ get_header()
 
 		</article>
 
-	<?php
+		<?php
 	endwhile;
 
 	get_sidebar();

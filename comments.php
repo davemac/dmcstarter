@@ -43,7 +43,8 @@ function dmc_format_comments( $comment, $args, $depth ) {
 				comment_text();
 				comment_reply_link(
 					array_merge(
-						$args, array(
+						$args,
+						array(
 							'depth'     => $depth,
 							'max_depth' => $args['max_depth'],
 						)

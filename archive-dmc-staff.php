@@ -20,9 +20,9 @@
 			<?php
 			while ( $staff_content->have_posts() ) :
 				$staff_content->the_post();
-			?>
+				?>
 				<?php the_content(); ?>
-			<?php
+				<?php
 			endwhile;
 			wp_reset_postdata();
 			?>
@@ -33,11 +33,11 @@
 	<section id="masonry-loop" class="staff"> 
 		<ul class="small-block-grid-2 medium-block-grid-3">
 			<?php if ( have_posts() ) : ?>
-			<?php
-			while ( have_posts() ) :
-				the_post();
-			?>
-				<?php get_template_part( 'content', 'masonry' ); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
+					<?php get_template_part( 'content', 'masonry' ); ?>
 			<?php endwhile; ?>
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>

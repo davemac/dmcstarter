@@ -56,12 +56,12 @@ get_header();
 	$home_news = new WP_Query(
 		array(
 			'posts_per_page' => 3,
-			'orderby' => 'menu_order',
-			'order'     => 'ASC',
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
 		)
 	);
 	if ( $home_news->have_posts() ) :
-	?>
+		?>
 
 		<section class="news">
 			<div class="row">
@@ -75,13 +75,14 @@ get_header();
 						<?php
 						while ( $home_news->have_posts() ) :
 							$home_news->the_post();
-						?>
+							?>
 							<li class="index-card">
 								<div class="bg">
 									<a href="<?php the_permalink(); ?>">
 										<?php
 										the_post_thumbnail(
-											'medium', array(
+											'medium',
+											array(
 												'class' => 'img-featured',
 											)
 										);
@@ -91,7 +92,7 @@ get_header();
 									</a>
 								</div>
 							</li>
-						<?php
+							<?php
 						endwhile;
 						wp_reset_postdata();
 						?>

@@ -4,7 +4,7 @@ get_header();
 
 <?php
 if ( have_posts() ) :
-?>
+	?>
 
 	<section class="flex-row dmc-max-three portfolio" id="dmc-infinite">
 
@@ -15,22 +15,22 @@ if ( have_posts() ) :
 		<?php
 		while ( have_posts() ) :
 			the_post();
-		?>
+			?>
 
 			<?php
 			// Using Jetpack Infinite scroll, which creates the loop. Could use content.php template, but we wont here
 			get_template_part( 'content', 'jetpack-portfolio' );
 			?>
 
-		<?php
+			<?php
 		endwhile;
 		?>
 	</section>
 
-<?php
-else :
-	get_template_part( 'content', 'none' );
+	<?php
+	else :
+		get_template_part( 'content', 'none' );
 endif; // end have_posts() check
-?>
+	?>
 
 <?php get_footer(); ?>

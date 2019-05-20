@@ -1,7 +1,7 @@
 
 <li class="masonry-entry">
-    <article class="index-card">
-        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+	<article class="index-card">
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php if ( is_post_type_archive( 'dmc-staff' ) ) : ?>
 					<?php the_post_thumbnail( 'masonry-thumb circle' ); ?>

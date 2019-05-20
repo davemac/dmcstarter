@@ -13,7 +13,7 @@
 		$images = get_field( 'dmc_project_image_slider' );
 
 		if ( $images ) :
-		?>
+			?>
 
 			<div class="row collapse">
 				<div class="medium-10 columns">
@@ -47,7 +47,7 @@
 	<?php
 	while ( have_posts() ) :
 		the_post();
-?>
+		?>
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h3>About the Project:</h2>
@@ -71,7 +71,7 @@
 			$other_projects = new WP_Query(
 				array(
 					'post_type' => 'jetpack-portfolio',
-					'order' => 'ASC',
+					'order'     => 'ASC',
 				)
 			);
 			?>
@@ -79,13 +79,14 @@
 				<?php
 				while ( $other_projects->have_posts() ) :
 					$other_projects->the_post();
-				?>
+					?>
 					<li>
 						<article class="index-card overlay-slide">
 							<a href="<?php the_permalink(); ?>">
 								<?php
 								the_post_thumbnail(
-									'medium' , array(
+									'medium',
+									array(
 										'class' => '',
 									)
 								);

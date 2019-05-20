@@ -1,6 +1,6 @@
 /// define variables for later use
 $row-width: rem-calc(1280);
-$content-spacing: rem-calc(20);
+$content-spacing: rem-calc(25);
 $global-radius: 8px;
 
 .flex-row {
@@ -29,7 +29,7 @@ $global-radius: 8px;
 		justify-content: space-between;
 	}
 
-	>* {
+	> * {
 		display: flex;
 		align-items: center;
 	}

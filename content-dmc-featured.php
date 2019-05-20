@@ -10,7 +10,8 @@ if ( $post_object ) :
 		<a href="<?php the_permalink(); ?>">
 			<?php
 			the_post_thumbnail(
-				'medium', array(
+				'medium',
+				array(
 					'class' => 'attachment-masonry-thumb',
 				)
 			);
