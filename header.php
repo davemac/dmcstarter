@@ -19,8 +19,8 @@
 
 		<div class="contacts">
 			<?php get_template_part( 'lib/socials' ); ?>
-			<a href="tel:1300000000">
-				1300 000 000
+			<a href="tel:+6131300000" class="icon-call">
+				1300 000
 			</a>
 		</div>
 

@@ -31,23 +31,71 @@
 }
 
 .info-strip {
-	height: rem-calc(51);
-	border-bottom: 1px solid $third-color;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: column;
+	padding: 0 rem-calc(10);
+	background-color: $primary-color;
 
 	@media #{$medium-up} {
-		padding: 0 rem-calc(15);
+		flex-flow: row wrap;
+		height: rem-calc(40);
+		padding: rem-calc(10) rem-calc(15);
 	}
 
 	@media #{$large-up} {
 		padding: 0 rem-calc(30);
 	}
 
-	a[href^='tel:'] {
-		color: $body-font-color;
+	a {
+		color: #fff;
+	}
+
+	.contacts {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+
+		@media #{$medium-up} {
+			width: auto;
+		}
+
+		a {
+			font-weight: $font-weight-medium;
+
+			@media #{$large-up} {
+				padding-right: $content-spacing*4;
+			}
+
+			&::before {
+				font-family: FontAwesome, sans-serif;
+				font-size: rem-calc(18);
+			}
+
+			.dmc-hide {
+				display: none;
+
+				@media #{$large-up} {
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	.controls {
+		display: none;
+
+		@media #{$large-up} {
+			display: block;
+		}
 	}
 }
 
 .brand-strip {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: rem-calc(15) rem-calc(7);
 
 	@media #{$large-up} {
@@ -56,7 +104,8 @@
 
 	.custom-logo-link {
 		display: block;
-		max-width: rem-calc(304);
+		width: 100%;
+		max-width: rem-calc(260);
 	}
 
 	a,
@@ -66,6 +115,13 @@
 		font-size: rem-calc(15);
 		font-weight: $font-weight-medium;
 	}
+
+	.social__wrap {
+		@media #{$medium-up} {
+			margin-left: $content-spacing;
+		}
+	}
+
 }
 
 .quicklinks {
@@ -74,11 +130,13 @@
 	list-style: none;
 
 	> * {
-		margin-left: rem-calc(40);
+		margin-left: $content-spacing;
 	}
 
-	a {
-		font-size: rem-calc(13);
-		color: $topbar-link-color;
+	li:last-of-type {
+		a {
+			font-weight: $font-weight-bold;
+			text-transform: uppercase;
+		}
 	}
 }

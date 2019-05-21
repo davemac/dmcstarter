@@ -21,32 +21,6 @@ $global-radius: 8px;
 	}
 }
 
-.info-strip {
-	display: flex;
-	justify-content: space-around;
-
-	@media #{$medium-up} {
-		justify-content: space-between;
-	}
-
-	> * {
-		display: flex;
-		align-items: center;
-	}
-}
-
-.brand-strip {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.mainnav {
-	.flex-item {
-		align-self: flex-end;
-	}
-}
-
 .dmc-max-two {
 	display: flex;
 	justify-content: space-between;
