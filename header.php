@@ -18,9 +18,7 @@
 	<div class="info-strip">
 
 		<div class="contacts">
-			<?php
-			require_once get_template_directory() . '/lib/socials.php';
-			?>
+			<?php get_template_part( 'lib/socials' ); ?>
 			<a href="tel:1300000000">
 				1300 000 000
 			</a>
@@ -28,7 +26,7 @@
 
 		<div class="controls">
 			<?php
-			require_once get_template_directory() . '/searchform.php';
+			get_template_part( 'lib/searchform.php' );
 
 			wp_nav_menu(
 				array(
