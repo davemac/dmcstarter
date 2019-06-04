@@ -284,7 +284,7 @@ function dmc_display_cal_date() {
 
 //  Add author bio box to posts, accomodates guest authors
 //  http://bekarice.com/adding-co-authors-plus-support-theme/
-function dmc_user_profile_box() {
+function dmc_user_profile() {
 
 	if ( function_exists( 'coauthors_posts_links' ) ) {
 
@@ -439,7 +439,7 @@ function dmc_display_image_with_caption() {
 
 
 //  smaller user profile box
-function dmc_user_profile_box_small() {
+function dmc_user_profile_small() {
 
 	$output = '';
 	if ( function_exists( 'coauthors_posts_links' ) ) {

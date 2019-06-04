@@ -49,19 +49,13 @@
 			border: 2px solid scale-color($primary-color, $lightness: 18%);
 		}
 
+		&::placeholder {
+			color: #bbb;
+			font-size: rem-calc(15);
+			line-height: 1.5;
+		}
+
 		&::-webkit-input-placeholder {
-			color: #bbb;
-			font-size: rem-calc(15);
-			line-height: 1.5;
-		}
-
-		&:-moz-placeholder {
-			color: #bbb;
-			font-size: rem-calc(15);
-			line-height: 1.5;
-		}
-
-		&::-moz-placeholder {
 			color: #bbb;
 			font-size: rem-calc(15);
 			line-height: 1.5;
