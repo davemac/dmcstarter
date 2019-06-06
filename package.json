@@ -18,5 +18,8 @@
 		"grunt-sassyclean": "^0.1.8",
 		"jit-grunt": "^0.10.0",
 		"node-sass": "^4.11.0"
-	}
+	},
+	"browserslist": [
+		"> 1%"
+	]
 }
