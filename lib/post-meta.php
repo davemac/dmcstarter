@@ -26,6 +26,9 @@ function dmc_display_post_type_label() {
 		elseif ( is_singular() ) :
 			$post_type_label = $post_type->label;
 
+		elseif ( is_search() ) :
+			$post_type_label = 'Search Results for: "' . get_search_query() . '"';
+
 		elseif ( is_post_type_archive() ) :
 			$post_type_label = post_type_archive_title( false );
 
@@ -66,12 +69,6 @@ function dmc_display_post_type_label() {
 			?>
 			<span>
 				Date Archive for <?php single_month_title( ' ' ); ?>
-			</span>
-			<?php
-		elseif ( is_search() ) :
-			?>
-			<span>
-				<?php esc_html_e( 'Search Results for', 'dmcstarter' ); ?> "<?php echo get_search_query(); ?>"
 			</span>
 			<?php
 	endif;
@@ -514,7 +511,7 @@ function dmc_show_staff_socials() {
 		?>
 
 		<div class="flex-item social__item">
-			<a class="social__link--linkedin" href="<?php echo $dmc_staff_linkedin_check; ?>" title="View 	<?php echo get_the_title(); ?>'s LinkedIn profile">
+			<a class="social__link--linkedin" href="<?php echo $dmc_staff_linkedin_check; ?>" title="View <?php echo get_the_title(); ?>'s LinkedIn profile" target="_blank" rel="noopener">
 				<span class="social__link--text">LinkedIn</span>
 			</a>
 		</div>
