@@ -32,10 +32,10 @@ class dmcstarter_walker extends Walker_Nav_Menu {
 
 	function __construct( $nav_args = '' ) {
 
-		$defaults = array(
-			'item_type' => 'li',
+		$defaults      = array(
+			'item_type'  => 'li',
 			'in_top_bar' => false,
-			'menu_type' => 'main-menu', //enable menu differenciation, used in preg_replace classes[] below
+			'menu_type'  => 'main-menu', //enable menu differenciation, used in preg_replace classes[] below
 		);
 		$this->nav_bar = apply_filters( 'req_nav_args', wp_parse_args( $nav_args, $defaults ) );
 	}
@@ -56,12 +56,12 @@ class dmcstarter_walker extends Walker_Nav_Menu {
 
 		$class_names = $value = '';
 
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
 		// Additionnal Class cleanup, as found in Roots_Nav_Walker - Roots Theme lib/nav.php
 		// see http://roots.io/ and https://github.com/roots/roots
-		$slug = sanitize_title( $item->title );
+		$slug    = sanitize_title( $item->title );
 		$classes = preg_replace( '/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes );
 		$classes = preg_replace( '/^((menu|page)[-_\w+]+)+/', '', $classes );
 
@@ -76,12 +76,12 @@ class dmcstarter_walker extends Walker_Nav_Menu {
 
 			if ( $depth == 0 && $this->nav_bar['in_top_bar'] == false ) {
 
-				$classes[] = 'has-flyout';
+				$classes[]     = 'has-flyout';
 				$flyout_toggle = '<a href="#" class="flyout-toggle"><span></span></a>';
 
 			} elseif ( $this->nav_bar['in_top_bar'] == true ) {
 
-				$classes[] = 'has-dropdown';
+				$classes[]     = 'has-dropdown';
 				$flyout_toggle = '';
 			}
 		}
@@ -122,10 +122,10 @@ class dmcstarter_walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 
 		if ( $depth == 0 && $this->nav_bar['item_type'] == 'li' ) {
-			$indent = str_repeat( "\t", 1 );
+			$indent  = str_repeat( "\t", 1 );
 			$output .= $this->nav_bar['in_top_bar'] == true ? "\n$indent<ul class=\"dropdown\">\n" : "\n$indent<ul class=\"flyout\">\n";
 		} else {
-			$indent = str_repeat( "\t", $depth );
+			$indent  = str_repeat( "\t", $depth );
 			$output .= $this->nav_bar['in_top_bar'] == true ? "\n$indent<ul class=\"dropdown\">\n" : "\n$indent<ul class=\"level-$depth\">\n";
 		}
 	}
@@ -144,10 +144,10 @@ class dmcstarter_offcanvas_walker extends Walker_Nav_Menu {
 
 	function __construct( $nav_args = '' ) {
 
-		$defaults = array(
-			'item_type' => 'li',
+		$defaults      = array(
+			'item_type'      => 'li',
 			'has_slide_outs' => false,
-			'menu_type' => 'main-menu',//enable menu differenciation, used in preg_replace classes[] below
+			'menu_type'      => 'main-menu', //enable menu differenciation, used in preg_replace classes[] below
 		);
 		$this->nav_bar = apply_filters( 'req_nav_args', wp_parse_args( $nav_args, $defaults ) );
 	}
@@ -168,12 +168,12 @@ class dmcstarter_offcanvas_walker extends Walker_Nav_Menu {
 
 		$class_names = $value = '';
 
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
 		// Additionnal Class cleanup, as found in Roots_Nav_Walker - Roots Theme lib/nav.php
 		// see http://roots.io/ and https://github.com/roots/roots
-		$slug = sanitize_title( $item->title );
+		$slug    = sanitize_title( $item->title );
 		$classes = preg_replace( '/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes );
 		$classes = preg_replace( '/^((menu|page)[-_\w+]+)+/', '', $classes );
 
@@ -188,12 +188,12 @@ class dmcstarter_offcanvas_walker extends Walker_Nav_Menu {
 
 			if ( $depth == 0 && $this->nav_bar['has_slide_outs'] == false ) {
 
-				$classes[] = 'has-flyout';
+				$classes[]     = 'has-flyout';
 				$flyout_toggle = '<a href="#" class="flyout-toggle"><span></span></a>';
 
 			} elseif ( $this->nav_bar['has_slide_outs'] == true ) {
 
-				$classes[] = 'has-submenu';
+				$classes[]     = 'has-submenu';
 				$flyout_toggle = '';
 			}
 		}
@@ -208,9 +208,9 @@ class dmcstarter_offcanvas_walker extends Walker_Nav_Menu {
 		}
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
-		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target ) . '"' : '';
-		$attributes .= ! empty( $item->xfn )        ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="' . esc_attr( $item->url ) . '"' : '';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 
 		$item_output  = $args->before;
 		$item_output .= '<a ' . $attributes . '>';
@@ -234,10 +234,10 @@ class dmcstarter_offcanvas_walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 
 		if ( 0 <= $depth && 'li' === $this->nav_bar['item_type'] ) {
-			$indent = str_repeat( "\t", 1 );
+			$indent  = str_repeat( "\t", 1 );
 			$output .= $this->nav_bar['has_slide_outs'] == true ? "\n$indent<ul class=\"right-submenu \"><li class=\"back\"><a href=\"#\">Back</a></li>\n" : "\n$indent<ul class=\"flyout\">\n";
 		} else {
-			$indent = str_repeat( "\t", $depth );
+			$indent  = str_repeat( "\t", $depth );
 			$output .= $this->nav_bar['has_slide_outs'] == true ? "\n$indent<ul class=\"right-submenu \">\n" : "\n$indent<ul class=\"level-$depth\">\n";
 		}
 	}

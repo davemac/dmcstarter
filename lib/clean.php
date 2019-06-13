@@ -71,7 +71,8 @@ function dmcstarter_theme_support() {
 
 	// Jetpack Infinite Scroll, preset to button click
 	add_theme_support(
-		'infinite-scroll', array(
+		'infinite-scroll',
+		array(
 			'container'      => 'dmc-infinite',
 			// 'footer'		=> 'page',
 			'type'           => 'click',

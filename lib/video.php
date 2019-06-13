@@ -3,7 +3,7 @@
 /// add foundation responsive flex video to embeds
 function wpse_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
 
-	$classes = array();
+	$classes     = array();
 	$classes_all = array(
 		'flex-video widescreen',
 	);
@@ -40,7 +40,7 @@ add_filter( 'embed_oembed_html', 'wpse_embed_oembed_html', 99, 4 );
 // do not display related videos
 if ( ! function_exists( 'dmc_show_featured_video' ) ) {
 	function dmc_show_featured_video( $dmc_field = 'dmc_video' ) {
-	?>
+		?>
 
 	<div class="flex-video youtube">
 		<?php
@@ -70,9 +70,9 @@ if ( ! function_exists( 'dmc_show_featured_video' ) ) {
 			$iframe = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $iframe );
 
 			echo $iframe;
-		?>
+			?>
 	</div>
 
-<?php
+		<?php
 	}
 }// End if().

@@ -15,9 +15,9 @@ if ( ! is_admin() ) {
 			return $form;
 		}
 		// get list of custom post types
-		$args = array(
-			'post_type' => 'dmc-courses',
-			'posts_per_page'   => -1,
+		$args  = array(
+			'post_type'      => 'dmc-courses',
+			'posts_per_page' => -1,
 		);
 		$posts = get_posts( $args );
 		// Creating drop down item array.
@@ -25,14 +25,14 @@ if ( ! is_admin() ) {
 
 		// Add initial value.
 		$items[] = array(
-			'text' => 'Please select ...',
+			'text'  => 'Please select ...',
 			'value' => '',
 		);
 		// Add cpt titles to the items array
 		foreach ( $posts as $post ) {
 			$items[] = array(
 				'value' => $post->post_title,
-				'text' => $post->post_title,
+				'text'  => $post->post_title,
 			);
 		}
 		// add items to field id 5 in this form
@@ -54,9 +54,9 @@ function dmc_set_referred_course( $value ) {
 	} else {
 		// handle the case where there is no parameter
 	}
-	$args = array(
+	$args  = array(
 		'post_type' => 'dmc-courses',
-		'p'   => $url_course_ID,
+		'p'         => $url_course_ID,
 	);
 	$posts = get_posts( $args );
 
@@ -72,12 +72,12 @@ function dmc_show_course_price( $value ) {
 	} else {
 		// handle the case where there is no parameter
 	}
-	$args = array(
+	$args               = array(
 		'post_type' => 'dmc-courses',
-		'p'   => $url_course_ID,
+		'p'         => $url_course_ID,
 	);
-	$posts = get_posts( $args );
-	$dmc_price_standard = '$' . number_format( (get_field( 'dmc_pricing_standard', $url_course_ID ) ), 0, '.', ',' );
+	$posts              = get_posts( $args );
+	$dmc_price_standard = '$' . number_format( ( get_field( 'dmc_pricing_standard', $url_course_ID ) ), 0, '.', ',' );
 
 	return $dmc_price_standard;
 	wp_reset_postdata();

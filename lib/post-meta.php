@@ -115,7 +115,7 @@ function dmc_display_post_tax_terms() {
 
 function dmc_get_post_tax_single_topic() {
 	global $post;
-	$taxonomy_pull         = get_object_taxonomies( $post );
+	$taxonomy_pull = get_object_taxonomies( $post );
 	if ( $taxonomy_pull ) {
 		$current_tax_name_slug = $taxonomy_pull[0];
 		$post_terms            = wp_get_object_terms( $post->ID, $current_tax_name_slug );
@@ -135,7 +135,7 @@ function dmc_display_tax_terms_links() {
 	$taxonomy = get_object_taxonomies( $post );
 	if ( ! empty( $taxonomy ) ) {
 
-		$terms    = get_terms( $taxonomy[0] );
+		$terms = get_terms( $taxonomy[0] );
 		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 
 			ob_start();
@@ -147,20 +147,19 @@ function dmc_display_tax_terms_links() {
 				</li>  
 				<?php
 				foreach ( $terms as $term ) {
-				?>
+					?>
 					<li>
 						<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
 							<?php echo esc_attr( $term->name ); ?>
 						</a>
 					</li>
-				<?php
+					<?php
 				}
 				?>
 			</ul>
 
 			<?php
 		}
-
 	}
 }
 
@@ -304,8 +303,8 @@ function dmc_user_profile() {
 				$dmc_author_post_links     = coauthors_posts_links( ', ', ' & ', '', '', false );
 				$archive_link              = get_author_posts_url( $coauthor->ID, $coauthor->user_nicename );
 				$link_title                = 'Articles by ' . $coauthor->first_name;
-				$profile_image             = '';
-				$display_profile_image     = coauthors_get_avatar( $coauthor, '130' );
+				$profile_image             = get_field( 'dmc_profile_image', $coauthor->ID );
+				$display_profile_image     = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
 
 			} else {
 
@@ -321,7 +320,7 @@ function dmc_user_profile() {
 				$archive_link              = get_author_posts_url( get_the_author_meta( 'ID', $author_id ) );
 				$link_title                = 'Articles by ' . get_the_author_meta( 'first_name', $author_id );
 				$profile_image             = get_field( 'dmc_profile_image', 'user_' . $author_id );
-				$display_profile_image     = wp_get_attachment_image( $profile_image, 'thumbnail' );
+				$display_profile_image     = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
 			}
 			?>
 
@@ -421,7 +420,8 @@ function dmc_display_image_with_caption() {
 	<div class="wp-caption">
 	<?php
 		the_post_thumbnail(
-			'large', array(
+			'large',
+			array(
 				'class' => 'img-featured',
 			)
 		);
@@ -445,27 +445,27 @@ function dmc_user_profile_small() {
 		foreach ( $coauthors as $coauthor ) {
 
 			if ( isset( $coauthor->type ) && 'guest-author' == $coauthor->type ) {
-				$author_id                 = $coauthor->ID;
-				$author_name               = $coauthor->first_name;
-				$author_url                = $coauthor->website;
-				$author_email              = $coauthor->user_email;
-				$author_bio                = $coauthor->description;
-				$dmc_author_post_links     = coauthors_posts_links( ', ', ' & ', '', '', false );
-				$archive_link              = get_author_posts_url( $coauthor->ID, $coauthor->user_nicename );
-				$link_title                = 'Articles by ' . $coauthor->first_name;
-				$profile_image             = '';
-				$dmc_author_linkedin_check = get_field( 'dmc_linkedin', $author_id );
+				$author_id             = $coauthor->ID;
+				$author_name           = $coauthor->first_name;
+				$author_url            = $coauthor->website;
+				$author_email          = $coauthor->user_email;
+				$author_bio            = $coauthor->description;
+				$dmc_author_post_links = coauthors_posts_links( ', ', ' & ', '', '', false );
+				$archive_link          = get_author_posts_url( $coauthor->ID, $coauthor->user_nicename );
+				$link_title            = 'Articles by ' . $coauthor->first_name;
+				$profile_image         = get_field( 'dmc_profile_image', $coauthor->ID );
+				$display_profile_image = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
 			} else {
-				$author_id                 = get_the_author_meta( 'ID' );
-				$author_name               = get_the_author_meta( 'first_name' );
-				$author_url                = get_the_author_meta( 'user_url' );
-				$author_email              = get_the_author_meta( 'user_email' );
-				$author_bio                = get_the_author_meta( 'description' );
-				$dmc_author_post_links     = get_the_author_posts_link();
-				$archive_link              = get_author_posts_url( get_the_author_meta( 'ID' ) );
-				$link_title                = 'Articles by ' . get_the_author_meta( 'first_name' );
-				$profile_image             = get_field( 'dmc_profile_image', 'user_' . $author_id );
-				$dmc_author_linkedin_check = get_field( 'dmc_linkedin', 'user_' . $author_id );
+				$author_id             = get_the_author_meta( 'ID' );
+				$author_name           = get_the_author_meta( 'first_name' );
+				$author_url            = get_the_author_meta( 'user_url' );
+				$author_email          = get_the_author_meta( 'user_email' );
+				$author_bio            = get_the_author_meta( 'description' );
+				$dmc_author_post_links = get_the_author_posts_link();
+				$archive_link          = get_author_posts_url( get_the_author_meta( 'ID' ) );
+				$link_title            = 'Articles by ' . get_the_author_meta( 'first_name' );
+				$profile_image         = get_field( 'dmc_profile_image', 'user_' . $author_id );
+				$display_profile_image = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
 			}
 
 				$output  = '';
@@ -614,8 +614,8 @@ function dmc_acf_pullquote_shortcode( $atts, $content = null ) {
 				<img class="media-figure" src="<?php echo $pullquote_image['url']; ?>" alt="<?php echo $pullquote_image['alt']; ?>" />
 			</div>
 			<?php
-};
-?>
+		};
+		?>
 
 		<div class="media-body">
 			<p><?php echo wp_kses_post( $pullquote_content ); ?></p>

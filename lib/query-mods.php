@@ -10,7 +10,7 @@ function dmc_landing_pages_custom_pre_get_posts( $query ) {
 		// || is_post_type_archive( 'jetpack-portfolio' )
 
 	) {
-		$query->set( 'posts_per_archive_page',  -1 );
+		$query->set( 'posts_per_archive_page', -1 );
 		$query->set( 'post_parent', 0 );
 		// set_query_var( 'order', 'ASC' );
 		// set_query_var( 'orderby', 'menu_order' );
@@ -25,12 +25,14 @@ function dmc_cpt_search( $query ) {
 	if ( is_search() && $query->is_main_query() && $query->get( 's' ) ) {
 
 		$query->set(
-			'post_type', array( 'post', 'dmc-insight', 'dmc-column', 'dmc-opinion', 'dmc-regroundup' ),
-			'meta_query', array(
+			'post_type',
+			array( 'post', 'dmc-insight', 'dmc-column', 'dmc-opinion', 'dmc-regroundup' ),
+			'meta_query',
+			array(
 				array(
-				'key' => 'wysiwyg',
-				'value' => '%s',
-				'compare' => 'LIKE',
+					'key'     => 'wysiwyg',
+					'value'   => '%s',
+					'compare' => 'LIKE',
 				),
 			)
 		);
@@ -64,14 +66,14 @@ function dmc_event_pre_get_posts( $query ) {
 
 		$date_now = date( 'Y-m-d H:i' );
 
-		$query->set( 'posts_per_page',  -1 );
+		$query->set( 'posts_per_page', -1 );
 
 		$meta_query = array(
 			array(
 				// 'key'       => 'dmc_course_dates_0_dmc_start_date_time',
-				'compare'   => '>=',
-				'value'     => $date_now,
-				'type' => 'DATETIME',
+				'compare' => '>=',
+				'value'   => $date_now,
+				'type'    => 'DATETIME',
 			),
 		);
 
@@ -91,16 +93,16 @@ add_filter( 'pre_get_posts', 'dmc_event_pre_get_posts' );
 // called from {theme}/woocommerce/archive-product.php
 function dmc_display_products_by_prodcat() {
 
-	$cat_args = array(
-		'orderby'    => 'title',
-		'order'      => 'ASC',
+	$cat_args           = array(
+		'orderby' => 'title',
+		'order'   => 'ASC',
 	);
 	$product_categories = get_terms( 'product_cat', $cat_args );
 
 	if ( $product_categories ) {
 
 		foreach ( $product_categories as $product_category ) {
-		?>
+			?>
 
 			<h4 class="wc-category-title">
 				<a href="<?php echo get_term_link( $product_category ); ?>">
@@ -122,7 +124,7 @@ function dmc_display_products_by_prodcat() {
 				'post_type'      => 'product',
 				'orderby'        => 'title,',
 			);
-			$products = new WP_Query( $product_args );
+			$products     = new WP_Query( $product_args );
 
 			if ( $products->have_posts() ) {
 
@@ -138,9 +140,7 @@ function dmc_display_products_by_prodcat() {
 				woocommerce_product_loop_end();
 
 			} //endif
-
 		} //endforeach
-
 	} //endif
 
 }

@@ -56,7 +56,7 @@ if ( ! function_exists( 'dmc_display_content_blocks' ) ) {
 											<?php
 											while ( have_rows( 'cards' ) ) :
 												the_row();
-?>
+												?>
 											<li class="masonry-entry hanging">
 												<div class="card">
 													
@@ -93,17 +93,17 @@ if ( ! function_exists( 'dmc_display_content_blocks' ) ) {
 
 						</section>
 
-				<?php
+						<?php
 				endif;
 
 			endwhile;
-		else :
-			// no dmc_content_blocks layouts found
+			else :
+				// no dmc_content_blocks layouts found
 		endif;
 
-		$output = ob_get_clean();
+			$output = ob_get_clean();
 
-		echo $output;
+			echo $output;
 
 	}
 }

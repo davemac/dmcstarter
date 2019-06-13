@@ -21,16 +21,16 @@ function acme_add_file_to_media_uploader( $post_id, $filename ) {
 	/* Read the contents of the upload directory. We need the
 	 * path to copy the file and the URL for uploading the file.
 	 */
-	$uploads = wp_upload_dir();
+	$uploads     = wp_upload_dir();
 	$uploads_dir = $uploads['path'];
 	$uploads_url = $uploads['url'];
 
 	// Copy the file from the root directory to the uploads directory
 	copy( $file, trailingslashit( $uploads_dir ) . $filename );
-	/* Get the URL to the file and grab the file and load 
+	/* Get the URL to the file and grab the file and load
 	 * it into WordPress (and the Media Library)
 	 */
-	$url = trailingslashit( $uploads_url ) . $filename;
+	$url    = trailingslashit( $uploads_url ) . $filename;
 	$result = media_sideload_image( $url, $post_id, $filename, 'id' );
 
 	// set as featured image
@@ -49,11 +49,11 @@ function acme_add_file_to_media_uploader( $post_id, $filename ) {
  * and adds it to the Media Library.
  *
  * @param    int      $post_id    The ID of the post to which the image is attached.
- * @param    string   $url   	The url of the file to add to the Media Library and attached as featured image
+ * @param    string   $url      The url of the file to add to the Media Library and attached as featured image
  */
 function dmc_sideload_featured_img_url() {
 
-	$rows = array_map( 'str_getcsv', file( 'products.csv' ) );
+	$rows   = array_map( 'str_getcsv', file( 'products.csv' ) );
 	$header = array_shift( $rows );
 
 	$csv = array();
@@ -61,7 +61,7 @@ function dmc_sideload_featured_img_url() {
 	foreach ( $rows as $row ) {
 		// $csv[] = array_combine( $header, $row );
 		$post_id = $row[0];
-		$url = $row[1];
+		$url     = $row[1];
 
 		// download the url into WordPress, saved temporarly for now
 		$tmp = download_url( $url );

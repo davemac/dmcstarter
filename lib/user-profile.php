@@ -2,27 +2,29 @@
 // show author profile, including image and bio requires Co-authors Plus plugin
 if ( ! function_exists( 'dmc_author_profile' ) ) {
 	function dmc_author_profile() {
-		$output = '';
+		$output  = '';
 		$output .= '<div class="entry-author panel"><div class="row collapse"><div class="small-2 columns">';
 		// get an array of the current co-author data
 		if ( function_exists( 'get_coauthors' ) ) {
 			$dmc_coauthor = get_coauthors();
 		};
 		// get co-author ID, name, description, featured image
-		$dmc_coauthor_id = $dmc_coauthor[0]->ID;
+		$dmc_coauthor_id        = $dmc_coauthor[0]->ID;
 		$dmc_coauthor_firstname = $dmc_coauthor[0]->first_name;
-		$dmc_coauthor_desc = $dmc_coauthor[0]->description;
-		$dmc_coauthor_website = $dmc_coauthor[0]->website;
-		$dmc_coauthor_pic = get_the_post_thumbnail(
-			$dmc_coauthor_id, 'thumbnail', array(
+		$dmc_coauthor_desc      = $dmc_coauthor[0]->description;
+		$dmc_coauthor_website   = $dmc_coauthor[0]->website;
+		$dmc_coauthor_pic       = get_the_post_thumbnail(
+			$dmc_coauthor_id,
+			'thumbnail',
+			array(
 				'class' => 'authpic',
 			)
 		);
 		// get WP author ID, acf image field and website
-		$author_id = get_the_author_meta( 'ID' );
+		$author_id        = get_the_author_meta( 'ID' );
 		$author_firstname = get_the_author_meta( 'first_name' );
-		$author_photo = get_field( 'dmc_author_photo', 'user_' . $author_id );
-		$author_website = get_the_author_meta( 'url' );
+		$author_photo     = get_field( 'dmc_author_photo', 'user_' . $author_id );
+		$author_website   = get_the_author_meta( 'url' );
 		if ( $dmc_coauthor_pic ) {
 			 $output .= $dmc_coauthor_pic;
 		} else {
@@ -67,15 +69,16 @@ if ( ! current_user_can( 'administrator' ) ) {
 	 * Show Toolbar - .show-admin-bar
 	 */
 	add_action(
-		'admin_print_scripts-profile.php', function () {
-		?><style>
+		'admin_print_scripts-profile.php',
+		function () {
+			?><style>
 	  .user-rich-editing-wrap,
 	  .user-comment-shortcuts-wrap,
 	  .user-admin-color-wrap,
 	  .show-admin-bar {
 		display: none;
 	  }</style>
-		<?php
+			<?php
 		}
 	);
 
@@ -104,7 +107,7 @@ if ( ! current_user_can( 'administrator' ) ) {
         </style>';
 	}
 	add_action( 'admin_head-user-edit.php', 'remove_website_row_wpse_94963_css' );
-	add_action( 'admin_head-profile.php',   'remove_website_row_wpse_94963_css' );
+	add_action( 'admin_head-profile.php', 'remove_website_row_wpse_94963_css' );
 
 
 	// removes Yoast SEO fields from edit user profile page
@@ -134,7 +137,8 @@ if ( ! current_user_can( 'administrator' ) ) {
 	 * Remove access to the dashboard
 	 */
 	add_action(
-		'admin_init', function () {
+		'admin_init',
+		function () {
 			global $pagenow; // Get current page
 
 			if ( ! current_user_can( 'edit_published_posts' ) ) { // show for editor and above

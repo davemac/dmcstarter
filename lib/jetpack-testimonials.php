@@ -5,15 +5,15 @@
 // $testiomnial_row = the specific testimonial repeater row to retrieve
 if ( ! function_exists( 'dmc_show_hero_testimonial' ) ) {
 	function dmc_show_hero_testimonial( $page_id = 2, $testiomnial_row = 0 ) {
-	?>
+		?>
 
 		<div class="flex-row testimonials">
 
 			<?php
 			$rows = get_field( 'dmc_testimonials_display', $page_id );
 			// get the required row
-			$dmc_testimonial = $rows[ $testiomnial_row ]['dmc_testimonial'];
-			$dmc_test_id = $dmc_testimonial->ID;
+			$dmc_testimonial  = $rows[ $testiomnial_row ]['dmc_testimonial'];
+			$dmc_test_id      = $dmc_testimonial->ID;
 			$dmc_test_title   = $dmc_testimonial->post_title;
 			$dmc_test_content = $dmc_testimonial->post_content;
 			// apply the content filters to the raw, unfiltered post content
@@ -34,7 +34,7 @@ if ( ! function_exists( 'dmc_show_hero_testimonial' ) ) {
 
 		</div>
 
-	<?php
+		<?php
 	}
 } // End if().
 
@@ -78,7 +78,7 @@ if ( ! function_exists( 'dmc_show_page_testimonials' ) ) {
 							</span>
 						</h4>
 					</div>
-				<?php
+					<?php
 				endif;
 				wp_reset_postdata();
 

@@ -8,14 +8,14 @@ if ( ! function_exists( 'dmc_hero_slider' ) ) {
 			<?php
 			while ( have_rows( 'dmc_hero_sliders' ) ) :
 				the_row();
-		?>
+				?>
 
 				<div>
 					<?php
 					if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-					?>
+						?>
 						<a href="<?php the_sub_field( 'dmc_slide_image_links_to' ); ?>">
-					<?php
+						<?php
 					endif;
 					?>
 
@@ -27,11 +27,11 @@ if ( ! function_exists( 'dmc_hero_slider' ) ) {
 							</h1>
 							<?php
 							if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
-							?>
+								?>
 								<p>
 									<?php the_sub_field( 'dmc_slide_second_tagline' ); ?>
 								</p>
-							<?php
+								<?php
 							endif;
 							?>
 						</div>
@@ -40,14 +40,14 @@ if ( ! function_exists( 'dmc_hero_slider' ) ) {
 
 					<?php
 					if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-					?>
+						?>
 						</a>
-					<?php
+						<?php
 					endif
 					?>
 				</div>
 
-			<?php
+				<?php
 			endwhile;
 		endif;
 
@@ -60,19 +60,19 @@ function dmc_latest_posts_slider() {
 
 	$latest_news = new WP_Query(
 		array(
-			'post_type' => 'post',
+			'post_type'      => 'post',
 			'posts_per_page' => 3,
 			'orderby'        => 'menu_order',
 			'order'          => 'ASC',
 		)
 	);
 	if ( $latest_news ) :
-	?>
+		?>
 		<div id="blog-slider">
 			<?php
 			while ( $latest_news->have_posts() ) :
 				$latest_news->the_post();
-			?>
+				?>
 
 				<div>
 					<a href="<?php the_permalink(); ?>" class="flex-holder">
@@ -93,11 +93,11 @@ function dmc_latest_posts_slider() {
 					</a>
 				</div>
 
-			<?php
+				<?php
 			endwhile;
 			?>
 		</div>
-	<?php
+		<?php
 	endif;
 	wp_reset_postdata();
 
@@ -112,7 +112,7 @@ function dmc_featured_products_slider() {
 	$dmc_featured_products = get_field( 'dmc_featured_products' );
 
 	if ( $dmc_featured_products ) :
-	?>
+		?>
 
 		<div class="woocommerce woocommerce-custom">
 			<ul class="products" id="item-slider">
@@ -139,20 +139,20 @@ function dmc_item_slider() {
 	if ( have_rows( 'dmc_brochures' ) ) :
 		while ( have_rows( 'dmc_brochures' ) ) :
 			the_row();
-		?>
+			?>
 			<div>
 			<a href="<?php the_sub_field( 'brochure_file' ); ?>">
 				<?php
 				$brochure_image = get_sub_field( 'brochure_image' );
 				if ( $brochure_image ) {
-				?>
+					?>
 					<img src="<?php echo esc_url( $brochure_image['url'] ); ?>" alt="<?php echo esc_attr( $brochure_image['alt'] ); ?>" />
-				<?php
+					<?php
 				}
 				?>
 			</a>
 			</div>
-		<?php
+			<?php
 		endwhile;
 	endif;
 }

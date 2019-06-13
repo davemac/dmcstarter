@@ -74,7 +74,8 @@ function dmc_add_class( $dmc_class ) {
 // https://github.com/gillesgoetsch/acf-smart-button
 function dmc_button_repeater() {
 
-	if ( have_rows( 'dmc_buttons' ) ) : ?>
+	if ( have_rows( 'dmc_buttons' ) ) :
+		?>
 	<div class="button-repeater">
 		<?php
 		while ( have_rows( 'dmc_buttons' ) ) :
@@ -131,7 +132,7 @@ function dmc_display_file_upload( $acffield, $subfield ) {
 		$url           = $file['url'];
 		$title         = $file['title'];
 
-		$post_type = get_post_type( get_the_ID() );
+		$post_type         = get_post_type( get_the_ID() );
 		$obj               = get_post_type_object( $post_type );
 		$content_type_name = $obj->labels->singular_name;
 
@@ -166,7 +167,8 @@ function dmc_display_file_upload( $acffield, $subfield ) {
  */
 function add_acf_columns( $columns ) {
 	return array_merge(
-		$columns, array(
+		$columns,
+		array(
 			'dmc_sponsored_venue' => __( 'Sponsored?' ),
 		)
 	);
