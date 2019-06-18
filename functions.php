@@ -80,3 +80,9 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 
 // RSS customisation functions
 // require_once get_template_directory() . '/lib/rss.php';
+
+// featured content
+// require_once get_template_directory() . '/lib/dmc_display_featured_content.php';
+
+// featured content cards
+// require_once get_template_directory() . '/lib/dmc-display-content-type-cards.php';
