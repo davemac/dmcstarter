@@ -9,7 +9,7 @@ function dmcstarter_scripts_and_styles() {
 
 	if ( ! is_admin() ) {
 		// modernizr (customised from Gruntfile.js)
-		wp_enqueue_script( 'dmcstarter-modernizr', get_template_directory_uri() . '/js/modernizr-custom.min.js', array(), '3.5.0', false );
+		// wp_enqueue_script( 'dmcstarter-modernizr', get_template_directory_uri() . '/js/modernizr-custom.min.js', array(), '3.5.0', false );
 
 		// only add WP comment-reply.min.js if threaded comments are on an it's a post of some type
 		if ( get_option( 'thread_comments' ) && is_singular() ) {
@@ -70,7 +70,7 @@ add_filter( 'script_loader_tag', 'dmc_defer_scripts', 10, 3 );
 // vendor styles
 function dmcstarter_enqueue_style() {
 	// Google fonts
-	wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700', array(), 'false', 'all' );
+	// wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700', array(), 'false', 'all' );
 
 	// main stylesheet
 	wp_enqueue_style( 'dmcstarter-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );
