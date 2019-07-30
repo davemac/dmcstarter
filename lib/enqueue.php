@@ -57,7 +57,7 @@ function dmc_defer_scripts( $tag, $handle, $src ) {
 		// 'admin-bar',
 		// 'cookie',
 		// 'devicepx',
-		// 'jquery-migrate',
+		'jquery-migrate',
 	);
 	if ( in_array( $handle, $defer_scripts, true ) ) {
 		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
