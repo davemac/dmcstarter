@@ -27,7 +27,7 @@ function dmcstarter_scripts_and_styles() {
 		}
 
 		if ( is_post_type_archive( 'dmc-location' ) ) {
-			wp_register_script( 'googlemap-js-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4A5q-R5EbwwvDVf4HjYD9fAWH8Zmyh2M', array(), 'false', false );
+			wp_register_script( 'googlemap-js-api', 'https://maps.googleapis.com/maps/api/js?key=[api_key_here]', array(), 'false', false );
 			wp_enqueue_script( 'acf-googlemap', get_template_directory_uri() . '/js/maps-init.js', array( 'googlemap-js-api' ), 'false', true );
 		}
 
