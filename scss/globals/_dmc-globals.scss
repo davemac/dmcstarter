@@ -37,6 +37,7 @@ h6 {
 	src: url(../fonts/ProximaNova-Light.otf) format('opentype');
 	font-weight: 300;
 	font-style: normal;
+	font-display: fallback;
 }
 
 @font-face {
@@ -44,6 +45,7 @@ h6 {
 	src: url(../fonts/ProximaNova-Regular.otf) format('opentype');
 	font-weight: 400;
 	font-style: normal;
+	font-display: fallback;
 }
 
 @font-face {
@@ -51,6 +53,7 @@ h6 {
 	src: url(../fonts/ProximaNova-Semibold.otf) format('opentype');
 	font-weight: 600;
 	font-style: normal;
+	font-display: fallback;
 }
 
 @font-face {
@@ -58,6 +61,7 @@ h6 {
 	src: url(../fonts/ProximaNova-Bold.otf) format('opentype');
 	font-weight: 700;
 	font-style: normal;
+	font-display: fallback;
 }
 
 @font-face {
@@ -65,4 +69,5 @@ h6 {
 	src: url(../fonts/ProximaNova-Black.otf) format('opentype');
 	font-weight: 800;
 	font-style: normal;
+	font-display: fallback;
 }
