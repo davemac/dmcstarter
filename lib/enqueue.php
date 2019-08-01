@@ -56,7 +56,8 @@ function dmc_defer_scripts( $tag, $handle, $src ) {
 		// 'addevent',
 		// 'admin-bar',
 		// 'cookie',
-		// 'devicepx',
+		'devicepx',
+		'comment-reply',
 		'jquery-migrate',
 	);
 	if ( in_array( $handle, $defer_scripts, true ) ) {
@@ -115,3 +116,10 @@ add_action( 'wp_enqueue_scripts', 'dmcstarter_enqueue_style' );
 // 	}
 // }
 // add_action( 'wp_enqueue_scripts', 'dmc_load_wc_js_css_exceptions' );
+
+
+// remove Gutenberg block CSS
+function dmc_remove_block_css() {
+	wp_dequeue_style( 'wp-block-library' );
+}
+add_action( 'wp_enqueue_scripts', 'dmc_remove_block_css', 100 );
