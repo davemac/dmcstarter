@@ -34,6 +34,15 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 }
 
 
+// only show published posts for relationship field
+function dmc_filter_acf_relationship( $args, $field, $post_id ) {
+	$args['post_status'] = 'publish';
+	return $args;
+}
+
+add_filter( 'acf/fields/relationship/query', 'dmc_filter_acf_relationship', 10, 3 );
+
+
 // displays ACF dmc_featured_content repeater fields
 function dmc_display_acf_featured_content() {
 	if ( have_rows( 'dmc_featured_content' ) ) :
