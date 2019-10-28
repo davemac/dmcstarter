@@ -476,7 +476,7 @@ function dmc_user_profile_small() {
 				$output .= wp_get_attachment_image( $profile_image, 'thumbnail' );
 				// else check for guest-author image
 			} elseif ( function_exists( 'coauthors_posts_links' ) ) {
-				$output .= '<a href="' . esc_url( $archive_link ) . '" class="author-profile-image" title="' . esc_attr( $link_title ) . '">' . coauthors_get_avatar( $coauthor, 'thumbnail' ) . '</a>';
+				$output .= '<a href="' . esc_url( $archive_link ) . '" class="author-profile-image" title="' . esc_attr( $link_title ) . '">' . coauthors_get_avatar( $coauthor, 128 ) . '</a>';
 			}
 
 				$output .= '<div class="holder">';

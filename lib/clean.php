@@ -19,6 +19,8 @@ function dmcstarter_startup() {
 	// tracking pixels
 	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
 	// add_action( 'wp_head', 'dmc_facebook_pixel' );
+	// add_action( 'wp_head', 'dmc_gtm_tracking_code' );
+	// add_action( 'wp_body_open', 'dmc_gtm_tracking_code_nojs' );
 }
 
 
