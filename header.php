@@ -13,6 +13,8 @@
 
 <body <?php body_class( 'antialiased' ); ?>>
 
+<?php wp_body_open(); ?>
+
 <header class="contain-to-grid" id="header">
 
 	<div class="info-strip">
