@@ -2,25 +2,6 @@
 // 	flex: 0 1 85%;
 // }
 
-.tab-bar {
-	background: none;
-
-	@media #{$medium-up} {
-		display: none;
-	}
-
-	.menu-icon {
-		span {
-			&::after {
-				box-shadow:
-					0 0 0 1.5px $primary-color,
-					0 9px 0 1.5px $primary-color,
-					0 18px 0 1.5px $primary-color;
-			}
-		}
-	}
-}
-
 .top-bar-section {
 	background-color: $secondary-color;
 

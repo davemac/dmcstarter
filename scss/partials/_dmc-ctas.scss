@@ -1,0 +1,31 @@
+.dmc-ctas {
+	max-width: $row-width;
+	list-style: none;
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(130px, 4fr));
+
+	.dmc-cta {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		align-items: center;
+		text-align: center;
+		background-color: #ddd;
+
+		img {
+			height: 45px;
+			width: auto;
+		}
+
+		p {
+			margin-top: rem-calc(15);
+			max-width: rem-calc(125);
+		}
+
+		> :last-child {
+			margin-top: auto;
+		}
+	}
+}
