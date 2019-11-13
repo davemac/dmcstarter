@@ -20,6 +20,21 @@ get_header();
 
 <div class="container">
 
+	<section class="full-width text-center">
+		<div class="content-holder">
+			<?php
+			if ( have_rows( 'info_strip_dmc_calls_to_action' ) ) :
+				while ( have_rows( 'info_strip_dmc_calls_to_action' ) ) :
+					the_row();
+
+					dmc_display_calls_to_action();
+
+				endwhile;
+			endif;
+			?>
+		</div>
+	</section>
+
 	<section class="content text-center">
 		<div class="row">
 			<div class="medium-12 columns">
