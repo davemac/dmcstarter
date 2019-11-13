@@ -46,6 +46,9 @@ require_once get_template_directory() . '/lib/email.php';
 // video functions
 require_once get_template_directory() . '/lib/video.php';
 
+// calls to action
+require_once get_template_directory() . '/lib/calls-to-action.php';
+
 // pre_get_posts query modification functions
 // require_once get_template_directory() . '/lib/query-mods.php';
 

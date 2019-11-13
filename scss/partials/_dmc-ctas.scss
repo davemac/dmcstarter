@@ -17,11 +17,14 @@
 		img {
 			height: 45px;
 			width: auto;
+			margin-bottom: $content-spacing;
 		}
 
 		p {
-			margin-top: rem-calc(15);
+			margin: rem-calc(15) 0 0;
 			max-width: rem-calc(125);
+			font-size: rem-calc(16);
+			line-height: 1.14;
 		}
 
 		> :last-child {
