@@ -42,7 +42,7 @@ function dmc_display_calls_to_action() {
 					$button = get_sub_field( 'button' );
 					if ( $button ) :
 						?>
-						<a href="<?php echo esc_url( $button['url'] ); ?>" <?php echo esc_attr( $button['target'] ); ?> > 
+						<a href="<?php echo esc_url( $button['url'] ); ?>" <?php echo esc_attr( $button['target'] ); ?> class="button"> 
 							<?php echo esc_html( $button['text'] ); ?>
 						</a>
 						<?php
