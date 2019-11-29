@@ -1,19 +1,13 @@
-// fix wp admin bar issue on small screens
-
 #wpadminbar {
-	@media #{$medium-up} {
-		margin-top: -46px;
-	}
+	// @media #{$medium-up} {
+	// 	margin-top: -46px;
+	// }
 }
 
-// Fix admin bar issue, by bybe on Github
+.admin-bar .fadein {
+	margin-top: rem-calc(46);
 
-.admin-bar > .fixed {
 	@media #{$medium-up} {
 		margin-top: rem-calc(32);
 	}
-}
-
-.f-topbar-fixed > .container {
-	margin-top: rem-calc(32);
 }
