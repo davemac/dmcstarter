@@ -28,8 +28,24 @@ module.exports = function(grunt) {
     // required for grunt-sass 'implementation' option
     const sass = require('node-sass');
 
+    grunt.config( 'targethost', ( function() {
+        var target = grunt.option('target') || 'localhost', domain;
+
+        if ( grunt.option('target') === 'production' ) {
+           // domain = 'suzuyama-l';
+        } else if (grunt.option('target') === 'staging') {
+            domain = 'dmcstarter-s';
+        // } else {
+        //     domain = 'https://suzuyama.localhost';
+        }
+        return domain;
+    })());
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        // site directory and theme name
+		host: 'dmcstarter',
 
         // check which sass partials are not being used
         sassyclean: {
@@ -44,16 +60,6 @@ module.exports = function(grunt) {
         modernizr: {
             dist: {
                 "crawl": false,
-                // Set to true to pass in buffers via the "files" parameter below
-                // "useBuffers" : true,
-                // By default, this task will crawl all *.js, *.css, *.scss files.
-                // "files" : {
-                //     "src": [
-                //         "*[^(g|G)runt(file)?].{js,css,scss}",
-                //         "**[^node_modules]/**/*.{js,css,scss}",
-                //         "!lib/**/*"
-                //     ]
-                // },
                 "customTests": [],
                 "dest": "js/modernizr-custom.min.js",
                 "tests": [
@@ -93,7 +99,12 @@ module.exports = function(grunt) {
             theme: {
                 expand: true,
                 cwd: '.',
-                src: ['**', '!**/.git/**', '!**/node_modules/**', '!**/backups/**', '!**/build/**', '!**/bower_components/**', '!**/scss/**', '!**/Gruntfile.js', '!**/package.json', '!**/package-lock.json', '!**/.DS_Store', '!**/README.md', '!**/config.rb', '!**/.jshintrc', '!**/.sass-cache', '!**/.bowerrc', '!**/bower.json', '!**/phpcs.xml' ],
+                src: [
+                    'css/style.css',
+                    'css/style.css.map',
+                    'js/bower.min.js',
+                    'lib/enqueue.php',
+                ],
                 dest: 'build/',
             },
         },
@@ -140,19 +151,55 @@ module.exports = function(grunt) {
         },
 
         // deploy files using rsync
-        deploy: {
+        rsync: {
             options: {
+                host: grunt.config('targethost'),
                 args: ["--verbose"],
-                exclude: ['css/*.diff', 'css/style.css', 'js/bower.min.js', 'grunt-cache-bust.json', '.DS_Store', 'phpcs.xml'],
                 recursive: true,
-                ssh: true
+                ssh: true,
+                // dryRun: true,
             },
-            staging: {
+            css: {
                 options: {
-                    src: "./build/",
-                    dest: "~/www/wp-content/themes/[themename]",
-                    host: "[sitename]-s",
-                }
+                    src: [
+                        './build/css/style.*.css',
+                        './build/css/style.css.map',
+                    ],
+                    dest: [
+                        "~/www/wp-content/themes/<%= host %>/css",
+                    ],
+                },
+            },
+            js: {
+                options: {
+                    src: [
+                        './build/js/bower.min.*.js',
+                    ],
+                    dest: [
+                        "~/www/wp-content/themes/<%= host %>/js",
+                    ],
+                },
+            },
+            enqueue: {
+                options: {
+                    src: [
+                        './build/lib/enqueue.php',
+                    ],
+                    dest: [
+                        "~/www/wp-content/themes/<%= host %>/lib",
+                    ],
+                },
+            },
+            theme: {
+                options: {
+                    src: [
+                        '**',
+                    ],
+                    dest: [
+                        "~/www/wp-content/themes/<%= host %>"
+                    ],
+                    exclude: ['css/*.diff', 'css/style.css', 'css/style.css.map', 'js/bower.min.js', 'lib/enqueue.php', 'grunt-cache-bust.json', '.DS_Store', 'phpcs.xml', '.git', 'node_modules', 'backups', 'build', 'bower_components', 'scss', 'Gruntfile.js', 'package.json', 'package-lock.json', 'README.md', 'config.rb', '.jshintrc', '.sass-cache', '.bowerrc', 'bower.json'],
+                },
             }
         },
 
@@ -172,17 +219,12 @@ module.exports = function(grunt) {
                     css: 'css/vendor.css',
                 },
                 include: [
-                    'slick-carousel', 
+                    'flickity', 
                     'fontawesome',  
-                    // 'imagesloaded', 
-                    // 'isotope',
-                    // 'list.js',
                 ],
                 mainFiles: {
                     'fontawesome': ['css/font-awesome.min.css'],
-                    'slick-carousel': ['slick/slick.min.js', 'slick/slick.css', 'slick/slick-theme.css'],
-                    // 'imagesloaded': ['imagesloaded.pkgd.min.js'],
-                    // 'isotope': ['dist/isotope.pkgd.min.js'],
+                    'flickity': ['dist/flickity.pkgd.min.js', 'css/flickity.css'],
                 }
             },
             magnific: {
@@ -231,16 +273,19 @@ module.exports = function(grunt) {
     });
 
     // rename tasks
-    grunt.loadNpmTasks('grunt-rsync');
-    grunt.renameTask('rsync', 'deploy');
-
     grunt.registerTask('style', ['sass']);
     grunt.registerTask('build', [
         'style',
         'clean:build',
         'copy:theme',
-        'postcss', 
+        'postcss',
         'cacheBust:production'
+    ]);
+    grunt.registerTask('deploy', [
+        'rsync:css',
+        'rsync:js',
+        'rsync:enqueue',
+        'rsync:theme'
     ]);
     grunt.registerTask('buildbower', [
         'bower_concat',

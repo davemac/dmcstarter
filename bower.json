@@ -3,6 +3,6 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation",
     "fontawesome": "~4.7.0",
-    "slick-carousel": "~1.8.1"
+    "flickity": "^2.2.1"
   }
 }
