@@ -1,11 +1,11 @@
 {
-    "key": "group_56691553434dc",
-    "title": "Testimonial display fields",
+    "key": "group_58b616d07146a",
+    "title": "Homepage featured content",
     "fields": [
         {
-            "key": "field_5669155cb229d",
-            "label": "Choose testimonials to display",
-            "name": "dmc_testimonials_display",
+            "key": "field_58b616f3bc2d3",
+            "label": "Featured content",
+            "name": "dmc_featured_content",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -15,27 +15,29 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_566916cf704be",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add a testimonial",
+            "collapsed": "field_58b6181aad26c",
+            "min": 2,
+            "max": 2,
+            "layout": "row",
+            "button_label": "Add featured content",
             "sub_fields": [
                 {
-                    "key": "field_566916cf704be",
-                    "label": "Testimonial",
-                    "name": "dmc_testimonial",
+                    "key": "field_58b6181aad26c",
+                    "label": "Choose content to feature",
+                    "name": "dmc_featured_content_item",
                     "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "post_type": [
-                        "jetpack-testimonial"
+                        "dmc-job",
+                        "page",
+                        "dmc-testimonials"
                     ],
                     "taxonomy": [],
                     "allow_null": 0,
@@ -63,5 +65,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527036723
+    "modified": 1575258716
 }
