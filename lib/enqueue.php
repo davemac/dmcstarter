@@ -71,7 +71,7 @@ add_filter( 'script_loader_tag', 'dmc_defer_scripts', 10, 3 );
 // vendor styles
 function dmcstarter_enqueue_style() {
 	// Google fonts
-	// wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700', array(), 'false', 'all' );
+	// wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700&display=swap', array(), 'false', 'all' );
 
 	// main stylesheet
 	wp_enqueue_style( 'dmcstarter-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );
