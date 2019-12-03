@@ -1,5 +1,4 @@
 $font-family-sans-serif: 'proxima-nova', helvetica, arial, sans-serif;
-$body-font-family: $font-family-sans-serif;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -12,7 +11,10 @@ $secondary-color: #fcedc4;
 $third-color: #cedde6;
 $bg-light: #d5eae1;
 
+$border-color: $grey;
+
 $body-font-color: $primary-color;
+$body-font-family: $font-family-sans-serif;
 $body-font-weight: $font-weight-normal;
 
 $header-font-family: $body-font-family;
@@ -20,8 +22,11 @@ $header-font-family: $body-font-family;
 // $header-font-style: normal;
 $header-font-color: $primary-color;
 
-$topbar-link-color: $primary-color;
-$topbar-link-color-active: $secondary-color;
+body {
+	color: $body-font-color;
+	font-family: $body-font-family;
+	background-color: $bg-light;
+}
 
 h1,
 h2,
@@ -30,6 +35,40 @@ h4,
 h5,
 h6 {
 	color: $header-font-color;
+}
+
+p {
+	font-weight: $body-font-weight;
+}
+
+h1 {
+	font-size: rem-calc(40);
+
+	@media #{$medium-up} {
+		font-size: rem-calc(50);
+	}
+}
+
+h2 {
+	font-size: rem-calc(26);
+
+	@media #{$medium-up} {
+		font-size: rem-calc(30);
+	}
+
+	&.larger {
+		margin: 0 auto rem-calc(20);
+		text-align: center;
+
+		@media #{$medium-up} {
+			font-size: rem-calc(45);
+			margin: 0 auto rem-calc(60);
+		}
+	}
+}
+
+.text-center {
+	text-align: center;
 }
 
 @font-face {

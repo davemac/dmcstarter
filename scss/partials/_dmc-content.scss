@@ -1,18 +1,37 @@
-.more {
-	text-decoration: underline;
+.container {
+	.home & {
+		section {
+			&:nth-of-type(even) {
+				background-color: $bg-light;
+			}
+		}
+	}
 }
 
-.container {
-	background: $bg-light;
-	padding-bottom: $content-spacing;
+.content-holder {
+	max-width: $row-width;
+	margin: 0 $content-spacing/2;
 
 	@media #{$medium-up} {
-		padding-bottom: $content-spacing*3;
+		margin: 0 auto;
 	}
 
-	h1 {
-		&.archive-title {
-			font-size: rem-calc(20);
+	&.full-width {
+		max-width: initial;
+		width: 100%;
+		padding: $content-spacing $content-spacing/2 $content-spacing*2;
+
+		@media #{$medium-up} {
+			padding: $content-spacing*3 $content-spacing $content-spacing*5;
+		}
+	}
+
+	.heading {
+		line-height: 1.1;
+		margin-bottom: $content-spacing;
+
+		@media #{$medium-up} {
+			margin-bottom: $content-spacing*2;
 		}
 	}
 }

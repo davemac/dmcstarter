@@ -1,18 +1,18 @@
 <?php
 get_header();
+
+while ( have_posts() ) :
+	the_post();
 ?>
 
 <div id="homepage-slider">
 	<?php dmc_hero_slider(); ?>
 </div>
 
-<section class="page-hero featured-image" <?php dmc_display_acf_random_img_bg(); ?>>
+<section class="page-hero featured-image" <?php dmc_display_acf_img_bg(); ?>>
 	<div class="sub-title ">
 		<h2>
 			<?php the_field( 'dmc_page_hero_sub_title' ); ?>
-			<span>
-				<?php the_field( 'dmc_page_hero_sub_title_end' ); ?>
-			</span>
 		</h2>
 	</div>
 	<div class="blend-overlay"></div>
@@ -20,8 +20,8 @@ get_header();
 
 <div class="container">
 
-	<section class="full-width text-center">
-		<div class="content-holder">
+	<section class="calls-to-action">
+		<div class="content-holder text-center">
 			<?php
 			if ( have_rows( 'info_strip_dmc_calls_to_action' ) ) :
 				while ( have_rows( 'info_strip_dmc_calls_to_action' ) ) :
@@ -35,36 +35,39 @@ get_header();
 		</div>
 	</section>
 
-	<section class="content text-center">
-		<div class="row">
-			<div class="medium-12 columns">
-				<header>
-					<h1 class="entry-title"><?php the_field( 'dmc_tagline' ); ?></h1>
-				</header>
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
+	<section class="home-intro">
+		<div class="content-holder full-width text-center">
+			<?php the_content(); ?>
+		</div>
+	</section>
+
+	<section class="featured-products">
+		<div class="content-holder">
+			<div class="cards">
+				<?php dmc_display_acf_featured_content(); ?>
 			</div>
 		</div>
 	</section>
 
-	<?php dmc_display_acf_featured_content(); ?>
-
-	<section class="flex-row featured-products">
-		<h2>
-			Featured Products
-		</h2>
-		<?php dmc_featured_products_slider(); ?>
-		<a href="/shop" class="more">
-			View all products
-		</a>
+	<section class="featured-products">
+		<div class="content-holder">
+			<h2>
+				Featured Products
+			</h2>
+			<?php dmc_featured_products_slider(); ?>
+			<a href="/shop" class="more">
+				View all products
+			</a>
+		</div>
 	</section>
 
 	<section class="latest-news">
-		<h2>
-			Latest News
-		</h2>
-		<?php dmc_latest_posts_slider(); ?>
+		<div class="content-holder">
+			<h2>
+				Latest News
+			</h2>
+			<?php dmc_latest_posts_slider(); ?>
+		</div>
 	</section>
 
 	<?php
@@ -123,4 +126,5 @@ get_header();
 </div>
 
 <?php
+endwhile;
 get_footer();

@@ -25,7 +25,7 @@
 
 </div>
 
-<footer class="full-width" role="contentinfo">
+<footer class="footer" role="contentinfo">
 
 	<div class="flex-row calls">
 
