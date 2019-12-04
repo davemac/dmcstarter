@@ -56,8 +56,17 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 	}
 
 	&__item {
-		margin-left: rem-calc(12);
-		width: $icon-size*2;
+		width: $icon-size;
+		margin-right: $content-spacing;
+
+		#header & {
+			margin-right: 0;
+			margin-left: $content-spacing/2;
+
+			@media #{$medium-up} {
+				margin-left: $content-spacing;
+			}
+		}
 
 		a {
 			text-decoration: none;
@@ -67,8 +76,12 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 
 			&::before {
 				font-family: FontAwesome, sans-serif;
-				font-size: $icon-size;
+				font-size: $icon-size/1.5;
 				line-height: 2;
+
+				@media #{$medium-up} {
+					font-size: $icon-size;
+				}
 			}
 		}
 	}

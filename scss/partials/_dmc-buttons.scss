@@ -1,11 +1,18 @@
-.button {
-	text-transform: uppercase;
+.button,
+.products > li .add_to_cart_button {
+	display: inline-block;
+	color: #fff !important;
+	font-size: rem-calc(18);
+	font-weight: $font-weight-bold;
+	line-height: 1;
+	text-transform: capitalize;
+	margin-top: $content-spacing;
+	padding: rem-calc(15) rem-calc(40) !important;
+	background: $primary-color;
+	border-radius: $global-radius;
 
-	&::after {
-		padding-left: 0.75rem;
-		content: '\f0a9';
-		font-family: FontAwesome, sans-serif;
-		font-size: 1.2rem;
+	&:hover {
+		background-color: darken($primary-color, 12%);
 	}
 
 	&.ghost {

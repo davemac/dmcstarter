@@ -61,16 +61,6 @@ h2 {
 	@media #{$medium-up} {
 		font-size: rem-calc(30);
 	}
-
-	&.larger {
-		margin: 0 auto rem-calc(20);
-		text-align: center;
-
-		@media #{$medium-up} {
-			font-size: rem-calc(45);
-			margin: 0 auto rem-calc(60);
-		}
-	}
 }
 
 .text-center {

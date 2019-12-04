@@ -1,7 +1,3 @@
-// .mainnav {
-// 	flex: 0 1 85%;
-// }
-
 .top-bar-section {
 	background-color: $secondary-color;
 
@@ -59,8 +55,7 @@
 				display: block;
 				white-space: nowrap;
 				padding: rem-calc(16) rem-calc(22);
-				color: $topbar-link-color;
-				font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans', Tahoma, sans-serif;
+				color: #fff;
 				font-size: rem-calc(16);
 				font-weight: $font-weight-bold;
 				line-height: 1;
@@ -74,8 +69,8 @@
 		.focus > a,
 		.current-menu-item > a,
 		.current-menu-ancestor > a {
-			color: $topbar-link-color-active;
-			background-color: $primary-color;
+			color: $primary-color;
+			background-color: $secondary-color;
 		}
 
 		.single-product & li.menu-item-shop > a,
@@ -86,6 +81,7 @@
 		.category & li.menu-item-blog a,
 		.date & li.menu-item-blog a {
 			color: $primary-color;
+			background-color: $secondary-color;
 		}
 
 		// First level item arrows

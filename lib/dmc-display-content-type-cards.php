@@ -166,6 +166,38 @@ function dmc_display_featured_cards() {
 }
 
 
+function dmc_display_featured_products() {
+	global $post;
+	if ( have_rows( 'dmc_featured_content' ) ) :
+		?>
+
+			<div class="dmc-max-three cards">
+
+				<?php
+				while ( have_rows( 'dmc_featured_content' ) ) :
+					the_row();
+
+					$dmc_featured_content_item = get_sub_field( 'dmc_featured_content_item' );
+					if ( $dmc_featured_content_item ) :
+						foreach ( $dmc_featured_content_item as $post ) :
+
+							setup_postdata( $post );
+							wc_get_template_part( 'content', 'product' );
+
+						endforeach;
+						wp_reset_postdata();
+					endif;
+
+				endwhile;
+				?>
+
+			</div>
+
+		<?php
+	endif;
+}
+
+
 function dmc_display_featured_cards_by_term() {
 	global $post;
 	if ( have_rows( 'dmc_featured_content_term' ) ) :

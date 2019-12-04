@@ -1,6 +1,8 @@
 .container {
 	.home & {
 		section {
+			padding: $content-spacing*2 $content-spacing/2 $content-spacing*3;
+
 			&:nth-of-type(even) {
 				background-color: $bg-light;
 			}
@@ -26,12 +28,15 @@
 		}
 	}
 
-	.heading {
+	.section-heading {
+		font-size: rem-calc(32);
+		text-align: center;
 		line-height: 1.1;
-		margin-bottom: $content-spacing;
+		margin: 0 auto $content-spacing;
 
 		@media #{$medium-up} {
-			margin-bottom: $content-spacing*2;
+			font-size: rem-calc(48);
+			margin-bottom: $content-spacing*3;
 		}
 	}
 }

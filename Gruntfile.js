@@ -198,7 +198,7 @@ module.exports = function(grunt) {
                     dest: [
                         "~/www/wp-content/themes/<%= host %>"
                     ],
-                    exclude: ['css/*.diff', 'css/style.css', 'css/style.css.map', 'js/bower.min.js', 'lib/enqueue.php', 'grunt-cache-bust.json', '.DS_Store', 'phpcs.xml', '.git', 'node_modules', 'backups', 'build', 'bower_components', 'scss', 'Gruntfile.js', 'package.json', 'package-lock.json', 'README.md', 'config.rb', '.jshintrc', '.sass-cache', '.bowerrc', 'bower.json'],
+                    exclude: ['css/*.diff', 'css/style.css', 'css/style.css.map', 'js/bower.min.js', 'lib/enqueue.php', 'grunt-cache-bust.json', '.DS_Store', 'phpcs.xml', '.git', 'node_modules', 'backups', 'build', 'bower_components', 'scss', 'Gruntfile.js', 'package.json', 'package-lock.json', 'README.md', 'config.rb', '.jshintrc', '.sass-cache', '.bowerrc', 'bower.json', 'img/zeplin'],
                 },
             }
         },
