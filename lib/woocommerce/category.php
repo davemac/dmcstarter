@@ -12,10 +12,11 @@ function dmc_woocommerce_category_image() {
 		$image = wp_get_attachment_url( $thumbnail_id );
 		if ( $image ) {
 		?>
-
 			<style>
 				.woocommerce-products-header{
-					background-image: url('<?php echo esc_url( $image ); ?>');
+					background-image:
+					linear-gradient(to bottom, rgba(0,0,0,0.6) 0, rgba(0,0,0,0.6) 100px),
+					url(<?php echo esc_url( $image ); ?>);
 				}
 			</style>
 		<?php

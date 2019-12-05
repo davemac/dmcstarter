@@ -42,7 +42,9 @@ function dmc_display_shop_featured_image() {
 			?>
 				<style>
 				.woocommerce-products-header{
-					background-image: url('<?php echo esc_url( $image_src[0] ); ?>');
+					background-image:
+					linear-gradient(to bottom, rgba(0,0,0,0.2) 0, rgba(0,0,0,0.2) 100px),
+					url(<?php echo esc_url( $image_src[0] ); ?>);
 				}
 				</style>
 			<?php

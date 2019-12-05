@@ -733,19 +733,21 @@ $cart-color: $charcoal;
 }
 
 .woocommerce-products-header {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	min-height: 60vh;
+	height: auto;
+	margin-bottom: $content-spacing;
+
+	@media #{$medium-up} {
+		height: 30vh;
+		margin-bottom: $content-spacing*3;
+	}
 
 	.woocommerce-products-header__title {
 		color: #fff;
-		font-size: rem-calc(30);
+		font-size: rem-calc(32);
+		font-weight: $font-weight-normal;
 		margin: 0;
 
-		@media #{$medium-up} {
+		@media #{$large-up} {
 			font-size: rem-calc(60);
 		}
 	}
@@ -757,22 +759,24 @@ $cart-color: $charcoal;
 			margin: 0;
 		}
 	}
-
 }
 
 .term-description {
 	width: 100%;
-	padding: 2.5rem 0;
-	background-color: #fff;
+	max-width: $row-width/1.5;
+
+	@media #{$medium-up} {
+		column-count: 2;
+		column-gap: $content-spacing*2;
+		padding: $content-spacing 0;
+	}
 
 	p {
-		max-width: rem-calc(600);
+		color: #fff;
 		margin: 0 auto;
-		list-style: none;
-		text-align: center;
-		font-size: rem-calc(22);
-		line-height: 1.3;
-		font-weight: $font-weight-medium;
+		font-size: rem-calc(16);
+		font-weight: $font-weight-normal;
+		line-height: 1.4;
 	}
 }
 
