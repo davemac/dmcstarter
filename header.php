@@ -60,7 +60,7 @@
 		<div class="mainnav">
 			<!-- Starting the Top-Bar -->
 			<nav class="top-bar hide-for-small-only" data-topbar role="navigation">
-				<section class="top-bar-section right">
+				<section class="top-bar-section">
 					<?php
 					wp_nav_menu(
 						array(

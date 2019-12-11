@@ -74,8 +74,10 @@
 		}
 
 		.single-product & li.menu-item-shop > a,
-		.tax-prodcat & li.menu-item-products a,
-		.single-jetpack-portfolio & li.menu-item-inspiration a,
+		.post-type-archive-product & li.menu-item-shop > a,
+		.tax-product_cat & li.menu-item-shop a,
+		.woocommerce-cart & li.menu-item-shop a,
+		.woocommerce-checkout & li.menu-item-shop a,
 		.parent-pageid-19 & li.menu-item-about a,
 		.single-post & li.menu-item-blog a,
 		.category & li.menu-item-blog a,

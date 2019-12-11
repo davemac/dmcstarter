@@ -95,42 +95,41 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 	}
 }
 
+div.sharedaddy {
+	.sd-sharing {
+		display: flex;
+		align-items: center;
+		padding: 0 0 $content-spacing;
 
-.sd-sharing {
-	display: flex;
-	align-items: center;
-	padding: 2rem 0;
-}
+		h3.sd-title {
+			margin: 0;
+			font-size: rem-calc(15);
+			font-weight: $font-weight-bold;
+			line-height: 1.8;
 
-#content h3.sd-title {
-	margin: 0;
-	font-size: rem-calc(18);
-	font-weight: $font-weight-bold;
-	line-height: 1.8;
+			&::before {
+				display: none;
+			}
+		}
 
-	&::before {
-		display: none;
-	}
-}
+		.sd-content {
+			flex: 0 1 auto;
 
-#content .sd-social-icon {
-	.sd-content {
-		flex: 0 1 auto;
+			ul {
+				margin: 0 !important;
 
-		ul {
-			margin: 0 !important;
+				li[class*='share-'] {
+					margin: 0 0 0 rem-calc(10) !important;
 
-			li[class*='share-'] {
-				margin: 0 0 0 rem-calc(10) !important;
+					a.sd-button {
 
-				a.sd-button {
+						/// change default grey bg style for email, print etc
+						// color: #fff !important;
+						// background: $primary-color;
 
-					/// change default grey bg style for email, print etc
-					// color: #fff !important;
-					// background: $primary-color;
-
-					&::before {
-						font-size: rem-calc(24);
+						&::before {
+							font-size: rem-calc(24);
+						}
 					}
 				}
 			}
