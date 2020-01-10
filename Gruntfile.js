@@ -32,11 +32,11 @@ module.exports = function(grunt) {
         var target = grunt.option('target') || 'localhost', domain;
 
         if ( grunt.option('target') === 'production' ) {
-           // domain = 'suzuyama-l';
+           // domain = 'dmcstarter-l';
         } else if (grunt.option('target') === 'staging') {
             domain = 'dmcstarter-s';
         // } else {
-        //     domain = 'https://suzuyama.localhost';
+        //     domain = 'https://dmcstarter.localhost';
         }
         return domain;
     })());
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
                 "customTests": [],
                 "dest": "js/modernizr-custom.min.js",
                 "tests": [
-                    "backgroundblendmode",
+                    "mediaqueries",
                     "flexbox",
                     "cssgrid",
                     "cssgridlegacy",
