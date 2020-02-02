@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         // 'bower_components/foundation/js/foundation/foundation.abide.js',
         // 'bower_components/foundation/js/foundation/foundation.accordion.js',
         // 'bower_components/foundation/js/foundation/foundation.alert.js',
-        // 'bower_components/foundation/js/foundation/foundation.clearing.js',
+        // 'bower_components/foundation/js/foundation/foundation.clearing.js',\
         // 'bower_components/foundation/js/foundation/foundation.dropdown.js',
         // 'bower_components/foundation/js/foundation/foundation.equalizer.js',
         // 'bower_components/foundation/js/foundation/foundation.interchange.js',
@@ -32,11 +32,11 @@ module.exports = function(grunt) {
         var target = grunt.option('target') || 'localhost', domain;
 
         if ( grunt.option('target') === 'production' ) {
-           domain = 'moirgroup-l';
+           domain = 'dmcstarter-l';
         } else if (grunt.option('target') === 'staging') {
-            // domain = 'moirgroup-s';
+            // domain = 'dmcstarter-s';
         // } else {
-        //     domain = 'https://moirgroup.localhost';
+        //     domain = 'https://dmcstarter.localhost';
         }
         return domain;
     })());
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // site directory and theme name
-		host: 'moirgroup',
+		host: 'dmcstarter',
 
         // check which sass partials are not being used
         sassyclean: {
