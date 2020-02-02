@@ -2,7 +2,7 @@
 	"name": "foundation-libsass-template",
 	"version": "0.0.1",
 	"devDependencies": {
-	  "autoprefixer": "^9.7.3",
+	  "autoprefixer": "^9.7.4",
 	  "fs-extra": "^8.1.0",
 	  "grunt": "^1.0.4",
 	  "grunt-bower-concat": "^1.0.0",
@@ -17,7 +17,7 @@
 	  "grunt-sass": "^3.1.0",
 	  "grunt-sassyclean": "^0.1.8",
 	  "jit-grunt": "^0.10.0",
-	  "node-sass": "^4.13.0"
+	  "node-sass": "^4.13.1"
 	},
 	"dependencies": {
 	  "npm-check-updates": "^4.0.1"
@@ -26,4 +26,3 @@
 	  "> 1%"
 	]
   }
-  

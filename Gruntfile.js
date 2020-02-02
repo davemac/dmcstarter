@@ -32,11 +32,11 @@ module.exports = function(grunt) {
         var target = grunt.option('target') || 'localhost', domain;
 
         if ( grunt.option('target') === 'production' ) {
-           // domain = 'dmcstarter-l';
+           domain = 'moirgroup-l';
         } else if (grunt.option('target') === 'staging') {
-            domain = 'dmcstarter-s';
+            // domain = 'moirgroup-s';
         // } else {
-        //     domain = 'https://dmcstarter.localhost';
+        //     domain = 'https://moirgroup.localhost';
         }
         return domain;
     })());
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // site directory and theme name
-		host: 'dmcstarter',
+		host: 'moirgroup',
 
         // check which sass partials are not being used
         sassyclean: {
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
                 dest: 'build/',
             },
         },
-        
+
         // clear out the build directory when 'grunt clean build' is run
         clean: {
             build: {
@@ -219,8 +219,8 @@ module.exports = function(grunt) {
                     css: 'css/vendor.css',
                 },
                 include: [
-                    'flickity', 
-                    'fontawesome',  
+                    'flickity',
+                    'fontawesome',
                 ],
                 mainFiles: {
                     'fontawesome': ['css/font-awesome.min.css'],
@@ -259,12 +259,16 @@ module.exports = function(grunt) {
             options: {
                 livereload: true
             },
-            grunt: { 
+            grunt: {
                 files: ['Gruntfile.js'],
             },
             sass: {
                 files: ['scss/**/*.scss'],
                 tasks: ['sass'],
+            },
+            js: {
+                files: ['js/**/*.js', '!js/vendor.js', '!js/bower.min.js'],
+                tasks: ['buildbower'],
             },
             changes: {
                 files: ['*.php', 'img/*.{png,jpg,jpeg,gif,webp,svg}', '!**/node_modules/**'],
