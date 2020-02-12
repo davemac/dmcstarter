@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		// site directory and theme name
-		host: 'dmcstarter',
+		// theme directory name
+		theme: 'dmcstarter',
 
 		// check which sass partials are not being used
 		sassyclean: {
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
 						'./build/css/style.css.map',
 					],
 					dest: [
-						"~/www/wp-content/themes/<%= host %>/css",
+						"~/www/wp-content/themes/<%= theme %>/css",
 					],
 				},
 			},
@@ -176,7 +176,7 @@ module.exports = function(grunt) {
 						'./build/js/bower.min.*.js',
 					],
 					dest: [
-						"~/www/wp-content/themes/<%= host %>/js",
+						"~/www/wp-content/themes/<%= theme %>/js",
 					],
 				},
 			},
@@ -186,7 +186,7 @@ module.exports = function(grunt) {
 						'./build/lib/enqueue.php',
 					],
 					dest: [
-						"~/www/wp-content/themes/<%= host %>/lib",
+						"~/www/wp-content/themes/<%= theme %>/lib",
 					],
 				},
 			},
@@ -196,7 +196,7 @@ module.exports = function(grunt) {
 						'**',
 					],
 					dest: [
-						"~/www/wp-content/themes/<%= host %>"
+						"~/www/wp-content/themes/<%= theme %>"
 					],
 					exclude: ['css/*.diff', 'css/style.css', 'css/style.css.map', 'js/bower.min.js', 'lib/enqueue.php', 'grunt-cache-bust.json', '.DS_Store', 'phpcs.xml', '.git', 'node_modules', 'backups', 'build', 'bower_components', 'scss', 'Gruntfile.js', 'package.json', 'package-lock.json', 'README.md', 'config.rb', '.jshintrc', '.sass-cache', '.bowerrc', 'bower.json', 'img/zeplin'],
 				},
