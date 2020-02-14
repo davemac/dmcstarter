@@ -49,7 +49,7 @@ config create:
 core install:
 	admin_user: admin
 	admin_password: {your password}
-	admin_email: info@davidmcdonald.org
+	admin_email: {your email}
 
 core download:
     skip-plugins: hello
