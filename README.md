@@ -37,8 +37,8 @@ or https://www.npmjs.com/package/npm
 
 Once NPM is installed, use it to install grunt and bower:
 
-* Grunt: `npm install -g grunt-cli`
-* Bower: `npm install -g bower`
+* Grunt - task runner: `npm install -g grunt-cli`
+* Bower - package manager: `npm install -g bower`
 
 One time only, compile bower package dependencies into theme:
 
