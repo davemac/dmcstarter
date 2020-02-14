@@ -32,6 +32,35 @@ define( 'JETPACK_DEV_DEBUG', true );
 ### Dependencies ###
 
 * wp-cli: https://wp-cli.org
+
+Global config for local `~/.wp-cli/config.yml`:
+
+```
+config create:
+	dbuser: root
+	dbpass:
+	dbhost: localhost
+	extra-php: |
+        define( 'WP_DEBUG', true );
+        define( 'SAVEQUERIES', true );
+        define( 'DISALLOW_FILE_EDIT', true );
+        define( 'WP_POST_REVISIONS', 5 );
+        define( 'JETPACK_DEV_DEBUG', true );
+core install:
+	admin_user: admin
+	admin_password: {your password}
+	admin_email: info@davidmcdonald.org
+
+core download:
+    skip-plugins: hello
+
+apache_modules:
+    - mod_rewrite
+
+rewrite structure:
+    - hard
+```
+
 * NPM (bundled with node): `brew install node` (using homebrew on OS X)
 or https://www.npmjs.com/package/npm
 
