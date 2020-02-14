@@ -1,43 +1,56 @@
-# README #
+## Setting up a Wordpress local site for development
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Install wp-cli, npm and grunt (see Dependencies below):
 
-### What is this repository for? ###
+- assumes you have a copy of the staging database called `staging.sql`.
+- assumes you have a ssh host called `dmcstarter-s` in ~/.ssh/config
+- assumes the local site will be `https://dmcstarter.localhost`
 
-* WordPress theme for winedecoded.com.au
+* create a directory to serve the site locally called 'dmcstarter'
 
-### How do I get set up? ###
+- Run the following commands in the local site root directory:
 
-Install wp-cli, npm, grunt and bower (see Dependencies below)
+* install WordPress core without content-directory: `wp core download --skip-content`
+* rsync `wp-content/` directory from staging: `rsync -avzW --progress dmcstarter-s:~/www/wp-content .`
+* clone this theme to `wp-content/themes/dmcstarter/`
+* import staging database `wp db import staging.sql`
+* update URLs in the database: `wp db search-replace "https://dmcstarter.com.au" "https://dmcstarter.localhost"`
+* install debug plugins: `wp plugin install debug-bar query-monitor --activate`
+* turn off seo indexing: `wp option update blog_public 0`
+* sets the admin user password: `wp user update admin --user_pass={your password}`
 
-* install WordPress core: wp core download
-* add project plugins to wp-content/plugins
-* add project uploads to wp-content/uploads
-* add mu-plugins directory to wp-content/
-* install this theme git clone git@bitbucket.org:davemcd/winedecoded-theme.git wp-content/themes/wined
-* create database (and user if needed): wp db create
-* import database: wp db import {your database name here}
-* update URLs in database: 'http://wined.localhost' 'http://{your localhost here}'
-* install grunt, bower and all dependencies: npm install && bower install
-* run grunt to initially set up the JS & CSS for theme: grunt
-* create minified vendor JS & CSS for theme (only needs to be run initially and if adding new bower packages): grunt build bower
+Setting for `wp-config.php`:
 
-* set jetpack debug mode in wp-config.php, so images are served locally etc: define( 'JETPACK_DEV_DEBUG', true);
+```
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'SAVEQUERIES', true );
+define( 'DISALLOW_FILE_EDIT', true );
+define( 'JETPACK_DEV_DEBUG', true );
+```
 
 ### Dependencies ###
 
 * wp-cli: https://wp-cli.org
-* NPM (npm is bundled with node): brew install node (using homebrew) or https://www.npmjs.com/package/npm
+* NPM (bundled with node): `brew install node` (using homebrew on OS X) 
+or https://www.npmjs.com/package/npm
+* Bower (package manager) https://bower.io
 
-Once NPM is installed, use it to install grunt and bower:
+Once NPM is installed, install grunt and bower:
 
-* Grunt: npm install -g grunt-cli
-* Bower: npm install -g bower
+* Grunt: `npm install -g grunt-cli`
+* Bower: `npm install -g bower`
+
+One time only, compile bower package dependencies into theme:
+
+* `grunt grunt buildbower`
 
 
-### Contribution guidelines ###
+### Compiling SCSS ###
 
-### Who do I talk to? ###
+- Run the following commands in the local site theme directory `/wp-content/themes/dmcstarter`:
 
-* Repo owner or admin
-David McDonald info@dmcweb.com.au
+* install grunt and grunt plugins: `npm install`
+* run grunt to set up CSS & start compiling SCSS: `grunt`
+
+Site is now running at https://dmcstarter.localhost
