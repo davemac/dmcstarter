@@ -6,7 +6,7 @@ Install wp-cli, npm and grunt (see Dependencies below):
 - assumes you have a ssh host called `dmcstarter-s` in ~/.ssh/config
 - assumes the local site will be `https://dmcstarter.localhost`
 
-* create a directory to serve the site locally called 'dmcstarter'
+* create a root directory to serve the site locally called `/dmcstarter`
 
 - Run the following commands in the local site root directory:
 
@@ -32,7 +32,7 @@ define( 'JETPACK_DEV_DEBUG', true );
 ### Dependencies ###
 
 * wp-cli: https://wp-cli.org
-* NPM (bundled with node): `brew install node` (using homebrew on OS X) 
+* NPM (bundled with node): `brew install node` (using homebrew on OS X)
 or https://www.npmjs.com/package/npm
 * Bower (package manager) https://bower.io
 
