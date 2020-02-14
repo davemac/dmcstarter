@@ -42,7 +42,7 @@ Once NPM is installed, use it to install grunt and bower:
 
 One time only, compile bower package dependencies into theme:
 
-* `grunt grunt buildbower`
+* `grunt buildbower`
 
 
 ### Compiling SCSS ###
