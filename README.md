@@ -34,9 +34,8 @@ define( 'JETPACK_DEV_DEBUG', true );
 * wp-cli: https://wp-cli.org
 * NPM (bundled with node): `brew install node` (using homebrew on OS X)
 or https://www.npmjs.com/package/npm
-* Bower (package manager) https://bower.io
 
-Once NPM is installed, install grunt and bower:
+Once NPM is installed, use it to install grunt and bower:
 
 * Grunt: `npm install -g grunt-cli`
 * Bower: `npm install -g bower`
