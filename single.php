@@ -11,7 +11,9 @@ get_header()
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<header>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<h1 class="entry-title">
+					<?php the_title(); ?>
+				</h1>
 				<?php dmcstarter_entry_meta(); ?>
 				<?php dmc_display_image_with_caption(); ?>
 				<?php dmc_display_share(); ?>

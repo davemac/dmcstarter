@@ -141,10 +141,10 @@ function dmc_display_tax_terms_links() {
 			ob_start();
 			?>
 
-			<ul id="terms-filter">  
+			<ul id="terms-filter">
 				<li class="left hide-for-small-only">
 					Categories:
-				</li>  
+				</li>
 				<?php
 				foreach ( $terms as $term ) {
 					?>
@@ -175,12 +175,12 @@ function dmc_tax_terms_filter() {
 	if ( $tax_terms ) {
 		?>
 
-		<ul class="inline-list" id="terms-filter">  
+		<ul class="inline-list" id="terms-filter">
 			<li class="left hide-for-small-only">
 				<strong>
 					Filter services by:
 				</strong>
-			</li>  
+			</li>
 			<li>
 				<a href="#" class="selected" data-filter="*">All</a>
 			</li>
@@ -210,46 +210,55 @@ function dmc_tax_terms_filter() {
 
 // return entry meta information for posts, used by multiple loops
 function dmcstarter_entry_meta() {
-
-	$output  = '';
-	$output .= '<div class="entry-meta">';
-
-	$output .= '<span class="byline author vcard">';
-
-	// if Co-authors Plus plugin is active, get the co-author posts link
-	if ( function_exists( 'coauthors_posts_links' ) ) {
-		$output .= coauthors_posts_links( ', ', ' & ', 'by ', '', false );
-	} else {
-		// get WP author posts link
-		$output .= 'by ' . get_the_author_posts_link();
-	};
-	$output .= '</span>';
-
-	$output .= ' on <time class="updated" datetime="' . get_the_time( 'c' ) . '" pubdate>' . sprintf( __( '%s', 'dmcstarter' ), get_the_date(), get_the_date() ) . '</time> ';
-
-	if ( is_single() || is_front_page() || is_post_type_archive( 'post' ) || is_search() ) :
-
-		$output .= dmc_display_post_tax_terms();
-
-		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
-		if ( comments_open() ) {
-			if ( '0' === $num_comments ) {
-				$comments = __( '<span class="comment-result no-comments">Make a comment</span>' );
-			} elseif ( $num_comments > 1 ) {
-				$comments = $num_comments . __( ' comments' );
+	?>
+	<div class="entry-meta">
+		<span class="byline author vcard">
+			<?php
+			// if Co-authors Plus plugin is active, get the co-author posts link
+			if ( function_exists( 'coauthors_posts_links' ) ) {
+				echo coauthors_posts_links( ', ', ' & ', 'by ', '', false );
 			} else {
-				$comments = __( '<span class="comment-result">1 comment</span>' );
-			}
-			$write_comments = '<a href="' . get_comments_link() . '"><span class="icon small icon-forum"></span> ' . $comments . '</a>';
-		} else {
-			$write_comments = __( '<span class="comment-result">Comments off</span>' );
-		}
-		$output .= '<span class="comments comment-results right">' . $write_comments . '</span>';
-	endif;
+				// get WP author posts link
+				echo 'by ' . get_the_author_posts_link();
+			};
+			?>
+		</span>
+		on
+		<time class="updated" datetime="<?php echo get_the_time( 'c' ); ?>'" pubdate>
+			<?php echo printf( __( '%s', 'dmcstarter' ), get_the_date(), get_the_date() ); ?>
+		</time>
 
-	$output .= '</div>';
-	echo $output;
+		<?php
+		if ( is_single() || is_front_page() || is_post_type_archive( 'post' ) || is_search() ) :
+
+			dmc_display_post_tax_terms();
+
+			$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
+			if ( comments_open() ) :
+
+				if ( '0' === $num_comments ) :
+					$comments = __( '<span class="comment-result no-comments">Make a comment</span>' );
+				elseif ( $num_comments > 1 ) :
+					$comments = $num_comments . __( ' comments' );
+				else :
+					$comments = __( '<span class="comment-result">1 comment</span>' );
+				endif;
+
+				$write_comments = '<a href="' . get_comments_link() . '"><span class="icon small icon-forum"></span> ' . $comments . '</a>';
+			else :
+				$write_comments = __( '<span class="comment-result">Comments off</span>' );
+			endif;
+			?>
+			<span class="comments comment-results">
+				<?php echo $write_comments; ?>
+			</span>
+			<?php
+		endif;
+		?>
+	</div>
+	<?php
 }
+
 
 // display calendar date for posts
 function dmc_display_cal_date() {
@@ -393,7 +402,7 @@ function dmc_user_profile() {
 							</h5>
 
 							<h6>
-								<?php echo esc_html( $dmc_author_position ); ?> 
+								<?php echo esc_html( $dmc_author_position ); ?>
 							</h6>
 
 							<p>
