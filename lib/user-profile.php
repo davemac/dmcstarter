@@ -1,59 +1,58 @@
 <?php
 // show author profile, including image and bio requires Co-authors Plus plugin
-if ( ! function_exists( 'dmc_author_profile' ) ) {
-	function dmc_author_profile() {
-		$output  = '';
-		$output .= '<div class="entry-author panel"><div class="row collapse"><div class="small-2 columns">';
-		// get an array of the current co-author data
-		if ( function_exists( 'get_coauthors' ) ) {
-			$dmc_coauthor = get_coauthors();
-		};
-		// get co-author ID, name, description, featured image
-		$dmc_coauthor_id        = $dmc_coauthor[0]->ID;
-		$dmc_coauthor_firstname = $dmc_coauthor[0]->first_name;
-		$dmc_coauthor_desc      = $dmc_coauthor[0]->description;
-		$dmc_coauthor_website   = $dmc_coauthor[0]->website;
-		$dmc_coauthor_pic       = get_the_post_thumbnail(
-			$dmc_coauthor_id,
-			'thumbnail',
-			array(
-				'class' => 'authpic',
-			)
-		);
-		// get WP author ID, acf image field and website
-		$author_id        = get_the_author_meta( 'ID' );
-		$author_firstname = get_the_author_meta( 'first_name' );
-		$author_photo     = get_field( 'dmc_author_photo', 'user_' . $author_id );
-		$author_website   = get_the_author_meta( 'url' );
-		if ( $dmc_coauthor_pic ) {
-			 $output .= $dmc_coauthor_pic;
-		} else {
-			$output .= '<img src="' . $author_photo['url'] . '" alt="' . $author_photo['alt'] . '" class="authpic" />';
-		}
-		$output .= '</div><div class="small-10 columns"><h4>';
-		if ( function_exists( 'coauthors_posts_links' ) ) {
-			$output .= coauthors_posts_links( ', ', ' & ', '', '', false );
-		}
-		$output .= '</h4><p class="desc">';
-		if ( get_coauthors() ) {
-			$output .= $dmc_coauthor_desc;
-		} else {
-			get_the_author_meta( 'description' );
-		};
-		$output .= '</p>';
-		if ( $dmc_coauthor_pic ) {
-			if ( $dmc_coauthor_website ) {
-				$output .= '<p><a href="' . $dmc_coauthor_website . '">View ' . $dmc_coauthor_firstname . '\'s website</p>';
-			}
-		} else {
-			if ( $author_website ) {
-				$output .= '<p><a href="' . $author_website . '">View ' . $author_firstname . '\'s website</p>';
-			}
-		}
-		$output .= '</div></div></div>';
-		return $output;
+function dmc_author_profile() {
+	$output  = '';
+	$output .= '<div class="entry-author panel"><div class="row collapse"><div class="small-2 columns">';
+	// get an array of the current co-author data
+	if ( function_exists( 'get_coauthors' ) ) {
+		$dmc_coauthor = get_coauthors();
+	};
+	// get co-author ID, name, description, featured image
+	$dmc_coauthor_id        = $dmc_coauthor[0]->ID;
+	$dmc_coauthor_firstname = $dmc_coauthor[0]->first_name;
+	$dmc_coauthor_desc      = $dmc_coauthor[0]->description;
+	$dmc_coauthor_website   = $dmc_coauthor[0]->website;
+	$dmc_coauthor_pic       = get_the_post_thumbnail(
+		$dmc_coauthor_id,
+		'thumbnail',
+		array(
+			'class' => 'authpic',
+		)
+	);
+	// get WP author ID, acf image field and website
+	$author_id        = get_the_author_meta( 'ID' );
+	$author_firstname = get_the_author_meta( 'first_name' );
+	$author_photo     = get_field( 'dmc_author_photo', 'user_' . $author_id );
+	$author_website   = get_the_author_meta( 'url' );
+	if ( $dmc_coauthor_pic ) {
+			$output .= $dmc_coauthor_pic;
+	} else {
+		$output .= '<img src="' . $author_photo['url'] . '" alt="' . $author_photo['alt'] . '" class="authpic" />';
 	}
-}// End if().
+	$output .= '</div><div class="small-10 columns"><h4>';
+	if ( function_exists( 'coauthors_posts_links' ) ) {
+		$output .= coauthors_posts_links( ', ', ' & ', '', '', false );
+	}
+	$output .= '</h4><p class="desc">';
+	if ( get_coauthors() ) {
+		$output .= $dmc_coauthor_desc;
+	} else {
+		get_the_author_meta( 'description' );
+	};
+	$output .= '</p>';
+	if ( $dmc_coauthor_pic ) {
+		if ( $dmc_coauthor_website ) {
+			$output .= '<p><a href="' . $dmc_coauthor_website . '">View ' . $dmc_coauthor_firstname . '\'s website</p>';
+		}
+	} else {
+		if ( $author_website ) {
+			$output .= '<p><a href="' . $author_website . '">View ' . $author_firstname . '\'s website</p>';
+		}
+	}
+	$output .= '</div></div></div>';
+	return $output;
+}
+
 
 
 // is user if not admin or super admin

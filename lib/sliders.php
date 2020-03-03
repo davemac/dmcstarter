@@ -1,57 +1,55 @@
 <?php
 
 // Slick/ACF homepage image slider
-if ( ! function_exists( 'dmc_hero_slider' ) ) {
-	function dmc_hero_slider() {
+function dmc_hero_slider() {
 
-		if ( have_rows( 'dmc_hero_sliders' ) ) : ?>
-			<?php
-			while ( have_rows( 'dmc_hero_sliders' ) ) :
-				the_row();
+	if ( have_rows( 'dmc_hero_sliders' ) ) : ?>
+		<?php
+		while ( have_rows( 'dmc_hero_sliders' ) ) :
+			the_row();
+			?>
+
+			<div>
+				<?php
+				if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
+					?>
+					<a href="<?php the_sub_field( 'dmc_slide_image_links_to' ); ?>">
+					<?php
+				endif;
 				?>
 
-				<div>
-					<?php
-					if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-						?>
-						<a href="<?php the_sub_field( 'dmc_slide_image_links_to' ); ?>">
+				<div class="hero" style="background-image: url('<?php the_sub_field( 'dmc_slide_image' ); ?>')">
+
+					<div class="slider-meta">
+						<h1>
+							<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
+						</h1>
 						<?php
-					endif;
-					?>
-
-					<div class="hero" style="background-image: url('<?php the_sub_field( 'dmc_slide_image' ); ?>')"> 
-
-						<div class="slider-meta">
-							<h1>
-								<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
-							</h1>
-							<?php
-							if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
-								?>
-								<p>
-									<?php the_sub_field( 'dmc_slide_second_tagline' ); ?>
-								</p>
-								<?php
-							endif;
+						if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
 							?>
-						</div>
-
+							<p>
+								<?php the_sub_field( 'dmc_slide_second_tagline' ); ?>
+							</p>
+							<?php
+						endif;
+						?>
 					</div>
 
-					<?php
-					if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-						?>
-						</a>
-						<?php
-					endif
-					?>
 				</div>
 
 				<?php
-			endwhile;
-		endif;
+				if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
+					?>
+					</a>
+					<?php
+				endif
+				?>
+			</div>
 
-	}
+			<?php
+		endwhile;
+	endif;
+
 }
 
 

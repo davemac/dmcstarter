@@ -79,7 +79,6 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 // Tracking pixels
 // require_once get_template_directory() . '/lib/tracking/dmc-linkedin-pixel.php';
 // require_once get_template_directory() . '/lib/tracking/dmc-facebook-pixel.php';
-// require_once get_template_directory() . '/lib/tracking/dmc-facebook-pixel.php';
 // require_once get_template_directory() . '/lib/tracking/dmc-gtm.php';
 
 // RSS customisation functions
