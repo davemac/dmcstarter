@@ -1,4 +1,6 @@
 .page-numbers {
+	display: flex;
+	margin: 0;
 	color: #999;
 
 	// @include pagination;
@@ -6,20 +8,19 @@
 
 .pagination {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
 
 	ul.page-numbers li {
 		display: flex;
-		display: inline-block;
-		font-size: rem-calc(22);
-		font-weight: $font-weight-light;
+		font-size: rem-calc(16);
+		font-weight: $font-weight-normal;
 	}
 }
 
 .page-numbers li {
-	margin-left: rem-calc(8);
+	margin-right: $content-spacing;
 
 	span:hover a,
 	span a:focus {

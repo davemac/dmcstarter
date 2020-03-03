@@ -28,14 +28,14 @@
 
 		<div class="controls">
 			<?php
-			get_template_part( 'lib/searchform.php' );
+			require_once get_template_directory() . '/searchform.php';
 
 			wp_nav_menu(
 				array(
 					'theme_location' => 'utility',
 					'container'      => false,
 					'depth'          => 1,
-					'items_wrap'     => '<ul class="quicklinks">%3$s</ul>',
+					'items_wrap'     => '<ul class="dmc-quicklinks">%3$s</ul>',
 				)
 			);
 

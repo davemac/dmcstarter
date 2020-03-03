@@ -225,7 +225,7 @@ function dmcstarter_entry_meta() {
 		</span>
 		on
 		<time class="updated" datetime="<?php echo get_the_time( 'c' ); ?>'" pubdate>
-			<?php echo printf( __( '%s', 'dmcstarter' ), get_the_date(), get_the_date() ); ?>
+			<?php echo get_the_date(); ?>
 		</time>
 
 		<?php
@@ -323,33 +323,33 @@ function dmc_user_profile() {
 				$author_url                = get_the_author_meta( 'user_url', $author_id );
 				$author_email              = get_the_author_meta( 'user_email', $author_id );
 				$author_bio                = get_the_author_meta( 'description', $author_id );
-				$dmc_author_twitter_check  = get_field( 'dmc_twitter', 'user_' . $author_id );
+				$dmc_author_twitter_check  = get_the_author_meta( 'twitter_handle', $author_id );
 				$dmc_author_linkedin_check = get_field( 'dmc_linkedin', 'user_' . $author_id );
 				$dmc_author_position       = get_field( 'dmc_position', 'user_' . $author_id );
+				$dmc_author_company        = get_the_author_meta( 'billing_company', $author_id );
 				$archive_link              = get_author_posts_url( get_the_author_meta( 'ID', $author_id ) );
 				$link_title                = 'Articles by ' . get_the_author_meta( 'first_name', $author_id );
 				$profile_image             = get_field( 'dmc_profile_image', 'user_' . $author_id );
-				$display_profile_image     = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
+				$display_profile_image     = wp_get_attachment_image( $profile_image, 'thumbnail' );
 			}
 			?>
 
 				<div class="author-info">
 					<div class="media">
-						<div class="holder">
+						<div class="media-figure">
 
 							<?php
-							if ( $profile_image ) {
+							if ( $profile_image ) :
 								echo $display_profile_image;
 
-							} elseif ( function_exists( 'coauthors_posts_links' ) ) {
+							elseif ( function_exists( 'coauthors_posts_links' ) ) :
 								?>
 								<a href="<?php echo esc_url( $archive_link ); ?>" class="author-link" title="<?php echo esc_attr( $link_title ); ?>">
-									<?php echo $display_profile_image; ?>
+									<?php echo esc_url( $display_profile_image ); ?>
 								</a>
 								<?php
-							}
+							endif;
 							?>
-
 							<ul class="social__wrap inline-list">
 							<?php
 							if ( $dmc_author_twitter_check ) :
@@ -371,26 +371,6 @@ function dmc_user_profile() {
 								</li>
 								<?php
 							endif;
-
-							if ( $author_email ) :
-								?>
-								<!-- <li class="link__item">
-									<a href="mailto:<?php // echo antispambot( $author_email ); ?>">
-										<?php // echo antispambot( $author_email ); ?>
-									</a>
-								</li> -->
-								<?php
-							endif;
-
-							if ( $author_url ) :
-								?>
-								<li class="link__item">
-									<a href="mailto:<?php echo esc_url( $author_url ); ?>">
-										<?php echo esc_html( $author_name_first ); ?>'s website
-									</a>
-								</li>
-								<?php
-							endif;
 							?>
 							</ul>
 
@@ -403,15 +383,36 @@ function dmc_user_profile() {
 
 							<h6>
 								<?php echo esc_html( $dmc_author_position ); ?>
+								<?php echo esc_html( $dmc_author_company ); ?>
 							</h6>
 
 							<p>
 								<?php echo esc_html( $author_bio ); ?>
 							</p>
 
-							<a href="<?php echo esc_url( $archive_link ); ?>" title="<?php esc_attr( $link_title ); ?>">
-								<?php echo esc_html( $link_title ); ?>
-							</a>
+							<div class="additional">
+								<a href="<?php echo esc_url( $archive_link ); ?>" title="<?php esc_attr( $link_title ); ?>">
+									<?php echo esc_html( $link_title ); ?>
+								</a>
+								<?php
+								if ( $author_email ) :
+									?>
+									<a href="mailto:<?php echo antispambot( $author_email ); ?>">
+										<?php echo antispambot( $author_email ); ?>
+									</a>
+									<?php
+								endif;
+
+								if ( $author_url ) :
+									?>
+									<a href="mailto:<?php echo esc_url( $author_url ); ?>">
+										<?php echo esc_html( $author_name_first ); ?>'s website
+									</a>
+									<?php
+								endif;
+								?>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -421,26 +422,6 @@ function dmc_user_profile() {
 		} // End foreach().
 	} // End if().
 
-}
-
-
-function dmc_display_image_with_caption() {
-	?>
-	<div class="wp-caption">
-	<?php
-		the_post_thumbnail(
-			'large',
-			array(
-				'class' => 'img-featured',
-			)
-		);
-		$get_description = get_post( get_post_thumbnail_id() )->post_excerpt;
-	if ( ! empty( $get_description ) ) {
-		echo '<p class="wp-caption-text">' . esc_attr( $get_description ) . '</p>';
-	}
-	?>
-	</div>
-	<?php
 }
 
 
@@ -504,6 +485,26 @@ function dmc_user_profile_small() {
 		}// End foreach().
 	}// End if().
 	echo $output;
+}
+
+
+function dmc_display_image_with_caption() {
+	?>
+	<div class="wp-caption">
+	<?php
+		the_post_thumbnail(
+			'large',
+			array(
+				'class' => 'img-featured',
+			)
+		);
+		$get_description = get_post( get_post_thumbnail_id() )->post_excerpt;
+	if ( ! empty( $get_description ) ) {
+		echo '<p class="wp-caption-text">' . esc_attr( $get_description ) . '</p>';
+	}
+	?>
+	</div>
+	<?php
 }
 
 

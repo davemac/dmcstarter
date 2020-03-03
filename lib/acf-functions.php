@@ -39,7 +39,6 @@ function dmc_filter_acf_relationship( $args, $field, $post_id ) {
 	$args['post_status'] = 'publish';
 	return $args;
 }
-
 add_filter( 'acf/fields/relationship/query', 'dmc_filter_acf_relationship', 10, 3 );
 
 
@@ -99,7 +98,7 @@ function dmc_button_repeater() {
 				?>
 			<a href="<?php echo $dmc_button_url; ?>" class="button medium">
 				<?php echo $dmc_button_label; ?>
-			</a>   
+			</a>
 				<?php
 		endif;
 		endwhile;

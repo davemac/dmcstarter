@@ -68,7 +68,8 @@
 		li:hover > a,
 		.focus > a,
 		.current-menu-item > a,
-		.current-menu-ancestor > a {
+		.current-menu-ancestor > a,
+		li.active a {
 			color: $primary-color;
 			background-color: $secondary-color;
 		}
@@ -97,7 +98,7 @@
 					top: 50%;
 					transform: translateY(-50%);
 					border: 4px solid transparent;
-					border-top-color: currentColor; // trick to always keep the arrow coloured the same as the menu item's text in each state 
+					border-top-color: currentColor; // trick to always keep the arrow coloured the same as the menu item's text in each state
 				}
 			}
 		}
