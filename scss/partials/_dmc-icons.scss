@@ -52,11 +52,11 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 .social {
 	&__wrap {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: flex-start;
 	}
 
 	&__item {
-		width: $icon-size;
+		// width: $icon-size;
 		margin-right: $content-spacing;
 
 		#header & {
@@ -69,19 +69,18 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 		}
 
 		a {
-			text-decoration: none;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			width: $icon-size*2;
+			text-decoration: none;
+			line-height: 1;
+			padding: $icon-size/2;
 
 			&::before {
+				color: #fff;
 				font-family: FontAwesome, sans-serif;
-				font-size: $icon-size/1.5;
-				line-height: 2;
-
-				@media #{$medium-up} {
-					font-size: $icon-size;
-				}
+				font-size: $icon-size;
 			}
 		}
 	}

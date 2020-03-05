@@ -312,7 +312,7 @@ function dmc_user_profile() {
 				$dmc_author_post_links     = coauthors_posts_links( ', ', ' & ', '', '', false );
 				$archive_link              = get_author_posts_url( $coauthor->ID, $coauthor->user_nicename );
 				$link_title                = 'Articles by ' . $coauthor->first_name;
-				$profile_image             = get_field( 'dmc_profile_image', $coauthor->ID );
+				$profile_image             = get_field( 'dmc_author_photo', $coauthor->ID );
 				$display_profile_image     = wp_get_attachment_image( $profile_image, 'dmc-staff-profile' );
 
 			} else {
@@ -329,7 +329,7 @@ function dmc_user_profile() {
 				$dmc_author_company        = get_the_author_meta( 'billing_company', $author_id );
 				$archive_link              = get_author_posts_url( get_the_author_meta( 'ID', $author_id ) );
 				$link_title                = 'Articles by ' . get_the_author_meta( 'first_name', $author_id );
-				$profile_image             = get_field( 'dmc_profile_image', 'user_' . $author_id );
+				$profile_image             = get_field( 'dmc_author_photo', 'user_' . $author_id );
 				$display_profile_image     = wp_get_attachment_image( $profile_image, 'thumbnail' );
 			}
 			?>
@@ -350,29 +350,29 @@ function dmc_user_profile() {
 								<?php
 							endif;
 							?>
-							<ul class="social__wrap inline-list">
+							<div class="social__wrap">
 							<?php
 							if ( $dmc_author_twitter_check ) :
 								?>
-								<li class="social__item">
-									<a class="social__link--twitter" href="http://twitter.com/<?php echo esc_html( $dmc_author_twitter_check ); ?>" title="View <?php echo esc_html( $author_name_first ); ?>'s Twitter feed">
+								<div class="social__item">
+									<a class="social__link--twitter" href="http://twitter.com/<?php echo esc_html( $dmc_author_twitter_check ); ?>"  target="_blank" rel="noopener" title="View <?php echo esc_html( $author_name_first ); ?>'s Twitter feed">
 										<span class="social__link--text">twitter</span>
 									</a>
-								</li>
+								</div>
 								<?php
 							endif;
 
 							if ( $dmc_author_linkedin_check ) :
 								?>
-								<li class="social__item">
-									<a class="social__link--linkedin" href="<?php echo esc_url( $dmc_author_linkedin_check ); ?>" title="View <?php echo esc_html( $author_name_first ); ?>'s LinkedIn page">
+								<div class="social__item">
+									<a class="social__link--linkedin" href="<?php echo esc_url( $dmc_author_linkedin_check ); ?>"  target="_blank" rel="noopener" title="View <?php echo esc_html( $author_name_first ); ?>'s LinkedIn page">
 										<span class="social__link--text">linkedin</span>
 									</a>
-								</li>
+								</div>
 								<?php
 							endif;
 							?>
-							</ul>
+							</div>
 
 						</div>
 
@@ -419,8 +419,8 @@ function dmc_user_profile() {
 
 			<?php
 
-		} // End foreach().
-	} // End if().
+		}
+	}
 
 }
 

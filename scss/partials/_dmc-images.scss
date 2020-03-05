@@ -12,21 +12,9 @@
 
 	.media-figure {
 		width: 100%;
-		order: 1;
-		margin-bottom: $content-spacing;
 
 		@media #{$large-up} {
-			order: 1;
 			max-width: rem-calc(300);
-			margin: 0 0 0 $content-spacing*2;
-		}
-	}
-
-	.media-body {
-		order: 2;
-
-		@media #{$large-up} {
-			order: 1;
 		}
 	}
 }
