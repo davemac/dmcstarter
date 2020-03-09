@@ -11,46 +11,35 @@ article {
 		padding: $content-spacing;
 	}
 
-	.holder {
-		position: relative;
-	}
+	header {
+		margin-bottom: $content-spacing;
 
-	.content-holder {
-		p {
-			margin-bottom: 1rem !important;
+		h1 {
+			line-height: 1.2;
+			margin-bottom: $content-spacing;
+		}
+
+		.meta-holder {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: $content-spacing;
+			padding: rem-calc(10);
+			border-top: 1px solid $bg-light;
+			border-bottom: 1px solid $bg-light;
+			background-color: #f3f3f3;
 		}
 	}
 
-	h1 {
-		margin: 0 0 2rem;
-		font-size: rem-calc(24);
-		font-weight: $font-weight-normal;
-
-		@media #{$medium-up} {
-			font-size: rem-calc(32);
+	.entry-title {
+		a {
+			color: initial;
 		}
 
-		&.archive-title {
-			font-size: rem-calc(20);
-			margin: 0;
-		}
-	}
-
-	h2 {
-		margin-bottom: rem-calc(16);
-		font-size: rem-calc(24);
-		font-weight: $font-weight-bold;
-
-		&.entry-title {
-			a {
-				color: initial;
-			}
-
-			.blog &,
-			.category & {
-				@media #{$medium-up} {
-					font-size: rem-calc(32);
-				}
+		.blog &,
+		.category & {
+			@media #{$medium-up} {
+				font-size: rem-calc(32);
 			}
 		}
 	}
@@ -87,7 +76,6 @@ article {
 	}
 
 	.entry-content {
-
 		h2 {
 			color: #000;
 			margin: $content-spacing 0 rem-calc(16);

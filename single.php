@@ -14,10 +14,15 @@ get_header()
 				<h1 class="entry-title">
 					<?php the_title(); ?>
 				</h1>
-				<?php dmcstarter_entry_meta(); ?>
+
 				<?php dmc_display_image_with_caption(); ?>
-				<?php dmc_display_share(); ?>
+
+				<div class="meta-holder">
+					<?php dmcstarter_entry_meta(); ?>
+					<?php dmc_display_share(); ?>
+				</div>
 			</header>
+
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>

@@ -1,4 +1,3 @@
-$cart-color: $charcoal;
 
 // 	#payment {
 // 		#place_order {
@@ -29,7 +28,6 @@ $cart-color: $charcoal;
 	.woocommerce-message {
 		color: $body-font-color;
 		margin-top: rem-calc(15);
-		background: #fff;
 		border-top-color: #fff;
 
 		.button {
@@ -39,7 +37,6 @@ $cart-color: $charcoal;
 			font-size: rem-calc(15) !important;
 			font-weight: $font-weight-normal;
 			text-transform: initial;
-			background-color: #fff !important;
 			border: 1px solid $primary-color;
 
 			&::after {
@@ -640,40 +637,58 @@ $cart-color: $charcoal;
 }
 
 // header cart indicator
+.dmc-cart-contents {
+	display: flex;
 
-.cart-contents {
-	position: relative;
-	display: block;
-	color: #fff;
-	font-weight: $font-weight-medium;
-	line-height: 1;
-
-	.number {
-		position: absolute;
-		top: -10px;
-		right: -13px;
+	.cart-contents-count {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: rem-calc(14);
+		position: relative;
+		padding: rem-calc(5) $content-spacing/1.5;
 		color: #fff;
-		font-size: rem-calc(12);
+		background-color: $cart-color;
+		font-weight: $font-weight-bold;
 		line-height: 1;
-		background-color: $body-font-color;
-		border-radius: 50%;
+		border-radius: $global-radius;
 
-		@media #{$medium-up} {
-			width: rem-calc(19);
+		@media #{$small-only} {
+			position: absolute;
+			z-index: 99;
+			top: rem-calc(50);
+			right: 10px;
+		}
+
+		&::after {
+			font-family: fontawesome, sans-serif;
+			content: '\f07a';
+			font-size: rem-calc(20);
+			font-style: normal;
+			font-weight: $font-weight-bold;
+		}
+
+		.left-off-canvas-menu & {
+			display: none !important;
+		}
+
+		.number {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: rem-calc(14);
+			color: #fff;
+			font-size: rem-calc(12);
+			line-height: 1;
 			padding: rem-calc(5) rem-calc(11);
+			background-color: $body-font-color;
+			border-radius: 50%;
+
+			@media #{$medium-up} {
+				position: absolute;
+				top: -8px;
+				right: -11px;
+
+			}
 		}
 	}
-}
-
-.cart-contents-count::before {
-	font-family: 'Font Awesome 5 Pro', sans-serif;
-	content: '\f07a';
-	font-size: rem-calc(19);
-	font-weight: $font-weight-light;
 }
 
 .woocommerce-products-header {

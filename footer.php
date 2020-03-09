@@ -1,24 +1,23 @@
 
 	<aside class="right-off-canvas-menu">
 		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'primary',
+				'container'      => false,
+				'depth'          => 2,
+				'items_wrap'     => '<ul class="off-canvas-list">%3$s</ul>',
+				'walker'         => new dmcstarter_walker(
+					array(
+						'in_top_bar' => true,
+						'item_type'  => 'li',
+						'menu_type'  => 'main-menu',
+					)
+				),
+			)
+		);
 
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'depth'          => 2,
-					'items_wrap'     => '<ul class="off-canvas-list">%3$s</ul>',
-					'walker'         => new dmcstarter_walker(
-						array(
-							'in_top_bar' => true,
-							'item_type'  => 'li',
-							'menu_type'  => 'main-menu',
-						)
-					),
-				)
-			);
-
-			?>
+		?>
 	</aside>
 
 	<a class="exit-off-canvas"></a>
@@ -49,7 +48,7 @@
 			<p>
 				<a href="#">
 					Example link
-				</a>	
+				</a>
 			</p>
 		</div>
 	</div>
@@ -65,7 +64,7 @@
 
 <div class="credits">
 	<p>
-		&copy; Copyright <?php bloginfo( 'name' ); ?> 
+		&copy; Copyright <?php bloginfo( 'name' ); ?>
 		<?php echo intval( date( 'Y' ) ); ?>
 		<a href="https://dmcweb.com.au">WordPress website development</a> by DMC Web.
 	</p>

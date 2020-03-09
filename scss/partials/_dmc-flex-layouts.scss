@@ -180,13 +180,3 @@ footer {
 		justify-content: space-between;
 	}
 }
-
-.credits {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	@media #{$small-only} {
-		display: flex;
-	}
-}
