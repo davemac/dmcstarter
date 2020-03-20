@@ -16,7 +16,7 @@ while ( have_posts() ) :
 		</h1>
 	</div>
 	<div class="blend-overlay"></div>
-</section>  
+</section>
 
 <section class="calls-to-action">
 	<div class="content-holder text-center">
@@ -47,7 +47,7 @@ while ( have_posts() ) :
 		<h2 class="section-heading">
 			Featured Products
 		</h2>
-		<?php dmc_display_featured_products(); ?>
+		<?php // dmc_display_featured_products(); ?>
 	</div>
 </section>
 
