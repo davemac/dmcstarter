@@ -66,7 +66,7 @@ while ( have_posts() ) :
 		<h2>
 			Latest News
 		</h2>
-		<?php dmc_latest_posts_slider(); ?>
+		<?php // dmc_latest_posts_slider(); ?>
 	</div>
 </section>
 

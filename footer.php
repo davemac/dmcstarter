@@ -65,7 +65,7 @@
 <div class="credits">
 	<p>
 		&copy; Copyright <?php bloginfo( 'name' ); ?>
-		<?php echo intval( date( 'Y' ) ); ?>
+		<?php echo intval( gmdate( 'Y' ) ); ?>
 		<a href="https://dmcweb.com.au">WordPress website development</a> by DMC Web.
 	</p>
 	<div class="holder">

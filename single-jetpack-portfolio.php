@@ -6,7 +6,7 @@
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header>
 
-	<section> 
+	<section>
 
 		<?php
 
@@ -41,7 +41,7 @@
 			</div>
 
 		<?php endif; ?>
-	
+
 	</section>
 
 	<?php
@@ -102,9 +102,9 @@
 
 		</div>
 	</div>
-	
+
 </section>
 
 <?php get_sidebar(); ?>
-		
+
 <?php get_footer(); ?>

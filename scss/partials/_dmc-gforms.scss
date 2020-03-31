@@ -1,4 +1,4 @@
-#gform_wrapper_1 {
+#content .gform_wrapper {
 	margin-bottom: 2rem;
 
 	.home & {
@@ -90,7 +90,7 @@
 		padding: rem-calc(10);
 	}
 
-	// styles selects 
+	// styles selects
 
 	&.gf_browser_chrome,
 	&.gf_browser_safari {

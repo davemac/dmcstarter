@@ -10,11 +10,11 @@
 		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'About Us sidebar' ) ) : ?>
 		<?php endif; ?>
 
-	<?php elseif ( is_post_type_archive( 'jetpack-portfolio' ) ) : ?>
+	<?php elseif ( is_post_type_archive( 'jetpack-testimonial' ) ) : ?>
 
 		<!-- placeholder -->
 
-	<?php elseif ( is_singular( 'jetpack-portfolio' ) ) : ?>
+	<?php elseif ( is_singular( 'jetpack-testimonial' ) ) : ?>
 
 		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'Single Projects sidebar' ) ) : ?>
 		<?php endif; ?>

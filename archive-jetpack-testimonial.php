@@ -19,7 +19,7 @@ if ( have_posts() ) :
 
 			<?php
 			// Using Jetpack Infinite scroll, which creates the loop. Could use content.php template, but we wont here
-			get_template_part( 'content', 'jetpack-portfolio' );
+			get_template_part( 'content', 'jetpack-testimonial' );
 			?>
 
 			<?php
