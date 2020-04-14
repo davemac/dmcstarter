@@ -65,7 +65,7 @@
 			font-weight: $font-weight-medium;
 
 			@media #{$large-up} {
-				padding-right: $content-spacing*4;
+				margin-right: $content-spacing;
 			}
 
 			&::before {

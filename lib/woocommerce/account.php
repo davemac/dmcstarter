@@ -56,19 +56,19 @@ function dmc_display_wc_account_links() {
 	ob_start();
 
 	if ( is_user_logged_in() ) {
-	?>
+		?>
 
 		<a href="<?php echo esc_url( wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) ); ?>" class="link">
 			Log Out
 		</a>
 
-		<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>">
+		<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>" class="link">
 			Your Account
-		</a class="link">
+		</a>
 
-	<?php
+		<?php
 	} elseif ( ! is_user_logged_in() ) {
-	?>
+		?>
 
 		<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>" class="link">
 			Login
@@ -78,7 +78,7 @@ function dmc_display_wc_account_links() {
 			Create account
 		</a>
 
-	<?php
+		<?php
 	}
 
 	$items .= ob_get_clean();
