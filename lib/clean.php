@@ -16,11 +16,15 @@ function dmcstarter_startup() {
 	// additional post related cleaning
 	add_filter( 'img_caption_shortcode', 'dmcstarter_cleaner_caption', 10, 3 );
 	add_filter( 'get_image_tag', 'dmcstarter_image_editor', 0, 4 );
+
 	// tracking pixels
 	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
 	// add_action( 'wp_head', 'dmc_facebook_pixel' );
 	// add_action( 'wp_head', 'dmc_gtm_tracking_code' );
 	// add_action( 'wp_body_open', 'dmc_gtm_tracking_code_nojs' );
+
+	// Get Site Control
+	add_action( 'wp_footer', 'dmc_gsc_helper' );
 }
 
 
