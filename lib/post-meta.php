@@ -90,12 +90,20 @@ function dmc_display_post_tax_terms() {
 	$separator     = ', ';
 	$output        = '';
 
+	$tax_object = get_taxonomy( $taxonomy_name[0] );
+	$tax_label = $tax_object->labels->singular_name;
+
 	if ( ! empty( $post_terms ) ) {
 		if ( ! is_wp_error( $post_terms ) ) {
 			ob_start();
 			?>
 
 			<div class="post-cats">
+				<h4>
+					<?php
+					echo esc_attr( $tax_label );
+					?>:
+				</h4>
 				<?php
 				foreach ( $post_terms as $term ) {
 					$raw_termlist .= '<a href="' . esc_url( get_term_link( $term->slug, $taxonomy_name[0] ) ) . '">' . esc_html( $term->name ) . '</a>' . $separator;
