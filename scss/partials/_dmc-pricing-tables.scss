@@ -1,0 +1,120 @@
+.pricing-tables {
+	@media #{$medium-up} {
+		display: flex;
+		justify-content: center;
+		margin: $content-spacing*1.5 0 $content-spacing;
+	}
+
+	.pricing-table {
+		flex-basis: 25%;
+		border: 2px solid #fff;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		border-radius: $global-radius;
+		transition: transform 400ms ease-in-out;
+		transform: scale(1);
+
+		&:focus-within,
+		&:hover {
+			box-shadow: 0 0 14px 0.05rem;
+			transform: scale(1.15);
+			z-index: 9;
+		}
+
+		h3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: rem-calc(18);
+			font-weight: $font-weight-bold;
+			line-height: 3.5;
+			margin: 0;
+			background-color: $primary-color;
+			border-radius: $global-radius $global-radius 0 0;
+			border-bottom: 1px solid #111;
+
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		a::after {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		.plan-meta {
+			display: flex;
+			flex-flow: column;
+			flex-grow: 1;
+			text-align: center;
+			padding: 0 $content-spacing;
+			border-top: 2px solid #222;
+			background: linear-gradient(0deg, rgba(34, 34, 34, 1) 0%, rgba(51, 51, 51, 1) 100%);
+
+			> * + * {
+				margin-top: 0.75rem;
+			}
+
+			.plan-price {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: 0.75rem;
+				color: #fff;
+				font-size: rem-calc(70);
+				font-weight: $font-weight-medium;
+
+				strong {
+					margin-right: rem-calc(5);
+					color: $cart-color;
+					font-size: rem-calc(24);
+				}
+			}
+
+			p {
+				color: #999;
+				font-size: rem-calc(14);
+				line-height: 1.4;
+				padding-bottom: $content-spacing;
+			}
+
+			ul {
+				padding-top: rem-calc(20);
+				border-top: 1px solid #999;
+
+				li {
+					color: #999;
+					font-size: rem-calc(14);
+					line-height: 1.6;
+				}
+			}
+
+			> :last-child {
+				margin-top: auto;
+			}
+		}
+
+		.plan-button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: rem-calc(20);
+			font-weight: $font-weight-bold;
+			line-height: 3.5;
+			margin: 0;
+			background-color: $cart-color;
+			border-radius: 0 0 $global-radius $global-radius;
+			border-top: 2px solid #fff;
+		}
+	}
+}

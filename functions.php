@@ -64,6 +64,9 @@ require_once get_template_directory() . '/lib/jetpack.php';
 // jetpack-testimonials post-type and ACF customisation and display functions
 require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 
+// pricing tables
+// require_once get_template_directory() . '/lib/pricing-tables.php';
+
 // WooCommerce customisation functions
 // require_once get_template_directory() . '/lib/woocommerce/woocommerce.php';
 
