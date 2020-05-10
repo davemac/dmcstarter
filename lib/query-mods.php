@@ -53,6 +53,14 @@ function pdk_get_current_loop_index() {
 }
 
 
+// function dmc_remove_infinite_scroll() {
+// 	if ( is_post_type_archive( 'dmc-building' ) ) {
+// 		remove_theme_support( 'infinite-scroll' );
+// 	}
+// }
+// add_action( 'pre_get_posts', 'dmc_remove_infinite_scroll' );
+
+
 // sort event post type by date field
 // only showing event with start date after today
 function dmc_event_pre_get_posts( $query ) {

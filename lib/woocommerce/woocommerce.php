@@ -21,3 +21,6 @@ require_once get_template_directory() . '/lib/woocommerce/cart.php';
 // Order customisations
 // require_once get_template_directory() . '/lib/woocommerce/orders.php';
 
+// Subcsriptions
+// require_once get_template_directory() . '/lib/woocommerce/subscriptions.php';
+
