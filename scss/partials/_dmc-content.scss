@@ -171,3 +171,32 @@
 		height: rem-calc(400);
 	}
 }
+
+
+.insta {
+	margin: 0 auto;
+	max-width: calc(#{$row-width} - #{$content-spacing});
+	width: 100%;
+
+	.section-heading {
+		text-align: center;
+	}
+
+	#sbi_images {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	// set for 8 columns
+	#sb_instagram.sbi_col_8 #sbi_images .sbi_item {
+		flex: 1 0 50%;
+
+		@media #{$medium-up} {
+			flex: 1 0 25%;
+		}
+
+		@media #{$large-up} {
+			flex: 0 1 auto;
+		}
+	}
+}
