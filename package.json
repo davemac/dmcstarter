@@ -1,5 +1,5 @@
 {
-	"name": "foundation-libsass-template",
+	"name": "dmc-packages-template",
 	"version": "0.0.1",
 	"devDependencies": {
 		"autoprefixer": "^9.8.0",
