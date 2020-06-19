@@ -2,27 +2,27 @@
 	"name": "foundation-libsass-template",
 	"version": "0.0.1",
 	"devDependencies": {
-	  "autoprefixer": "^9.7.4",
-	  "fs-extra": "^8.1.0",
-	  "grunt": "^1.0.4",
-	  "grunt-bower-concat": "^1.0.0",
-	  "grunt-cache-bust": "^1.7.0",
-	  "grunt-contrib-clean": "^2.0.0",
-	  "grunt-contrib-copy": "^1.0.0",
-	  "grunt-contrib-uglify": "^4.0.1",
-	  "grunt-contrib-watch": "^1.1.0",
-	  "grunt-modernizr": "^2.1.0",
-	  "grunt-postcss": "^0.9.0",
-	  "grunt-rsync": "^3.0.0",
-	  "grunt-sass": "^3.1.0",
-	  "grunt-sassyclean": "^0.1.8",
-	  "jit-grunt": "^0.10.0",
-	  "node-sass": "^4.13.1"
+		"autoprefixer": "^9.8.0",
+		"fs-extra": "^9.0.1",
+		"grunt": "^1.1.0",
+		"grunt-bower-concat": "^1.0.0",
+		"grunt-cache-bust": "^1.7.0",
+		"grunt-contrib-clean": "^2.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-uglify": "^4.0.1",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-modernizr": "^3.0.0",
+		"grunt-postcss": "^0.9.0",
+		"grunt-rsync": "^3.0.0",
+		"grunt-sass": "^3.1.0",
+		"grunt-sassyclean": "^0.1.8",
+		"jit-grunt": "^0.10.0",
+		"node-sass": "^4.14.1"
 	},
 	"dependencies": {
-	  "npm-check-updates": "^4.0.1"
+		"npm-check-updates": "^7.0.1"
 	},
 	"browserslist": [
-	  "> 1%"
+		"> 1%"
 	]
-  }
+}
