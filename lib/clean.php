@@ -24,7 +24,7 @@ function dmcstarter_startup() {
 	// add_action( 'wp_body_open', 'dmc_gtm_tracking_code_nojs' );
 
 	// Get Site Control
-	add_action( 'wp_footer', 'dmc_gsc_helper' );
+	// add_action( 'wp_footer', 'dmc_gsc_helper' );
 }
 
 

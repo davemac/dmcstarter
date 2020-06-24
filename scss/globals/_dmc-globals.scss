@@ -43,14 +43,22 @@ h6 {
 	color: $header-font-color;
 	font-family: $header-font-family;
 	font-weight: $font-weight-medium;
+	margin-bottom: $content-spacing;
 }
 
 p {
+	font-size: rem-calc(16);
 	font-weight: $body-font-weight;
+	line-height: 1.45;
+
+	@media #{$medium-up} {
+		font-size: rem-calc(18);
+	}
 }
 
 h1 {
 	font-size: rem-calc(25);
+	line-height: 1.3;
 
 	@media #{$medium-up} {
 		font-size: rem-calc(32);

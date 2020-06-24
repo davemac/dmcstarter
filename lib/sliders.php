@@ -154,3 +154,60 @@ function dmc_item_slider() {
 		endwhile;
 	endif;
 }
+
+
+function dmc_testimonial_slider( $dmc_testimonial_slider_testimonials ) {
+	?>
+
+	<div class="testimonial-slider-wrap">
+
+		<?php
+		$heading = get_field( 'dmc_testimonial_slider_heading' );
+		echo ( $heading ? '<h1 class="section-heading">' . $heading . '</h1>' : '' );
+		?>
+
+		<div class="testimonial-slider">
+
+			<?php
+			foreach ( $dmc_testimonial_slider_testimonials as $testimonial ) :
+				?>
+
+				<div class="carousel-cell testimonial">
+					<blockquote>
+						<p>
+							<?php echo esc_textarea( $testimonial->post_content ); ?>
+						</p>
+					</blockquote>
+
+					<?php if ( has_post_thumbnail( $testimonial->ID ) ) { ?>
+						<div class="image">
+							<?php echo get_the_post_thumbnail( $testimonial->ID, 'dmc-thumbnail-square' ); ?>
+						</div>
+					<?php } ?>
+
+					<div class="author">
+						<?php echo esc_attr( $testimonial->post_title ); ?>
+					</div>
+
+					<div class="position">
+						<?php echo get_field( 'dmc_position', $testimonial->ID ); ?>
+					</div>
+
+					<div class="company">
+						<?php echo get_field( 'dmc_company', $testimonial->ID ); ?>
+					</div>
+				</div>
+
+				<?php
+			endforeach;
+			?>
+
+		</div>
+
+		<?php
+		wp_reset_postdata();
+		?>
+
+	</div>
+	<?php
+}

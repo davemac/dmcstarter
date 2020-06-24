@@ -42,6 +42,17 @@ while ( have_posts() ) :
 	</div>
 </section>
 
+<section class="calls-to-action">
+	<div class="content-holder">
+		<?php
+		$dmc_testimonial_slider_testimonials = get_field( 'homepage_two_dmc_testimonial_slider_testimonials' );
+		if ( $dmc_testimonial_slider_testimonials ) :
+			dmc_testimonial_slider( $dmc_testimonial_slider_testimonials );
+		endif;
+		?>
+	</div>
+</section>
+
 <section class="featured-products woocommerce">
 	<div class="content-holder">
 		<h2 class="section-heading">

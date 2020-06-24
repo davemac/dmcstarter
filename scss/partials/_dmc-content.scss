@@ -6,6 +6,14 @@
 			&:nth-of-type(even) {
 				background-color: $bg-light;
 			}
+
+			&.no-top-gap {
+				padding-top: 0;
+			}
+
+			&.no-bottom-gap {
+				padding-bottom: 0;
+			}
 		}
 	}
 }
@@ -109,7 +117,7 @@
 }
 
 .testimonial {
-	padding: rem-calc(27) 0 rem-calc(96);
+	padding: $content-spacing 0;
 
 	blockquote {
 		quotes: '“' '”';
