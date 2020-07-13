@@ -9,7 +9,9 @@ if ( have_posts() ) :
 	<section class="flex-row dmc-max-three portfolio" id="dmc-infinite">
 
 		<header>
-			<h1 class="entry-title"><?php post_type_archive_title(); ?></h1>
+			<h1 class="entry-title">
+				<?php post_type_archive_title(); ?>
+			</h1>
 		</header>
 
 		<?php

@@ -45,7 +45,7 @@ while ( have_posts() ) :
 <section class="calls-to-action">
 	<div class="content-holder">
 		<?php
-		$dmc_testimonial_slider_testimonials = get_field( 'homepage_two_dmc_testimonial_slider_testimonials' );
+		$dmc_testimonial_slider_testimonials = get_field( 'homepage_dmc_testimonial_slider_testimonials' );
 		if ( $dmc_testimonial_slider_testimonials ) :
 			dmc_testimonial_slider( $dmc_testimonial_slider_testimonials );
 		endif;
@@ -72,14 +72,11 @@ while ( have_posts() ) :
 	</div>
 </section>
 
-<section class="latest-news">
-	<div class="content-holder">
-		<h2>
-			Latest News
-		</h2>
-		<?php // dmc_latest_posts_slider(); ?>
-	</div>
-</section>
+	<section class="latest-news">
+		<div class="content-holder">
+			<?php dmc_latest_posts_slider(); ?>
+		</div>
+	</section>
 
 <?php
 $home_news = new WP_Query(

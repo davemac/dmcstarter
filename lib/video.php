@@ -36,7 +36,7 @@ add_filter( 'embed_oembed_html', 'wpse_embed_oembed_html', 99, 4 );
 
 // display acf emed using foundation flex video
 // do not display related videos
-function dmc_show_featured_video( $dmc_field = 'dmc_video' ) {
+function dmc_display_featured_video( $dmc_field = 'dmc_video' ) {
 	?>
 
 <div class="flex-video youtube">

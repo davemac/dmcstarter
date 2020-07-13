@@ -1,6 +1,6 @@
 <?php
 
-// Slick/ACF homepage image slider
+// Flickity/ACF homepage image slider
 function dmc_hero_slider() {
 
 	if ( have_rows( 'dmc_hero_sliders' ) ) : ?>
@@ -9,7 +9,7 @@ function dmc_hero_slider() {
 			the_row();
 			?>
 
-			<div>
+			<div class="carousel-cell">
 				<?php
 				if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
 					?>
@@ -53,42 +53,32 @@ function dmc_hero_slider() {
 }
 
 
-// Slick latest posts slider
+// Flickity latest posts slider
 function dmc_latest_posts_slider() {
 
 	$latest_news = new WP_Query(
 		array(
 			'post_type'      => 'post',
-			'posts_per_page' => 3,
+			'posts_per_page' => 4,
 			'orderby'        => 'menu_order',
 			'order'          => 'ASC',
 		)
 	);
 	if ( $latest_news ) :
 		?>
-		<div id="blog-slider">
+
+		<h1 class="section-heading">
+			Insights
+		</h1>
+
+		<div class="posts-slider">
 			<?php
 			while ( $latest_news->have_posts() ) :
 				$latest_news->the_post();
 				?>
 
-				<div>
-					<a href="<?php the_permalink(); ?>" class="flex-holder">
-						<?php
-						the_post_thumbnail(
-							'homepage-blog',
-							array(
-								'class' => 'alignnone',
-							)
-						);
-						?>
-						<div class="holder">
-							<h3>
-								<?php the_title(); ?>
-							</h3>
-							<?php the_excerpt(); ?>
-						</div>
-					</a>
+				<div class="carousel-cell dmc-post">
+					<?php get_template_part( 'content', 'card-slider' ); ?>
 				</div>
 
 				<?php

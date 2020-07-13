@@ -13,6 +13,15 @@
 			width: 25%;
 		}
 
+		.hero {
+			height: 20vh;
+			background-size: cover;
+
+			@media #{$medium-up} {
+				height: rem-calc(300);
+			}
+		}
+
 		.card-img {
 			height: rem-calc(169);
 		}
