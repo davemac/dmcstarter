@@ -75,16 +75,11 @@ function dmc_latest_posts_slider() {
 			<?php
 			while ( $latest_news->have_posts() ) :
 				$latest_news->the_post();
-				?>
 
-				<div class="carousel-cell dmc-post">
-					<?php get_template_part( 'content', 'card-slider' ); ?>
-				</div>
+					get_template_part( 'content', 'card-slider' );
 
-				<?php
 			endwhile;
 			?>
-		</div>
 		<?php
 	endif;
 	wp_reset_postdata();

@@ -1,77 +1,124 @@
+.flickity-slider {
 
-.property-slider-combined {
+	.carousel-cell-image {
+		transition: opacity 0.4s;
+		opacity: 0;
+	}
+
+	.carousel-cell-image.flickity-lazyloaded,
+	.carousel-cell-image.flickity-lazyerror {
+		opacity: 1;
+	}
+}
+
+.flickity-button {
+	background: transparent;
+
+	&.flickity-prev-next-button {
+		&.previous {
+			left: -75px;
+		}
+
+		&.next {
+			right: -75px;
+		}
+	}
+
+	.flickity-button-icon {
+		fill: $primary-color;
+	}
+}
+
+.flickity-page-dots {
+	bottom: -40px;
+
+	.dot {
+		width: 13px;
+		height: 13px;
+		opacity: 1;
+		background: transparent;
+		border: 1px solid #8d8d8d;
+	}
+}
+
+.flickity-page-dots .dot.is-selected {
+	background: #8d8d8d;
+}
+
+.testimonial-slider {
+	max-width: rem-calc(940);
+	margin: 0 auto;
 
 	.carousel-cell {
 		width: 100%;
-		margin-right: $content-spacing/2;
+	}
+}
+
+.posts-slider {
+	.carousel-cell {
+		width: calc(100%);
+		// https: //github.com/metafizzy/flickity/issues/534#issuecomment-479151325
+		min-height: 100%;
+		display: flex;
+		border: 1px solid #fff;
 
 		@media #{$medium-up} {
-			width: 33%;
+			width: calc(33%);
 		}
 
 		@media #{$large-up} {
-			width: 25%;
-		}
-
-		.hero {
-			height: 20vh;
-			background-size: cover;
-
-			@media #{$medium-up} {
-				height: rem-calc(300);
-			}
+			width: calc(25%);
 		}
 
 		.card-img {
-			height: rem-calc(169);
+			height: rem-calc(165);
 		}
 
-		.building-stats {
-			margin-bottom: $content-spacing/2;
-		}
-
-		.carousel-cell-image {
-			transition: opacity 0.4s;
-			opacity: 0;
-		}
-
-		.carousel-cell-image.flickity-lazyloaded,
-		.carousel-cell-image.flickity-lazyerror {
-			opacity: 1;
+		h1 {
+			margin-bottom: 0;
 		}
 	}
 
-	.flickity-button {
-		background: transparent;
+}
 
-		&.flickity-prev-next-button {
-			&.previous {
-				left: -50px;
-			}
+.product-slider {
+	max-width: rem-calc(940);
+	margin: 0 auto;
+	padding-bottom: $content-spacing*2;
 
-			&.next {
-				right: -50px;
+	.carousel-cell {
+		width: 100%;
+
+		.holder {
+			@media #{$medium-up} {
+				display: flex;
+				align-items: flex-start;
 			}
 		}
 
-		.flickity-button-icon {
-			fill: $primary-color;
+		.entry-meta {
+			max-width: rem-calc(550);
 		}
+
+		img {
+			width: 100%;
+			max-width: rem-calc(356);
+			margin: 0 $content-spacing $content-spacing 0;
+		}
+
+		h2 {
+			color: $third-color;
+			line-height: 1.08;
+		}
+
+		p {
+			color: #fff;
+			font-weight: $font-weight-light;
+		}
+
 	}
 
 	.flickity-page-dots {
-		bottom: -40px;
-
-		.dot {
-			width: 13px;
-			height: 13px;
-			opacity: 1;
-			background: transparent;
-			border: 1px solid $primary-color;
-		}
-	}
-
-	.flickity-page-dots .dot.is-selected {
-		background: $primary-color;
+		bottom: 20px;
 	}
 }

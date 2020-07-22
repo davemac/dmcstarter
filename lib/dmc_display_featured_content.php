@@ -1,35 +1,25 @@
 <?php
 
-// displays homepage featured content
-function dmc_display_featured_content_home() {
+// displays featured content from any post type
+function dmc_display_featured_content( $dmc_featured_content ) {
+	?>
 
-	$dmc_featured_contents = get_field( 'dmc_featured_content' );
-	if ( $dmc_featured_contents ) :
+	<div class="cards post-cards posts-slider">
 
-		foreach ( $dmc_featured_contents as $dmc_featured_content ) :
-			setup_postdata( $dmc_featured_content );
-			?>
+		<?php
+		global $post;
+		foreach ( $dmc_featured_content as $post ) :
+			setup_postdata( $post );
 
-			<div class="featured-item">
-				<div class="card-new featured main" <?php dmc_display_featured_img_bg( $dmc_featured_content->ID ); ?>>
-					<div class="entry-meta">
-						<h3 class="heading">
-							<a href="<?php echo esc_url( get_the_permalink( $dmc_featured_content->ID ) ); ?>">
-								<?php echo esc_attr( get_the_title( $dmc_featured_content->ID ) ); ?>
-							</a>
-						</h3>
-						<p>
-							<?php echo esc_textarea( $dmc_featured_content->post_excerpt ); ?>
-						</p>
-					</div>
-					<div class="blend-overlay"></div>
-				</div>
-			</div>
+			get_template_part( 'content', 'card-slider' );
 
-			<?php
 		endforeach;
 		wp_reset_postdata();
-	endif;
+		?>
+
+	</div>
+
+	<?php
 }
 
 

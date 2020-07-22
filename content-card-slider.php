@@ -1,14 +1,10 @@
-
-<div class="card-new carousel-cell">
+<div class="carousel-cell card-new">
 	<div class="card-img">
 		<?php
 		the_post_thumbnail(
-			'fd-sm',
+			'medium',
 			array(
-				// 'width'  => 380,
-				// 'height' => 280,
 				'crop'  => 'true',
-				'class' => 'carousel-cell-image',
 			),
 			array()
 		);
@@ -28,3 +24,4 @@
 
 	</div>
 </div>
+
