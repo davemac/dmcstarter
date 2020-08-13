@@ -25,41 +25,45 @@
 		padding-top: $content-spacing*8;
 	}
 
-	.woocommerce-message {
-		color: $body-font-color;
-		margin-top: rem-calc(15);
-		border-top-color: #fff;
+	.woocommerce-notices-wrapper,
+	.woocommerce-form-coupon-toggle {
+		ul li {
+			font-size: initial;
+			padding: 0;
+			background-image: none;
+		}
 
-		.button {
-			color: $body-font-color;
-			display: flex !important;
-			justify-content: space-between;
-			font-size: rem-calc(15) !important;
-			font-weight: $font-weight-normal;
-			text-transform: initial;
-			border: 1px solid $primary-color;
+		.woocommerce-error {
+			background-color: $third-color;
+		}
 
-			&::after {
-				padding-left: rem-calc(10);
-				font-family: 'Font Awesome 5 Pro', sans-serif;
-				content: '\f105';
-				font-size: rem-calc(15);
+		.woocommerce-message {
+			color: $header-font-color;
+			background-color: #ddd;
+
+			.button {
+				color: $body-font-color;
+				display: flex !important;
+				justify-content: space-between;
+				font-size: rem-calc(15) !important;
+				font-weight: $font-weight-normal;
+				text-transform: initial;
+				border: 1px solid $primary-color;
 			}
 		}
-	}
 
-	.woocommerce-info {
-		font-size: rem-calc(20);
-		font-weight: $font-weight-medium;
-		border-top: 1px solid $body-font-color;
+		.woocommerce-info {
+			color: $header-font-color;
+			background-color: #ddd;
 
-		a {
-			font-size: rem-calc(15);
-			font-weight: $font-weight-normal;
-		}
+			a {
+				font-size: rem-calc(15);
+				font-weight: $font-weight-normal;
+			}
 
-		&::before {
-			display: none;
+			&::before {
+				display: none;
+			}
 		}
 	}
 
@@ -85,126 +89,115 @@
 	}
 
 	table.shop_table {
-		border: none;
-		border-top: none;
+		border-radius: 0;
+		background-color: #fff;
 
 		input {
 			height: rem-calc(37);
 			padding: rem-calc(8);
 			color: $body-font-color;
-			font-size: 16px;
+			font-size: rem-calc(18);
 			font-weight: $font-weight-normal;
 			border: 1px solid #ccc;
 			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+		}
 
-			&#coupon_code {
-				width: rem-calc(330) !important;
+		.coupon {
+			input#coupon_code {
+				width: rem-calc(200) !important;
+			}
+
+			.button {
+				margin-top: 0;
 			}
 		}
 
-		th {
-			font-size: rem-calc(15);
-			font-weight: $font-weight-medium !important;
+		thead {
+			th {
+				color: $header-font-color;
+				font-size: rem-calc(20);
+			}
 		}
 
-		td {
-			@media #{$large-up} {
-				padding: rem-calc(30) rem-calc(20);
+		tbody {
+
+			th {
+				font-size: rem-calc(18);
 			}
 
-			a {
-				color: $body-font-color;
+			td {
+				// @media #{$large-up} {
+				// 	padding: rem-calc(20) rem-calc(10);
+				// }
 
-				&.shipping-calculator-button {
-					color: initial;
-					text-decoration: underline;
+				a {
+					color: $body-font-color;
+				}
 
-					&::after {
-						margin: 0;
-						content: '';
+				&.product-thumbnail img {
+					max-height: 145px;
+					width: auto;
+				}
+
+				button.button {
+					color: #fff;
+					background-color: $third-color;
+					border-radius: 0;
+
+					&:disabled {
+						color: #aaa;
 					}
 				}
-			}
 
-			&.product-thumbnail img {
-				max-height: 145px;
-				width: auto;
-			}
+				&.actions {
+					.button {
+						float: right;
+						margin-top: 0;
 
-			button.button {
-				color: #fff;
-				background-color: $body-font-color;
-				border-radius: 0;
-
-				&:disabled {
-					color: #aaa;
+					}
 				}
-			}
 
-			&.actions {
-				.button {
-					float: right;
-				}
 			}
 		}
 	}
 
 	.cart_totals {
-		max-width: 500px;
-		color: $body-font-color;
+		max-width: rem-calc(400);
 
 		h2 {
-			display: none;
+			font-size: rem-calc(26);
 		}
 
 		.shop_table {
-			border-top: 1px solid $third-color;
-
 			th {
-				padding: rem-calc(15) 0;
-				vertical-align: center;
-				font-weight: $font-weight-normal;
+				color: $primary-color;
+				font-size: rem-calc(22);
+				text-align: right;
 			}
 
 			td {
-				text-align: right;
+				font-size: rem-calc(18);
 
 				@media #{$large-up} {
-					padding: rem-calc(15) 0;
+					padding: rem-calc(12) rem-calc(12);
 				}
 			}
 		}
 
-		.order-total {
-
-			th,
-			td {
-				font-size: rem-calc(26);
-				font-weight: $font-weight-medium;
-			}
-		}
-
 		.checkout-button {
-			display: flex !important;
-			justify-content: space-between;
-			width: 100%;
-			padding: rem-calc(22) $content-spacing rem-calc(20);
+			max-width: initial;
+			margin: $content-spacing 0 0;
 			font-size: rem-calc(18);
 			font-weight: $font-weight-medium;
 			text-transform: initial;
-			background-color: $body-font-color !important;
+			background-color: $cart-color !important;
 			border-radius: 0;
 
-			&::after {
-				font-family: 'Font Awesome 5 Pro', sans-serif;
-				content: '\f105';
-				font-size: rem-calc(20);
-			}
-
 			&:hover {
-				background-color: darken($primary-color, 12%) !important;
+				background-color: darken($third-color, 12%) !important;
 			}
 		}
+
 	}
 
 	form .form-row input {

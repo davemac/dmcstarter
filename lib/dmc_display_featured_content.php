@@ -11,6 +11,10 @@ function dmc_display_featured_content( $dmc_featured_content ) {
 		foreach ( $dmc_featured_content as $post ) :
 			setup_postdata( $post );
 
+			$post_type_name = $post->post_type;
+			// make these variables available to the template part
+			set_query_var( 'post_type_name', $post_type_name );
+
 			get_template_part( 'content', 'card-slider' );
 
 		endforeach;

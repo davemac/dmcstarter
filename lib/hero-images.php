@@ -37,7 +37,7 @@ function dmc_display_featured_img_bg( $post_id = null ) {
 }
 
 
-//  display ACF field image URL for CSS background attribute
+//  display ACF image URL for CSS background attribute
 function dmc_display_acf_img_bg( $dmc_set_id = null ) {
 
 	$dmc_page_hero_image = get_field( 'dmc_page_hero_image', $dmc_set_id );

@@ -7,8 +7,13 @@ jQuery( document ).ready( function( $ ) {
 		cellAlign: 'left',
 		wrapAround: true,
 		groupCells: true,
-		freeScroll: true,
-		freeScrollFriction: 0.04,
+		// freeScroll: true,
+		// freeScrollFriction: 0.08,
+		selectedAttraction: 0.01,
+		friction: 0.15,
+		lazyLoad: true,
+		// prevNextButtons: false,
+		// pageDots: false
 	});
 
 	$('.posts-slider').flickity({
@@ -26,6 +31,18 @@ jQuery( document ).ready( function( $ ) {
 		freeScroll: true,
 		freeScrollFriction: 0.04,
 		lazyLoad: true
+	});
+
+	// smooth scroll element into view
+	function scrollTo(selector) {
+		document.querySelector(selector).scrollIntoView(
+			{ behavior: 'smooth' }
+	)};
+
+	$('.total-colour-mastery').click(function() {
+		document.getElementById('total-colour-mastery').scrollIntoView(
+			{ behavior: "smooth" }
+		)
 	});
 
 	// set readonly attribute on form fields with this class
