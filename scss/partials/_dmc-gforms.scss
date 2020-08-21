@@ -206,6 +206,8 @@
 	}
 
 	.gform_button {
+		-webkit-appearance: none;
+		opacity: 1;
 		font-size: rem-calc(16);
 		font-weight: $font-weight-bold;
 		border-radius: $global-radius;
