@@ -68,10 +68,33 @@ function dmc_defer_scripts( $tag, $handle, $src ) {
 add_filter( 'script_loader_tag', 'dmc_defer_scripts', 10, 3 );
 
 
+// async these scripts
+add_filter(
+	'script_loader_tag',
+	function ( $tag, $handle ) {
+
+		if ( 'googlemap-js-api' !== $handle ) {
+			return $tag;
+		}
+
+		// return str_replace( ' src', ' defer src', $tag ); // defer the script
+		return str_replace( ' src', ' async src', $tag ); // OR async the script
+		//return str_replace( ' src', ' async defer src', $tag ); // OR do both!
+
+	},
+	10, 2
+);
+
+
 // vendor styles
 function dmcstarter_enqueue_style() {
-	// Google fonts
-	// wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,700&display=swap', array(), 'false', 'all' );
+	// only serve google fonts externally for the following
+	switch ( wp_get_environment_type() ) :
+		case 'development':
+		case 'staging':
+			wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap', array(), 'false', 'all' );
+			break;
+	endswitch;
 
 	// main stylesheet
 	wp_enqueue_style( 'dmcstarter-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );

@@ -69,13 +69,13 @@
 							'depth'          => 3,
 							'items_wrap'     => '<ul class="main-menu">%3$s</ul>',
 							'fallback_cb'    => 'dmcstarter_menu_fallback',
-							'walker'         => new dmcstarter_walker(
-								array(
-									'in_top_bar' => true,
-									'item_type'  => 'li',
-									'menu_type'  => 'main-menu',
-								)
-							),
+							// 'walker'         => new dmcstarter_walker(
+							// 	array(
+							// 		'in_top_bar' => true,
+							// 		'item_type'  => 'li',
+							// 		'menu_type'  => 'main-menu',
+							// 	)
+							// ),
 						)
 					);
 					?>

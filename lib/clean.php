@@ -101,7 +101,7 @@ function dmcstarter_head_cleanup() {
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'dmcstarter_remove_wp_ver_css_js', 9999 );
 
-} /* end head cleanup */
+}
 
 
 // remove WP version from RSS
@@ -183,7 +183,7 @@ function dmcstarter_image_editor( $html, $id, $alt, $title ) {
 		),
 		$html
 	);
-} /* end dmcstarter_image_editor */
+}
 
 
 function dmc_change_post_object_labels() {
