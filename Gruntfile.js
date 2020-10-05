@@ -2,8 +2,10 @@
 
 module.exports = function(grunt) {
 
-	// load all grunt tasks
-	require('jit-grunt')(grunt);
+    // load all grunt tasks
+    require('jit-grunt')(grunt, {
+        postcss: '@lodder/grunt-postcss',        // for private modules.
+    });
 
 	var jsFoundation = [
 		'bower_components/foundation/js/foundation/foundation.js',
