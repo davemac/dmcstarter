@@ -22,7 +22,7 @@
 
 	> * {
 		@media #{$medium-up} {
-			flex-basis: calc(50% - $content-spacing);
+			flex-basis: calc(50% - #{$content-spacing});
 			margin-bottom: rem-calc(50);
 		}
 	}
