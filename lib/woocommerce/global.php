@@ -12,16 +12,6 @@ function dmc_wc_global_tweaks() {
 }
 
 
-// // remove product tabs
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-function woo_remove_product_tabs( $tabs ) {
-	// unset( $tabs['description'] );      	// Remove the description tab
-	unset( $tabs['reviews'] );          // Remove the reviews tab
-	unset( $tabs['additional_information'] );   // Remove the additional information tab
-	return $tabs;
-}
-
-
 // show product attributes
 add_action( 'woocommerce_product_meta_start', 'show_attributes', 25 );
 function show_attributes() {

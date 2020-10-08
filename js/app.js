@@ -1,6 +1,15 @@
 
 'use strict';
-jQuery( document ).ready( function( $ ) {
+jQuery(document).ready(function ($) {
+
+	$('.homepage-slider').flickity({
+		// options
+		wrapAround: true,
+		freeScroll: true,
+		freeScrollFriction: 0.04,
+		lazyLoad: true,
+		pageDots: false,
+	});
 
 	$('.testimonial-slider').flickity({
 		// options

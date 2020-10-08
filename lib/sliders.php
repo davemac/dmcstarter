@@ -7,43 +7,29 @@ function dmc_hero_slider() {
 		<?php
 		while ( have_rows( 'dmc_hero_sliders' ) ) :
 			the_row();
+
+			$is_slide_link = get_sub_field( 'dmc_slide_image_links_to' );
+			$slide_link = $is_slide_link ? $is_slide_link : '#';
 			?>
 
 			<div class="carousel-cell">
-				<?php
-				if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-					?>
-					<a href="<?php the_sub_field( 'dmc_slide_image_links_to' ); ?>">
-					<?php
-				endif;
-				?>
 
-				<div class="hero" style="background-image: url('<?php the_sub_field( 'dmc_slide_image' ); ?>')">
+				<a href="<?php echo esc_url( $slide_link ); ?>">
+					<div class="home-hero" style="background-image: url('<?php the_sub_field( 'dmc_slide_image' ); ?>')">
 
-					<div class="slider-meta">
-						<h1>
-							<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
-						</h1>
-						<?php
-						if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
-							?>
-							<p>
-								<?php the_sub_field( 'dmc_slide_second_tagline' ); ?>
-							</p>
+						<div class="slider-meta">
+							<h1>
+								<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
+							</h1>
 							<?php
-						endif;
-						?>
+							if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
+								the_sub_field( 'dmc_slide_second_tagline' );
+							endif;
+							?>
+						</div>
 					</div>
+				</a>
 
-				</div>
-
-				<?php
-				if ( get_sub_field( 'dmc_slide_image_links_to' ) ) :
-					?>
-					</a>
-					<?php
-				endif
-				?>
 			</div>
 
 			<?php

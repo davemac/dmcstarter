@@ -1,93 +1,132 @@
-{
-    "key": "group_59465b72c00ee",
-    "title": "Hero slider",
-    "fields": [
-        {
-            "key": "field_59266978365bd",
-            "label": "Hero sliders",
-            "name": "dmc_hero_sliders",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_59266978372f2",
-            "min": 1,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add slide",
-            "sub_fields": [
-                {
-                    "key": "field_59266978372e1",
-                    "label": "Slide image",
-                    "name": "dmc_slide_image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": ".2",
-                    "mime_types": ""
+[
+    {
+        "key": "group_59465b72c00ee",
+        "title": "Hero slider",
+        "fields": [
+            {
+                "key": "field_59266978365bd",
+                "label": "Hero sliders",
+                "name": "dmc_hero_sliders",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
                 },
-                {
-                    "key": "field_5926697837309",
-                    "label": "Slider image links to",
-                    "name": "dmc_slide_image_links_to",
-                    "type": "page_link",
-                    "instructions": "Select a page or post within the site that this slider should link to.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
+                "collapsed": "field_5f7e8dff7f607",
+                "min": 1,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add slide",
+                "sub_fields": [
+                    {
+                        "key": "field_59266978372e1",
+                        "label": "Slide image",
+                        "name": "dmc_slide_image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": 1920,
+                        "min_height": 600,
+                        "min_size": "",
+                        "max_width": 3840,
+                        "max_height": 1400,
+                        "max_size": ".4",
+                        "mime_types": ""
                     },
-                    "post_type": [
-                        "product",
-                        "page"
-                    ],
-                    "taxonomy": [],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
+                    {
+                        "key": "field_5926697837309",
+                        "label": "Slider image links to",
+                        "name": "dmc_slide_image_links_to",
+                        "type": "page_link",
+                        "instructions": "Select a page or post within the site that this slider should link to.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "product",
+                            "page"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 1,
+                        "allow_archives": 0,
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_5f7e8dea7f606",
+                        "label": "Heading",
+                        "name": "dmc_slide_main_tagline",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f7e8dff7f607",
+                        "label": "Content",
+                        "name": "dmc_slide_second_tagline",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 4,
+                        "new_lines": "wpautop"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
                 }
             ]
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "page_type",
-                "operator": "==",
-                "value": "front_page"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content"
-    ],
-    "active": 0,
-    "description": "",
-    "modified": 1575258666
-}
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": ""
+    }
+]

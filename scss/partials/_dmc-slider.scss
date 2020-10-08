@@ -45,6 +45,46 @@
 	background: #8d8d8d;
 }
 
+.homepage-slider {
+	margin: 0 auto;
+
+	.carousel-cell {
+		width: 100%;
+
+		.home-hero {
+			height: 60vh;
+			display: flex;
+			flex-flow: column;
+			justify-content: flex-start;
+			padding: 10vh 0 $content-spacing;
+			background-position: center;
+			background-size: cover;
+
+			.slider-meta {
+				width: 100%;
+				text-align: center;
+				padding: $content-spacing;
+				background-color: rgba(35, 35, 35, 0.66);
+
+				h1 {
+					color: #fff;
+					font-size: rem-calc(60);
+					font-weight: $font-weight-bold;
+				}
+
+				p {
+					max-width: rem-calc(980);
+					margin: $content-spacing auto 0;
+					color: #fff;
+					font-family: $font-family-sans-serif;
+					font-size: rem-calc(22);
+					font-weight: $font-weight-medium;
+				}
+			}
+		}
+	}
+}
+
 .testimonial-slider {
 	max-width: rem-calc(940);
 	margin: 0 auto;
