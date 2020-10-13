@@ -1,5 +1,12 @@
 <?php
 
+// move category title above category thumnbail image
+remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+add_action( 'woocommerce_before_subcategory', 'woocommerce_template_loop_category_title', 20 );
+
+// Hide category product count in product archives
+add_filter( 'woocommerce_subcategory_count_html', '__return_false' );
+
 // Display category image on category archive
 add_action( 'woocommerce_archive_description', 'dmc_woocommerce_category_image', 2 );
 function dmc_woocommerce_category_image() {
@@ -8,7 +15,7 @@ function dmc_woocommerce_category_image() {
 		global $wp_query;
 		$cat = $wp_query->get_queried_object();
 
-		$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+		$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
 		$image = wp_get_attachment_url( $thumbnail_id );
 		if ( $image ) {
 		?>

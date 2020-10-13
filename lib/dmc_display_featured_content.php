@@ -27,7 +27,6 @@ function dmc_display_featured_content( $dmc_featured_content ) {
 }
 
 
-// displays homepage featured jobs
 function dmc_display_featured_jobs_home() {
 
 	$dmc_featured_jobs = get_field( 'dmc_featured_jobs' );
@@ -66,7 +65,6 @@ function dmc_display_featured_jobs_home() {
 }
 
 
-// displays latest news
 function dmc_display_latest_news() {
 
 	$home_news = new WP_Query(
@@ -91,5 +89,100 @@ function dmc_display_latest_news() {
 			</div>
 		</section>
 		<?php
+	endif;
+}
+
+
+function dmc_display_featured_product_tags() {
+
+	if ( have_rows( 'dmc_featured_product_tags' ) ) :
+		while ( have_rows( 'dmc_featured_product_tags' ) ) :
+			the_row();
+
+			$product_tag_term = get_sub_field( 'product_tag' );
+
+			$taxonomy_prefix = 'product_tag';
+			$term_id = $product_tag_term->term_taxonomy_id;
+			$term_id_prefixed = $taxonomy_prefix .'_'. $term_id;
+
+			if ( $product_tag_term ) :
+				?>
+
+					<div class="card-new">
+
+						<a href="<?php echo get_term_link( $term_id ); ?>">
+							<h3>
+								<?php echo $product_tag_term->name; ?>
+							</h3>
+
+							<?php
+							$dmc_image = get_field( 'dmc_image', $term_id_prefixed );
+							if ( $dmc_image ) :
+								?>
+								<div class="card-img">
+									<img src="<?php echo esc_url( $dmc_image['url'] ); ?>" class="img-card" />
+								</div>
+								<?php
+							endif;
+							?>
+						</a>
+
+						<span class="button">
+							View More
+						</span>
+
+					</div>
+
+				<?php
+			endif;
+		endwhile;
+	endif;
+}
+
+
+function dmc_display_featured_product_cats() {
+
+	if ( have_rows( 'dmc_featured_product_cats' ) ) :
+		while ( have_rows( 'dmc_featured_product_cats' ) ) :
+			the_row();
+
+			$product_cat_term = get_sub_field( 'product_cat' );
+
+			$taxonomy_prefix = 'product_cat';
+			$term_id = $product_cat_term->term_taxonomy_id;
+			$term_id_prefixed = $taxonomy_prefix .'_'. $term_id;
+
+			if ( $product_cat_term ) :
+				?>
+
+					<div class="card-new">
+
+						<a href="<?php echo get_term_link( $term_id ); ?>">
+							<h3>
+								<?php echo esc_attr( $product_cat_term->name ); ?>
+							</h3>
+
+							<?php
+							$thumbnail_id = get_term_meta( $term_id, 'thumbnail_id', true );
+							$dmc_image = wp_get_attachment_image_src( $thumbnail_id, 'woocommerce_thumbnail' );
+							if ( $dmc_image ) :
+								?>
+								<div class="card-img">
+									<img src="<?php echo esc_url( $dmc_image[0] ); ?>" class="img-card" />
+								</div>
+								<?php
+							endif;
+							?>
+						</a>
+
+						<span class="button">
+							View More
+						</span>
+
+					</div>
+
+				<?php
+			endif;
+		endwhile;
 	endif;
 }

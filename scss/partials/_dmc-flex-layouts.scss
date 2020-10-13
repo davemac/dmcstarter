@@ -161,24 +161,3 @@
 .intro .flex-row {
 	justify-content: center;
 }
-
-footer {
-
-	.calls,
-	.footer-links {
-		display: flex;
-		justify-content: center;
-
-		@media #{$medium-up} {
-			justify-content: space-around;
-		}
-
-		@media #{$large-up} {
-			justify-content: space-between;
-		}
-	}
-
-	.footer-links {
-		justify-content: space-between;
-	}
-}
