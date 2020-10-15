@@ -6,7 +6,7 @@ function dmc_woocommerce_show_cart_indicator() {
 	$count = WC()->cart->cart_contents_count;
 	if ( $count > 0 ) {
 	?>
-		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View cart' ); ?>">
+		<a class="dmc-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View cart' ); ?>">
 			<span class="cart-contents-count">
 				<?php echo esc_html( $count ); ?>
 			</span>

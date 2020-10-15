@@ -21,14 +21,11 @@ function dmcstarter_scripts_and_styles() {
 
 		// contact page
 		if ( is_page( '30' ) ) {
-			wp_enqueue_script( 'googlemap-js-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4A5q-R5EbwwvDVf4HjYD9fAWH8Zmyh2M', array(), 'false', false );
-
-			wp_enqueue_script( 'googlemap-display', get_template_directory_uri() . '/js/maps-display.js', array(), 'false', false );
-		}
-
-		if ( is_post_type_archive( 'dmc-location' ) ) {
 			wp_register_script( 'googlemap-js-api', 'https://maps.googleapis.com/maps/api/js?key=[api_key_here]', array(), 'false', false );
-			wp_enqueue_script( 'acf-googlemap', get_template_directory_uri() . '/js/maps-init.js', array( 'googlemap-js-api' ), 'false', true );
+
+			// wp_enqueue_script( 'googlemap-init', get_template_directory_uri() . '/js/maps-init.js', array( 'googlemap-js-api' ), 'false', false );
+
+			wp_enqueue_script( 'googlemap-display', get_template_directory_uri() . '/js/maps-display.js', array( 'googlemap-js-api' ), 'false', false );
 		}
 
 		// wp_register_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), false, true );
@@ -70,7 +67,7 @@ add_filter( 'script_loader_tag', 'dmc_defer_scripts', 10, 3 );
 
 // async these scripts
 add_filter(
-	'script_loader_tag',
+	'googlemap-js-api',
 	function ( $tag, $handle ) {
 
 		if ( 'googlemap-js-api' !== $handle ) {

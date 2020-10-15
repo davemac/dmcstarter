@@ -1,5 +1,7 @@
 <?php
-// Contact
+/*
+Template Name: Full Width
+*/
 get_header();
 
 while ( have_posts() ) :
@@ -17,7 +19,7 @@ while ( have_posts() ) :
 
 		<div class="flex-row dmc-max-two" id="content">
 
-			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main"> 
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main">
 
 				<h1 class="page-title">
 					<?php the_title(); ?>
@@ -35,7 +37,7 @@ while ( have_posts() ) :
 				?>
 			</div>
 
-		</div>	
+		</div>
 
 	</div>
 
