@@ -19,7 +19,8 @@
 		"grunt-sass": "^3.1.0",
 		"grunt-sassyclean": "^0.1.8",
 		"jit-grunt": "^0.10.0",
-		"node-sass": "^4.14.1"
+		"node-sass": "^4.14.1",
+		"postcss": "^8.1.1"
 	},
 	"dependencies": {
 		"npm-check-updates": "^7.1.1"
