@@ -109,8 +109,11 @@
 .featured-prods {
 	.cards {
 		.card-new {
-			a::after {
-				position: static;
+			.card-img {
+				img {
+					position: relative;
+					z-index: 9;
+				}
 			}
 
 			h3 {
@@ -121,7 +124,7 @@
 
 			.button {
 				position: absolute;
-				z-index: 0;
+				z-index: 9;
 				right: $content-spacing;
 				bottom: $content-spacing;
 			}

@@ -1,7 +1,7 @@
 .container {
 	.home & {
 		section {
-			padding: $content-spacing*2 $content-spacing/2 $content-spacing*3;
+			padding: $content-spacing $content-spacing/2;
 
 			&:nth-of-type(even) {
 				background-color: $bg-light;

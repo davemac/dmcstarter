@@ -4,18 +4,26 @@ add_action( 'init', 'dmc_wc_layout_tweaks' );
 function dmc_wc_layout_tweaks() {
 
 	// remove shop page title
-	add_filter( 'woocommerce_show_page_title', '__return_false' );
+	// add_filter( 'woocommerce_show_page_title', '__return_false' );
 
 	// remove product meta altogether
-	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 	// move product meta below title on single product
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 8 );
+	// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
 
 	// move category description
 	// remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
 	// add_action( 'woocommerce_before_shop_loop', 'woocommerce_taxonomy_archive_description', 10 )
+
+	//move tabs into product summary
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 20 );
+
+	//move sharing up to above title
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 26 );
 }
 
 
@@ -51,6 +59,23 @@ function dmc_display_shop_featured_image() {
 			}
 		}
 	}
+}
+
+
+// add_action( 'woocommerce_after_main_content', 'dmc_display_feaured_product_cats_holder' );
+function dmc_display_feaured_product_cats_holder() {
+	?>
+
+	<section class="featured-products featured-prods product_cat">
+		<h2 class="section-heading">
+			Featured Categories:
+		</h2>
+		<div class="cards">
+			<?php dmc_display_featured_product_cats( 2 ); ?>
+		</div>
+	</section>
+
+	<?php
 }
 
 

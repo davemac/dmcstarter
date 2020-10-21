@@ -112,7 +112,7 @@ function dmc_display_featured_product_tags() {
 
 						<a href="<?php echo get_term_link( $term_id ); ?>">
 							<h3>
-								<?php echo $product_tag_term->name; ?>
+								<?php echo $product_tag_term->name; ?>:
 							</h3>
 
 							<?php
@@ -125,11 +125,10 @@ function dmc_display_featured_product_tags() {
 								<?php
 							endif;
 							?>
+							<span class="button">
+								View More
+							</span>
 						</a>
-
-						<span class="button">
-							View More
-						</span>
 
 					</div>
 
@@ -140,10 +139,10 @@ function dmc_display_featured_product_tags() {
 }
 
 
-function dmc_display_featured_product_cats() {
+function dmc_display_featured_product_cats( $dmc_id ) {
 
-	if ( have_rows( 'dmc_featured_product_cats' ) ) :
-		while ( have_rows( 'dmc_featured_product_cats' ) ) :
+	if ( have_rows( 'dmc_featured_product_cats', $dmc_id ) ) :
+		while ( have_rows( 'dmc_featured_product_cats', $dmc_id ) ) :
 			the_row();
 
 			$product_cat_term = get_sub_field( 'product_cat' );
@@ -159,7 +158,7 @@ function dmc_display_featured_product_cats() {
 
 						<a href="<?php echo get_term_link( $term_id ); ?>">
 							<h3>
-								<?php echo esc_attr( $product_cat_term->name ); ?>
+								<?php echo esc_attr( $product_cat_term->name ); ?>:
 							</h3>
 
 							<?php
@@ -173,11 +172,10 @@ function dmc_display_featured_product_cats() {
 								<?php
 							endif;
 							?>
+							<span class="button">
+								View More
+							</span>
 						</a>
-
-						<span class="button">
-							View More
-						</span>
 
 					</div>
 

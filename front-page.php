@@ -62,6 +62,21 @@ while ( have_posts() ) :
 	</div>
 </section>
 
+<section class="featured-products featured-prods product_tag">
+	<div class="cards">
+		<?php // dmc_display_featured_product_tags(); ?>
+	</div>
+</section>
+
+<section class="featured-products featured-prods product_cat">
+	<h2 class="section-heading">
+		Featured Categories:
+	</h2>
+	<div class="cards">
+		<?php // dmc_display_featured_product_cats( $dmc_id ); ?>
+	</div>
+</section>
+
 <section class="insta">
 	<div class="content-holder text-center">
 		<h2 class="section-heading">
@@ -78,59 +93,60 @@ while ( have_posts() ) :
 		</div>
 	</section>
 
-<?php
-$home_news = new WP_Query(
-	array(
-		'posts_per_page' => 3,
-		'orderby'        => 'menu_order',
-		'order'          => 'ASC',
-	)
-);
-if ( $home_news->have_posts() ) :
-	?>
+	<?php
+	$home_news = new WP_Query(
+		array(
+			'posts_per_page' => 3,
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
+		)
+	);
+	if ( $home_news->have_posts() ) :
+		?>
 
-	<section class="news">
-		<div class="row">
+		<section class="news">
+			<div class="row">
 
-			<div class="large-12 columns">
-				<h4 class="block-title"><a href="/news">News</a></h4>
-			</div>
+				<div class="large-12 columns">
+					<h4 class="block-title"><a href="/news">News</a></h4>
+				</div>
 
-			<div class="medium-12 columns">
-				<ul class="medium-block-grid-1">
-					<?php
-					while ( $home_news->have_posts() ) :
-						$home_news->the_post();
-						?>
-						<li class="index-card">
-							<div class="bg">
-								<a href="<?php the_permalink(); ?>">
-									<?php
-									the_post_thumbnail(
-										'medium',
-										array(
-											'class' => 'img-featured',
-										)
-									);
-									?>
-									<h2><?php the_title(); ?></h2>
-									<?php the_excerpt(); ?>
-								</a>
-							</div>
-						</li>
+				<div class="medium-12 columns">
+					<ul class="medium-block-grid-1">
 						<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</ul>
-				<span class="more"><a href="/news">Read more news</a></span>
+						while ( $home_news->have_posts() ) :
+							$home_news->the_post();
+							?>
+							<li class="index-card">
+								<div class="bg">
+									<a href="<?php the_permalink(); ?>">
+										<?php
+										the_post_thumbnail(
+											'medium',
+											array(
+												'class' => 'img-featured',
+											)
+										);
+										?>
+										<h2><?php the_title(); ?></h2>
+										<?php the_excerpt(); ?>
+									</a>
+								</div>
+							</li>
+							<?php
+						endwhile;
+						wp_reset_postdata();
+						?>
+					</ul>
+					<span class="more"><a href="/news">Read more news</a></span>
+				</div>
+
 			</div>
+		</section>
 
-		</div>
-	</section>
+		<?php
+	endif;
 
-<?php endif; ?>
-
-<?php
 endwhile;
+
 get_footer();
