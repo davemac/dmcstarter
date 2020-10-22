@@ -11,7 +11,7 @@ function dmc_wc_layout_tweaks() {
 
 	// move product meta below title on single product
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-	// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
 
 	// move category description
 	// remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );

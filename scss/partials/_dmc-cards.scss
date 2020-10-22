@@ -118,8 +118,17 @@
 
 			h3 {
 				color: $third-color;
-				margin: 0 0 $content-spacing/1.5;
-				text-transform: uppercase;
+				margin: 0 0 rem-calc(10) rem-calc(10);
+				font-family: $font-family-sans-serif;
+				font-size: rem-calc(13);
+
+				@media #{$medium-up} {
+					font-size: rem-calc(15);
+				}
+
+				@media #{$large-up} {
+					font-size: rem-calc(18);
+				}
 			}
 
 			.button {
@@ -130,15 +139,4 @@
 			}
 		}
 	}
-
-	&.product_cat {
-		.card-new {
-			h3 {
-				font-family: $font-family-sans-serif;
-				font-size: rem-calc(18);
-				text-transform: none;
-			}
-		}
-	}
-
 }
