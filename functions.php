@@ -40,6 +40,12 @@ require_once get_template_directory() . '/lib/hero-images.php';
 // slider function
 require_once get_template_directory() . '/lib/sliders.php';
 
+// get posts via REST API
+require_once get_template_directory() . '/lib/get-remote-posts.php';
+
+// get posts
+require_once get_template_directory() . '/lib/dmc-get-latest-posts.php';
+
 // email functions
 require_once get_template_directory() . '/lib/email.php';
 

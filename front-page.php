@@ -87,66 +87,17 @@ while ( have_posts() ) :
 	</div>
 </section>
 
-	<section class="latest-news">
-		<div class="content-holder">
-			<?php dmc_latest_posts_slider(); ?>
-		</div>
-	</section>
+<section class="latest-news-slider">
+	<div class="content-holder">
+		<?php dmc_latest_posts_slider(); ?>
+	</div>
+</section>
 
-	<?php
-	$home_news = new WP_Query(
-		array(
-			'posts_per_page' => 3,
-			'orderby'        => 'menu_order',
-			'order'          => 'ASC',
-		)
-	);
-	if ( $home_news->have_posts() ) :
-		?>
+<section class="latest-news">
+	<div class="content-holder">
+		<?php dmc_get_latest_posts( 3, 'medium' ); ?>
+	</div>
+</section>
 
-		<section class="news">
-			<div class="row">
-
-				<div class="large-12 columns">
-					<h4 class="block-title"><a href="/news">News</a></h4>
-				</div>
-
-				<div class="medium-12 columns">
-					<ul class="medium-block-grid-1">
-						<?php
-						while ( $home_news->have_posts() ) :
-							$home_news->the_post();
-							?>
-							<li class="index-card">
-								<div class="bg">
-									<a href="<?php the_permalink(); ?>">
-										<?php
-										the_post_thumbnail(
-											'medium',
-											array(
-												'class' => 'img-featured',
-											)
-										);
-										?>
-										<h2><?php the_title(); ?></h2>
-										<?php the_excerpt(); ?>
-									</a>
-								</div>
-							</li>
-							<?php
-						endwhile;
-						wp_reset_postdata();
-						?>
-					</ul>
-					<span class="more"><a href="/news">Read more news</a></span>
-				</div>
-
-			</div>
-		</section>
-
-		<?php
-	endif;
-
-endwhile;
-
+<?php
 get_footer();
