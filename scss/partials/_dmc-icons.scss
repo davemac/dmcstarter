@@ -98,13 +98,10 @@ div.sharedaddy {
 	.sd-sharing {
 		display: flex;
 		align-items: center;
-		padding: 0 0 $content-spacing;
+		margin: 0;
 
 		h3.sd-title {
-			margin: 0;
-			font-size: rem-calc(15);
-			font-weight: $font-weight-bold;
-			line-height: 1.8;
+			display: none;
 
 			&::before {
 				display: none;
@@ -114,20 +111,35 @@ div.sharedaddy {
 		.sd-content {
 			flex: 0 1 auto;
 
+			.share-customize-link {
+				display: none;
+			}
+
 			ul {
-				margin: 0 !important;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				min-width: rem-calc(120);
+				margin-top: $content-spacing/2 !important;
+
+				@media #{$medium-up} {
+					margin-top: 0 !important;
+				}
 
 				li[class*='share-'] {
-					margin: 0 0 0 rem-calc(10) !important;
+					margin: 0;
+					padding: 0;
+
+					&.share-end {
+						display: none;
+					}
 
 					a.sd-button {
-
-						/// change default grey bg style for email, print etc
 						// color: #fff !important;
-						// background: $primary-color;
+						// background: #bbb;
 
 						&::before {
-							font-size: rem-calc(24);
+							font-size: rem-calc(16);
 						}
 					}
 				}
