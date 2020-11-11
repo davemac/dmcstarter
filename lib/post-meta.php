@@ -147,24 +147,24 @@ function dmc_display_tax_terms_links() {
 		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 
 			ob_start();
+			$current_cat = get_queried_object();
+			$current_cat_name = $current_cat->name;
 			?>
 
-			<ul id="terms-filter">
-				<li class="left hide-for-small-only">
-					Categories:
-				</li>
+			<div class="terms-filter">
 				<?php
-				foreach ( $terms as $term ) {
+				foreach ( $terms as $term ) :
+
+					$check_current = ( $current_cat_name === $term->name ) ? 'class="active"' : '';
+
 					?>
-					<li>
-						<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
-							<?php echo esc_attr( $term->name ); ?>
-						</a>
-					</li>
+					<a href="<?php echo esc_url( get_term_link( $term ) ); ?>" <?php echo $check_current; ?>>
+						<?php echo esc_attr( $term->name ); ?>
+					</a>
 					<?php
-				}
+				endforeach;
 				?>
-			</ul>
+			</div>
 
 			<?php
 		}
