@@ -89,7 +89,7 @@ function dmcstarter_enqueue_style() {
 	switch ( wp_get_environment_type() ) :
 		case 'development':
 		case 'staging':
-			wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap', array(), 'false', 'all' );
+			wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&family=Nunito:wght@400;700&display=swap', array(), null );
 			break;
 	endswitch;
 
