@@ -1,7 +1,7 @@
 <?php
 
 // get posts via WP REST API
-function dmc_get_posts_via_rest( $url, $count = 2, $imgsize = 'medium' ) {
+function dmc_get_remote_posts( $url, $count = 2, $imgsize = 'medium' ) {
 
 	$response = wp_remote_get( $url . '/wp-json/wp/v2/posts?per_page=' . $count . '&_embed' );
 

@@ -53,6 +53,26 @@ function pdk_get_current_loop_index() {
 }
 
 
+// Hide Product Categories from shop page in WooCommerce
+function dmc_custom_woo_shop_query( $q ) {
+
+	if ( is_shop() ) {
+
+		$tax_query = (array) $q->get( 'tax_query' );
+
+		$tax_query[] = array(
+			'taxonomy' => 'product_cat',
+			'field'    => 'slug',
+			'terms'    => array( 'accessories' ),
+			'operator' => 'NOT IN',
+		);
+
+		$q->set( 'tax_query', $tax_query );
+	}
+}
+// add_action( 'woocommerce_product_query', 'dmc_custom_woo_shop_query' );
+
+
 // function dmc_remove_infinite_scroll() {
 // 	if ( is_post_type_archive( 'dmc-building' ) ) {
 // 		remove_theme_support( 'infinite-scroll' );
