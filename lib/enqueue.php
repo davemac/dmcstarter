@@ -86,12 +86,7 @@ add_filter(
 // vendor styles
 function dmcstarter_enqueue_style() {
 	// only serve google fonts externally for the following
-	switch ( wp_get_environment_type() ) :
-		case 'development':
-		case 'staging':
-			wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&family=Nunito:wght@400;700&display=swap', array(), null );
-			break;
-	endswitch;
+	wp_enqueue_style( 'dmc-google-font-fragment', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:ital,wght@0,500;1,400&display=swap', array(), null );
 
 	// main stylesheet
 	wp_enqueue_style( 'dmcstarter-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), 'false', 'all' );
@@ -100,6 +95,22 @@ function dmcstarter_enqueue_style() {
 	wp_enqueue_style( 'vendor', get_template_directory_uri() . '/css/vendor.css', array(), 'false', 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'dmcstarter_enqueue_style' );
+
+
+// add extra attributes
+function dmc_google_font_loader_tag_filter( $html, $handle ) {
+	if ( $handle === 'dmc-google-font-fragment' ) {
+		$rel_preconnect = "rel='stylesheet preconnect'";
+
+		return str_replace(
+			"rel='stylesheet'",
+			$rel_preconnect,
+			$html
+		);
+	}
+	return $html;
+}
+add_filter( 'style_loader_tag', 'dmc_google_font_loader_tag_filter', 10, 2 );
 
 
 // only load WooCommerce styles and scripts on WooCommerce pages
