@@ -2,7 +2,7 @@
 
 // change Jetpack Infinite Scroll button label
 function filter_jetpack_infinite_scroll_js_settings( $settings ) {
-	$settings['text'] = __( 'Load more projects ...', 'dmcstarter' );
+	$settings['text'] = __( 'Load more posts ...', 'dmcstarter' );
 	return $settings;
 }
 add_filter( 'infinite_scroll_js_settings', 'filter_jetpack_infinite_scroll_js_settings' );
@@ -63,23 +63,3 @@ function tweakjp_rm_comments_att( $open, $post_id ) {
 	return $open;
 }
 add_filter( 'comments_open', 'tweakjp_rm_comments_att', 10, 2 );
-
-
-/**
- * Control the list of modules available under Jetpack > Settings
- * Example: Let's activate 7 specific modules, and nothing more.
- * https://jetpack.com/2016/05/13/hook-month-customize-modules-shortcodes-widgets/
- */
-// function jeherve_only_seven_modules( $modules, $min_version, $max_version ) {
-//     $my_modules = array(
-//         'stats',
-//         'photon',
-//         'related-posts',
-//         'markdown',
-//         'sso',
-//         'custom-content-types',
-//         'custom-css',
-//     );
-//     return array_intersect_key( $modules, array_flip( $my_modules ) );
-// }
-// add_filter( 'jetpack_get_available_modules', 'jeherve_only_seven_modules', 20, 3 );
