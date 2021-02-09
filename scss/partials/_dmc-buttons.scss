@@ -1,6 +1,9 @@
 .button,
-.products > li .add_to_cart_button {
-	display: inline-block;
+.products > li .add_to_cart_button,
+[id^='gform_wrapper_'] .gform_button.button {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
 	color: #fff !important;
 	font-size: rem-calc(18);
 	font-weight: $font-weight-bold;
@@ -22,21 +25,29 @@
 	}
 
 	&.next {
+		font-size: initial !important;
+		line-height: 1;
+		padding: 0;
+		background-color: transparent;
+
 		@media #{$small-only} {
 			padding-right: rem-calc(13);
 			padding-left: rem-calc(13);
 		}
 
 		&::after {
-			color: $primary-color;
+			// https://iconsvg.xyz
 			padding-left: 0.75rem;
-			content: '\f0da';
-			font-family: FontAwesome, sans-serif;
-			font-size: 1.1rem;
+			content: url(../img/chevron-right.svg);
 		}
 	}
 
 	&.prev {
+		font-size: initial !important;
+		line-height: 1;
+		padding: 0;
+		background-color: transparent;
+
 		@media #{$small-only} {
 			padding-right: rem-calc(13);
 			padding-left: rem-calc(13);
@@ -47,12 +58,10 @@
 		}
 
 		&::before {
-			color: $primary-color;
 			padding-right: 0.75rem;
-			content: '\f0d9';
-			font-family: FontAwesome, sans-serif;
-			font-size: 1.1rem;
+			content: url(../img/chevron-left.svg);
 		}
+	}
 	}
 
 	&.email {
