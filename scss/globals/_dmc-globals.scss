@@ -46,6 +46,21 @@ h6 {
 	margin-bottom: $content-spacing;
 }
 
+.single-post {
+	h1.entry-title,
+	.entry-content {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			// font-family: $blog-font-family;
+		}
+	}
+}
+
 p {
 	font-size: rem-calc(16);
 	font-weight: $body-font-weight;
@@ -53,6 +68,11 @@ p {
 
 	@media #{$medium-up} {
 		font-size: rem-calc(18);
+	}
+
+	.single-post & {
+		color: #757575;
+		font-family: $font-family-sans-serif;
 	}
 }
 
@@ -68,6 +88,17 @@ h1 {
 		color: $primary-color;
 		// font-size: rem-calc(68);
 		line-height: 1;
+	}
+
+	&.entry-title {
+		color: #222;
+
+		.blog &,
+		.category & {
+			@media #{$medium-up} {
+				font-size: rem-calc(32);
+			}
+		}
 	}
 }
 

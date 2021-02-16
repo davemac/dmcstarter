@@ -28,19 +28,6 @@
 			}
 		}
 
-		.entry-title {
-			a {
-				color: initial;
-			}
-
-			.blog &,
-			.category & {
-				@media #{$medium-up} {
-					font-size: rem-calc(32);
-				}
-			}
-		}
-
 		.meta-holder {
 			display: flex;
 			justify-content: space-between;
@@ -99,6 +86,7 @@
 		}
 
 		.entry-content {
+			// to do: move into dmc_global
 			h2 {
 				color: #000;
 				font-size: rem-calc(24);
