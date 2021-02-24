@@ -1,7 +1,10 @@
 <?php
 
-// head cleanup, post and image related cleaning
+// head cleanup
 require_once get_template_directory() . '/lib/clean.php';
+
+// admin cleanup
+require_once get_template_directory() . '/lib/clean-admin.php';
 
 // enqueue vendor scripts and styles
 require_once get_template_directory() . '/lib/enqueue.php';
