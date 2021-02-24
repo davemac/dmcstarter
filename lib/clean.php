@@ -13,9 +13,6 @@ function dmcstarter_startup() {
 	add_action( 'init', 'dmcstarter_head_cleanup' );
 	// remove WP version from RSS
 	add_filter( 'the_generator', 'dmcstarter_rss_version' );
-	// additional post related cleaning
-	add_filter( 'img_caption_shortcode', 'dmcstarter_cleaner_caption', 10, 3 );
-	add_filter( 'get_image_tag', 'dmcstarter_image_editor', 0, 4 );
 
 	// tracking pixels
 	// add_action( 'wp_head', 'dmc_linkedin_pixel' );
@@ -116,73 +113,6 @@ function dmcstarter_remove_wp_ver_css_js( $src ) {
 		$src = remove_query_arg( 'ver', $src );
 	}
 	return $src;
-}
-
-
-/*********************
-Post related cleaning
-*********************/
-/* Customized the output of caption, you can remove the filter to restore back to the WP default output. Courtesy of DevPress. http://devpress.com/blog/captions-in-wordpress/ */
-function dmcstarter_cleaner_caption( $output, $attr, $content ) {
-
-	/* We're not worried abut captions in feeds, so just return the output here. */
-	if ( is_feed() ) {
-		return $output;
-	}
-
-	/* Set up the default arguments. */
-	$defaults = array(
-		'id'      => '',
-		'align'   => 'alignnone',
-		'width'   => '',
-		'caption' => '',
-	);
-
-	/* Merge the defaults with user input. */
-	$attr = shortcode_atts( $defaults, $attr );
-
-	/* If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags. */
-	if ( 1 > $attr['width'] || empty( $attr['caption'] ) ) {
-		return $content;
-	}
-
-	/* Set up the attributes for the caption <div>. */
-	$attributes = ' class="figure ' . esc_attr( $attr['align'] ) . '"';
-
-	/* Open the caption <div>. */
-	$output = '<figure' . $attributes . '>';
-
-	/* Allow shortcodes for the content the caption was created for. */
-	$output .= do_shortcode( $content );
-
-	/* Append the caption text. */
-	$output .= '<figcaption>' . $attr['caption'] . '</figcaption>';
-
-	/* Close the caption </div>. */
-	$output .= '</figure>';
-
-	/* Return the formatted, clean caption. */
-	return $output;
-
-} /* end dmcstarter_cleaner_caption */
-
-
-// Remove width and height in editor, for a better responsive world.
-function dmcstarter_image_editor( $html, $id, $alt, $title ) {
-	return preg_replace(
-		array(
-			'/\s+width="\d+"/i',
-			'/\s+height="\d+"/i',
-			'/alt=""/i',
-		),
-		array(
-			'',
-			'',
-			'',
-			'alt="' . $title . '"',
-		),
-		$html
-	);
 }
 
 
