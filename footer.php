@@ -56,8 +56,7 @@
 
 	<div class="flex-row footer-links">
 
-		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'Footer widgets' ) ) : ?>
-		<?php endif; ?>
+		<?php dynamic_sidebar( 'Footer widgets' ); ?>
 
 	</div>
 
