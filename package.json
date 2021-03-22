@@ -5,7 +5,7 @@
 	"private": true,
 	"devDependencies": {
 		"@lodder/grunt-postcss": "^3.0.0",
-		"autoprefixer": "^10.2.4",
+		"autoprefixer": "^10.2.5",
 		"fs-extra": "^9.1.0",
 		"grunt": "^1.3.0",
 		"grunt-bower-concat": "^1.0.0",
@@ -20,10 +20,10 @@
 		"grunt-sassyclean": "^0.1.8",
 		"jit-grunt": "^0.10.0",
 		"node-sass": "^5.0.0",
-		"postcss": "^8.2.5"
+		"postcss": "^8.2.8"
 	},
 	"dependencies": {
-		"npm-check-updates": "^11.1.1"
+		"npm-check-updates": "^11.3.0"
 	},
 	"browserslist": [
 		"> 1%"
