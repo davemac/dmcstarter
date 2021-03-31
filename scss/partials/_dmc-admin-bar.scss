@@ -1,7 +1,7 @@
 #wpadminbar {
-	// @media #{$medium-up} {
-	// 	margin-top: -46px;
-	// }
+	@media #{$small-only} {
+		margin-top: -46px;
+	}
 }
 
 .admin-bar .fadein {

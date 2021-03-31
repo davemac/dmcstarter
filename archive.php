@@ -4,7 +4,7 @@ get_header();
 
 <div class="flex-row" id="content">
 
-	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main"> 
+	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" role="main">
 
 		<header>
 			<h1 class="archive-title">
@@ -34,8 +34,8 @@ get_header();
 				else :
 					get_template_part( 'content', 'none' );
 
-			endif; // end have_posts() check
-				?>
+			endif;
+			?>
 
 		</div>
 
