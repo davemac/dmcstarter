@@ -1,5 +1,5 @@
 
-	<aside class="right-off-canvas-menu">
+	<nav class="right-off-canvas-menu" role="off-canvas-navigation" style="display: none;">
 		<?php
 		wp_nav_menu(
 			array(
@@ -19,7 +19,7 @@
 		);
 
 		?>
-	</aside>
+	</nav>
 
 	<a class="exit-off-canvas"></a>
 
