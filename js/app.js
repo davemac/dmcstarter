@@ -1,6 +1,7 @@
 
 'use strict';
-jQuery(document).ready(function ($) {
+
+jQuery( function( $ ) {
 
 	$('.homepage-slider').flickity({
 		// options
