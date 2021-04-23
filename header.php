@@ -83,11 +83,11 @@
 			</nav>
 		</div>
 
-		<nav class="tab-bar show-for-small-only">
+		<nav class="tab-bar show-for-medium-down">
 			<div class="right-small">
-				<a href="#" role="button" aria-expanded="false" class="right-off-canvas-toggle menu-icon">
-					<span></span>
-				</a>
+				<button class="menu-toggle right-off-canvas-toggle menu-icon" id="menu-toggle" aria-expanded="false">
+					Menu
+				</button>
 			</div>
 		</nav>
 
@@ -99,3 +99,26 @@
 	<div class="inner-wrap">
 
 <div class="container" role="document">
+
+	<nav class="right-off-canvas-menu menu-hide" aria-hidden="true" role="off-canvas-navigation">
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'primary',
+				'container'      => false,
+				'depth'          => 2,
+				'items_wrap'     => '<ul class="off-canvas-list">%3$s</ul>',
+				'walker'         => new dmcstarter_offcanvas_walker(
+				// 'walker'         => new dmcstarter_walker(
+					array(
+						'in_top_bar' => true,
+						'item_type'  => 'li',
+						'menu_type'  => 'main-menu',
+					)
+				),
+			)
+		);
+
+		?>
+	</nav>
+	<a class="exit-off-canvas"></a>

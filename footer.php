@@ -1,28 +1,4 @@
 
-	<nav class="right-off-canvas-menu" role="off-canvas-navigation" style="display: none;">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'primary',
-				'container'      => false,
-				'depth'          => 2,
-				'items_wrap'     => '<ul class="off-canvas-list">%3$s</ul>',
-				// 'walker'         => new dmcstarter_offcanvas_walker(
-				'walker'         => new dmcstarter_walker(
-					array(
-						'in_top_bar' => true,
-						'item_type'  => 'li',
-						'menu_type'  => 'main-menu',
-					)
-				),
-			)
-		);
-
-		?>
-	</nav>
-
-	<a class="exit-off-canvas"></a>
-
 </div>
 
 <footer class="footer" role="contentinfo">
