@@ -34,6 +34,22 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 }
 
 
+function dmc_acf_options_init() {
+	if ( function_exists( 'acf_add_options_page' ) ) {
+		$sitewide_options_page = acf_add_options_page(
+			array(
+				'page_title' => 'Sitewide options',
+				'menu_title' => 'Sitewide options',
+				'menu_slug'  => 'site-global-settings',
+				'position'   => 2,
+				'capability' => 'edit_posts',
+			)
+		);
+	}
+}
+add_action( 'acf/init', 'dmc_acf_options_init' );
+
+
 // only show published posts for relationship field
 function dmc_filter_acf_relationship( $args, $field, $post_id ) {
 	$args['post_status'] = 'publish';
