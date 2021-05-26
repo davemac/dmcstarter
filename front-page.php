@@ -100,4 +100,6 @@ while ( have_posts() ) :
 </section>
 
 <?php
+endwhile;
+
 get_footer();
