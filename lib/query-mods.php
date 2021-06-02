@@ -22,22 +22,26 @@ add_filter( 'pre_get_posts', 'dmc_landing_pages_custom_pre_get_posts' );
 
 // add custom post types to search
 function dmc_cpt_search( $query ) {
-	if ( is_search() && $query->is_main_query() && $query->get( 's' ) ) {
+	if ( ! is_admin() ) :
 
-		$query->set(
-			'post_type',
-			array( 'post', 'dmc-insight', 'dmc-column', 'dmc-opinion', 'dmc-regroundup' ),
-			'meta_query',
-			array(
+		if ( is_search() && $query->is_main_query() && $query->get( 's' ) ) :
+
+			$query->set(
+				'post_type',
+				array( 'post', 'dmc-insight', 'dmc-column', 'dmc-opinion', 'dmc-regroundup' ),
+				'meta_query',
 				array(
-					'key'     => 'wysiwyg',
-					'value'   => '%s',
-					'compare' => 'LIKE',
-				),
-			)
-		);
-		return $query;
-	}
+					array(
+						'key'     => 'wysiwyg',
+						'value'   => '%s',
+						'compare' => 'LIKE',
+					),
+				)
+			);
+			return $query;
+		endif;
+
+	endif;
 }
 add_action( 'pre_get_posts', 'dmc_cpt_search' );
 
