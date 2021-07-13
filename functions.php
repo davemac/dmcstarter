@@ -97,6 +97,9 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 // RSS customisation functions
 // require_once get_template_directory() . '/lib/rss.php';
 
+// functions for non-production sites
+require_once get_template_directory() . '/lib/non-production.php';
+
 // featured content
 // require_once get_template_directory() . '/lib/dmc_display_featured_content.php';
 

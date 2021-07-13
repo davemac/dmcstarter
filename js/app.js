@@ -22,7 +22,7 @@ jQuery(function ($) {
 	});
 
 	$('.homepage-slider').flickity({
-		// options
+		// watchCSS: true,
 		wrapAround: true,
 		freeScroll: true,
 		freeScrollFriction: 0.04,
@@ -31,7 +31,7 @@ jQuery(function ($) {
 	});
 
 	$('.testimonial-slider').flickity({
-		// options
+		// watchCSS: true,
 		cellAlign: 'left',
 		wrapAround: true,
 		groupCells: true,
@@ -45,7 +45,7 @@ jQuery(function ($) {
 	});
 
 	$('.posts-slider').flickity({
-		// options
+		// watchCSS: true,
 		cellAlign: 'left',
 		wrapAround: true,
 		freeScroll: true,
@@ -54,7 +54,7 @@ jQuery(function ($) {
 	});
 
 	$('.product-slider').flickity({
-		// options
+		// watchCSS: true,
 		wrapAround: true,
 		freeScroll: true,
 		freeScrollFriction: 0.04,
