@@ -19,22 +19,25 @@
 		text-indent: -80px;
 		line-height: 1;
 		cursor: pointer;
-		transition: transform 500ms ease 0s;
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMzJweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIzMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNCwxMGgyNGMxLjEwNCwwLDItMC44OTYsMi0ycy0wLjg5Ni0yLTItMkg0QzIuODk2LDYsMiw2Ljg5NiwyLDhTMi44OTYsMTAsNCwxMHogTTI4LDE0SDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDIgIHMwLjg5NiwyLDIsMmgyNGMxLjEwNCwwLDItMC44OTYsMi0yUzI5LjEwNCwxNCwyOCwxNHogTTI4LDIySDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDJzMC44OTYsMiwyLDJoMjRjMS4xMDQsMCwyLTAuODk2LDItMiAgUzI5LjEwNCwyMiwyOCwyMnoiLz48L3N2Zz4=);
+		background-image: url(../img/menu-offcanvas.svg);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 32px 32px;
 		border: none;
-		filter: invert(97%) sepia(54%) saturate(5%) hue-rotate(161deg) brightness(117%) contrast(100%);
+		// filter: invert(97%) sepia(54%) saturate(5%) hue-rotate(161deg) brightness(117%) contrast(100%);
 
 		&:visited {
 			filter: invert(97%) sepia(54%) saturate(5%) hue-rotate(161deg) brightness(117%) contrast(100%);
 		}
 
 		&:active {
-			transform: scale(0.9);
+			animation: pulse 2s 1 ease-out;
+		}
+
+		&[aria-expanded='true'] {
+			background-image: url(../img/menu-offcanvas-open.svg);
 		}
 	}
 }
@@ -66,7 +69,7 @@
 
 	ul.off-canvas-list li a {
 		display: block;
-		padding: 5% 10%;
+		padding: 6% 10%;
 		transition: background 300ms ease;
 		color: #fff;
 		text-decoration: none;
@@ -185,3 +188,16 @@ ul.off-canvas-list {
 	}
 }
 
+@keyframes pulse {
+	0% {
+		transform: scale(0.5);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.5);
+	}
+}
