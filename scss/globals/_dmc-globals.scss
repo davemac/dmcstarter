@@ -28,6 +28,10 @@ $global-radius: 8px;
 
 $cart-color: #009657;
 
+text-rendering: optimizeSpeed;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
 body {
 	color: $body-font-color;
 	font-family: $body-font-family;

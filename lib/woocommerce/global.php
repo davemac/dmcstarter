@@ -37,8 +37,8 @@ function dmc_get_availability( $availability, $_product ) {
 function dmc_woo_text_strings( $translated_text, $text, $domain ) {
 	if ( ! is_admin() ) {
 		switch ( $translated_text ) {
-			case 'Related products':
-				$translated_text = __( 'You may also need', 'woocommerce' );
+			case 'You may also like':
+				$translated_text = __( 'Related products', 'woocommerce' );
 				break;
 
 			case 'Description':

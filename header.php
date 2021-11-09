@@ -108,14 +108,6 @@
 				'container'      => false,
 				'depth'          => 2,
 				'items_wrap'     => '<ul class="off-canvas-list">%3$s</ul>',
-				'walker'         => new dmcstarter_offcanvas_walker(
-				// 'walker'         => new dmcstarter_walker(
-					array(
-						'in_top_bar' => true,
-						'item_type'  => 'li',
-						'menu_type'  => 'main-menu',
-					)
-				),
 			)
 		);
 
