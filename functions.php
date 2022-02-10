@@ -78,6 +78,8 @@ require_once get_template_directory() . '/lib/jetpack-testimonials.php';
 
 // WooCommerce customisation functions
 // require_once get_template_directory() . '/lib/woocommerce/woocommerce.php';
+// require_once get_template_directory() . '/lib/dmc-product-ribbon.php';
+
 
 // Gravity Forms customisation functions
 // require_once get_template_directory() . '/lib/gravity-forms.php';

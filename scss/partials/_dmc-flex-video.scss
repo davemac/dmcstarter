@@ -1,4 +1,12 @@
 
+iframe {
+	aspect-ratio: 16 / 9;
+	height: 100%;
+	width: 100%;
+}
+
+// test with flex-video class or remove below?
+
 $flex-video-padding-top: rem-calc(25) !default;
 $flex-video-padding-bottom: 67.5% !default;
 $flex-video-margin-bottom: rem-calc(16) !default;
@@ -33,3 +41,4 @@ $flex-video-widescreen-padding-bottom: 56.34% !default;
 		height: 100%;
 	}
 }
+

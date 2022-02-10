@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 		// 'bower_components/foundation/js/foundation/foundation.interchange.js',
 		// 'bower_components/foundation/js/foundation/foundation.joyride.js',
 		// 'bower_components/foundation/js/foundation/foundation.magellan.js',
-		// 'bower_components/foundation/js/foundation/foundation.offcanvas.js',
+		'bower_components/foundation/js/foundation/foundation.offcanvas.js',
 		// 'bower_components/foundation/js/foundation/foundation.orbit.js',
 		// 'bower_components/foundation/js/foundation/foundation.reveal.js',
 		// 'bower_components/foundation/js/foundation/foundation.slider.js',
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		// theme directory name
-		theme: 'dmcstarter',
+		theme: 'spiritnew',
 
 		// check which sass partials are not being used
 		sassyclean: {
