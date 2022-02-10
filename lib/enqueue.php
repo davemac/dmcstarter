@@ -116,7 +116,7 @@ add_filter( 'style_loader_tag', 'dmc_google_font_loader_tag_filter', 10, 2 );
 // only load WooCommerce styles and scripts on WooCommerce pages
 function dmc_conditionally_load_woc_js_css() {
 
-	if ( ! function_exists( 'is_woocommerce_activated' ) ) :
+	if ( function_exists( 'is_woocommerce_activated' ) ) :
 
 		if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() ) :
 
