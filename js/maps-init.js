@@ -1,6 +1,6 @@
 
 'use strict';
-jQuery(document).ready(function($) {
+jQuery(function ($) {
 
    /**
  * initMap
@@ -122,5 +122,5 @@ $(document).ready(function(){
         var map = initMap( $(this) );
     });
 });
-  
+
 });

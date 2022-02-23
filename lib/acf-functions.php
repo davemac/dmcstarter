@@ -79,7 +79,8 @@ function dmc_display_acf_featured_content() {
  * Google Maps Javascript API key for show map
  */
 function dmc_acf_init() {
-	acf_update_setting( 'google_api_key', '[api_key_here]' );
+	$gapi = GOOGLE_API_KEY;
+	acf_update_setting( 'google_api_key', $gapi );
 }
 add_action( 'acf/init', 'dmc_acf_init' );
 

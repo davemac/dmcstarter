@@ -76,3 +76,33 @@
 		}
 	}
 }
+
+.button-holder {
+	display: flex;
+
+	@media #{$medium-up} {
+		align-items: center;
+		margin-top: rem-calc(15);
+	}
+
+	.button {
+		width: auto;
+		margin: 0 rem-calc(10) rem-calc(10) 0 !important;
+		padding: 0 rem-calc(20);
+	}
+
+	&.many-buttons {
+		flex-wrap: wrap;
+		width: 100%;
+
+		.button {
+			flex: 0 1 calc(50% - 10px);
+			padding: 0 $content-spacing/2;
+
+			@media #{$medium-up} {
+				flex: 0 1 calc(20% - 10px);
+			}
+		}
+	}
+
+}

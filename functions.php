@@ -27,6 +27,9 @@ require_once get_template_directory() . '/lib/nav.php';
 require_once get_template_directory() . '/lib/acf-functions.php';
 // require_once get_template_directory() . '/lib/acf/acf_form_user.php';
 
+// Gravity Forms customisation
+// require_once get_template_directory() . '/lib/dmc-gravity-forms.php';
+
 // Widgets setup
 require_once get_template_directory() . '/lib/widgets.php';
 
