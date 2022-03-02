@@ -7,15 +7,13 @@
 </form>
 
 
-<!-- <div class="placeholder">
-	<div class="expanding-sf">
-		<div class="form"> <span class="toggle"></span>
-			<form role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<input type="text" placeholder="Search" id="s" name="s" value="">
-				<div class="icn">
-					<input type="submit" value="" id="searchsubmit">
-				</div>
-			</form>
-		</div>
-	</div>
+
+<!-- <div class="search-container">
+	<form role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		<input class="search expandright" id="searchright" type="search" id="s" name="s" value="<?php echo get_search_query(); ?>" placeholder="Search">
+		<label class="searchbutton" for="searchright">
+			<span class="mglass">&#9906;</span>
+		</label>
+		<input type="submit" value="<?php esc_attr_e( 'Search', 'dmcstarter' ); ?>" id="searchsubmit">
+	</form>
 </div> -->

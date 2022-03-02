@@ -69,10 +69,17 @@ function dmc_display_acf_random_img_bg() {
 		$rand_sub_field = $page_hero_images[ $rand ]['dmc_page_hero_image'];
 		$rand_img_url   = $rand_sub_field['url'];
 
-		if ( $page_hero_images ) {
+		if ( $page_hero_images ) :
+
 			$image_src = $rand_img_url;
-		};
-		printf( 'style="background-image: url(%s);"', esc_url( $image_src ) );
+			?>
+			<img src="<?php echo esc_url( $image_src ); ?>" class="stack-hero" />
+
+			<?php
+		else :
+			echo '<style>.dmc-stack-layout{background-color: rgba(0, 207, 51, 1);}</style>';
+
+		endif;
 
 	}
 }

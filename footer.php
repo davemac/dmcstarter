@@ -5,34 +5,30 @@
 
 	<div class="dmc-max-three calls">
 
-		<div class="logo">
-			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?> logo" title="<?php bloginfo( 'name' ); ?>">
-		</div>
-
 		<div class="item">
 			<h4>
-				Heading
+				<?php echo esc_html( bloginfo( 'name' ) ); ?>
 			</h4>
-			<?php
-			// echo dmc_display_wc_account_links();
-			?>
-		</div>
 
-		<div class="item">
-			<h4>
-				Heading
-			</h4>
 			<p>
-				<a href="#">
-					Example link
+				63 - 65 Maffra Street<br />
+				Coolaroo Victoria 3048<br />
+				Australia
+			</p>
+			<p>
+				<a href="tel:+61393094822"">
+					(+613) 9309 4822
 				</a>
 			</p>
+			<p>
+				Fax: (+613) 9309 0069<br />
+			</p>
+
 		</div>
-	</div>
 
-	<div class="flex-row footer-links">
-
-		<?php dynamic_sidebar( 'Footer widgets' ); ?>
+		<div class="flex-row footer-links">
+			<?php dynamic_sidebar( 'Footer widgets' ); ?>
+		</div>
 
 	</div>
 

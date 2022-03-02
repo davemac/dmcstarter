@@ -5,6 +5,20 @@ while ( have_posts() ) :
 	the_post();
 ?>
 
+<section class="dmc-stack-layout hero-top">
+	<?php dmc_display_acf_random_img_bg(); ?>
+
+	<div class="h-internal" id="entry-title-area">
+		<h1>
+			<?php the_field( 'dmc_header_intro_content' ); ?>
+		</h1>
+	</div>
+
+	<a href="/contact" class="button">
+		Contact
+	</a>
+</section>
+
 <div id="homepage-slider">
 	<?php dmc_hero_slider(); ?>
 </div>

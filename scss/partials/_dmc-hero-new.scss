@@ -1,0 +1,79 @@
+.dmc-stack-layout {
+	display: grid;
+	grid-template-areas: 'stack';
+	position: relative;
+	width: 100%;
+	// height: 40vh;
+	padding: 0;
+
+	.home & {
+		// height: 50vh;
+	}
+
+	>* {
+		grid-area: stack;
+	}
+
+	.stack-hero {
+		width: 100%;
+		object-fit: cover;
+
+		.home & {
+			max-height: 80vh;
+		}
+
+		&.mobile {
+			display: block;
+
+			@media #{$medium-up} {
+				display: none;
+			}
+		}
+	}
+
+	.h-internal {
+		position: relative;
+		place-self: center center;
+		max-width: rem-calc(850);
+		margin-right: 5%;
+		margin-left: 5%;
+		padding: $content-spacing;
+		text-align: center;
+		background-blend-mode: multiply;
+		background-color: rgba(33, 33, 33, 0.3);
+
+		&.right-side {
+			place-self: center end;
+		}
+
+		h1 {
+			margin: 0;
+			color: #fff;
+		}
+
+		h2 {
+			margin: 0;
+			color: #fff;
+
+			@media #{$medium-up} {}
+		}
+
+		p {
+			color: #fff;
+			margin: 0;
+		}
+	}
+
+	.button {
+		place-self: end center;
+		margin-bottom: $content-spacing;
+	}
+
+	.blend-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: $primary-color;
+	}
+}

@@ -1,43 +1,42 @@
 .footer {
 	background-color: $primary-color;
-	padding-top: $content-spacing;
+	padding: $content-spacing 0;
 
 	@media #{$medium-up} {
-		padding-top: $content-spacing*3;
+		padding: $content-spacing*2 0;
 	}
 
 	.calls,
 	.footer-links {
 		max-width: $row-width;
-		margin: 0 $content-spacing;
+		margin: 0 auto;
 
 		@media #{$medium-up} {
 			display: flex;
-			justify-content: center;
-			justify-content: space-around;
-			margin: 0 auto;
 		}
+	}
 
-		@media #{$large-up} {
-			justify-content: space-between;
+	.calls {
+		padding: 0 $content-spacing;
+
+		@media #{$medium-up} {
+			padding: 0;
 		}
-
-		.item {
-			&:last-of-type {
-				max-width: rem-calc(200);
-			}
-		}
-
 	}
 
 	p {
-		color: $bg-light;
-		font-size: rem-calc(13);
+		color: #fff;
+		font-size: rem-calc(14);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 
 	a {
-		color: $bg-light;
-		font-size: rem-calc(13);
+		color: #fff;
+		font-size: rem-calc(14);
+		text-decoration: none;
 
 		&:hover,
 		&:focus {
@@ -56,41 +55,60 @@
 	ul {
 		list-style: none;
 		margin: 0;
+		padding: 0;
 	}
 
 	h3 {
-		color: $bg-light;
-
-		@media #{$medium-up} {
-			font-size: rem-calc(24);
-		}
+		color: #fff;
 	}
 
 	h4 {
-		color: $bg-light;
-
+		color: #fff;
 		margin: 0;
 
 		@media #{$medium-up} {
-			margin: 0 0 $content-spacing/2;
+			margin: 0 0 $content-spacing;
 		}
 	}
 
 	.footer-links {
-		justify-content: space-between;
-		padding: $content-spacing;
+		flex: 0 1 calc(66% - 25px);
+		justify-content: flex-end;
+
 
 		@media #{$medium-up} {
-			padding-bottom: $content-spacing*2;
+			padding: 0 $content-spacing;
+		}
+
+	}
+
+	.widget_nav_menu {
+		padding: $content-spacing 0 0;
+
+		@media #{$medium-up} {
+			padding: 0 $content-spacing*2;
+		}
+
+		&:last-of-type {
+			padding-right: 0;
+		}
+
+		li {
+			margin-top: rem-calc(6);
 		}
 	}
 }
 
 .credits {
-	background-color: rgba(0, 0, 0, 1);
+	background-color: $third-color;
+	padding: $content-spacing/2 $content-spacing;
+
+	@media #{$medium-up} {
+		padding: 0;
+	}
 
 	.holder {
-		padding: rem-calc(10) $content-spacing rem-calc(5);
+		padding: rem-calc(15) 0 rem-calc(8);
 
 		@media #{$medium-up} {
 			display: flex;
@@ -104,18 +122,13 @@
 	p {
 		color: #fff;
 		font-size: rem-calc(12);
-		line-height: 3;
 		margin: 0;
-
-		@media #{$medium-up} {
-			line-height: 1.5;
-		}
 	}
 
 	a {
-		color: $bg-light;
+		color: #fff;
 		font-size: rem-calc(12);
-		text-decoration: underline;
+		text-decoration: none;
 
 		&:hover,
 		&:focus {
