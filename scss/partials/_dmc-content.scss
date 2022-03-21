@@ -1,19 +1,21 @@
 .container {
-	.home & {
-		section {
-			padding: $content-spacing $content-spacing/2;
+	section {
+		padding: $content-spacing 0;
 
-			&:nth-of-type(even) {
-				background-color: $bg-light;
-			}
+		@media #{$medium-up} {
+			padding: $content-spacing*3 0;
+		}
 
-			&.no-top-gap {
-				padding-top: 0;
-			}
+		&.no-top-gap {
+			padding-top: 0;
+		}
 
-			&.no-bottom-gap {
-				padding-bottom: 0;
-			}
+		&.no-bottom-gap {
+			padding-bottom: 0;
+		}
+
+		.heading {
+			margin-top: 0;
 		}
 	}
 }

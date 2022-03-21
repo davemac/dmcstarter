@@ -1,72 +1,9 @@
 .dmc-stack-layout {
 	display: grid;
 	grid-template-areas: 'stack';
-	position: relative;
-	width: 100%;
-	// height: 40vh;
-	padding: 0;
-
-	.home & {
-		// height: 50vh;
-	}
 
 	>* {
 		grid-area: stack;
-	}
-
-	.stack-hero {
-		width: 100%;
-		object-fit: cover;
-
-		.home & {
-			max-height: 80vh;
-		}
-
-		&.mobile {
-			display: block;
-
-			@media #{$medium-up} {
-				display: none;
-			}
-		}
-	}
-
-	.h-internal {
-		position: relative;
-		place-self: center center;
-		max-width: rem-calc(850);
-		margin-right: 5%;
-		margin-left: 5%;
-		padding: $content-spacing;
-		text-align: center;
-		background-blend-mode: multiply;
-		background-color: rgba(33, 33, 33, 0.3);
-
-		&.right-side {
-			place-self: center end;
-		}
-
-		h1 {
-			margin: 0;
-			color: #fff;
-		}
-
-		h2 {
-			margin: 0;
-			color: #fff;
-
-			@media #{$medium-up} {}
-		}
-
-		p {
-			color: #fff;
-			margin: 0;
-		}
-	}
-
-	.button {
-		place-self: end center;
-		margin-bottom: $content-spacing;
 	}
 
 	.blend-overlay {
@@ -74,6 +11,94 @@
 		top: 0;
 		bottom: 0;
 		width: 100%;
-		background-color: $primary-color;
+		background-color: rgba(65, 65, 65, 0.64);
+		background-blend-mode: multiply;
+	}
+
+	.mobile-only {
+		display: block;
+
+		@media #{$medium-up} {
+			display: none;
+		}
+	}
+
+	.medium-only {
+		display: none;
+
+		@media #{$medium-only} {
+			display: block;
+		}
+	}
+
+	.desktop-only {
+		display: none;
+
+		@media #{$large-up} {
+			display: block;
+		}
+	}
+
+	.stack-hero-feature {
+		&.desktop-only {
+			width: 100%;
+		}
+
+		&.mobile-only {
+			place-self: end center;
+		}
+	}
+
+	&.hero-right .stack-hero-feature.desktop-only {
+		place-self: center end;
+
+		@media #{$medium-only} {
+			display: block;
+			max-width: 100%;
+		}
+	}
+
+	&.hero-left .stack-hero-feature.desktop-only {
+		place-self: center start;
+	}
+
+	.stack-hero-bg {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	&.content-left .slider-content {
+		@media #{$large-up} {
+			place-self: center start;
+		}
+	}
+
+	.slider-content {
+		position: relative;
+		place-self: center;
+		max-width: rem-calc(700);
+		text-align: center;
+
+		h1 {
+			color: #fff;
+			margin: 0 auto $content-spacing/2;
+			font-size: rem-calc(48);
+			font-weight: $font-weight-bold;
+			line-height: 1.1;
+		}
+
+		p {
+			color: #fff;
+			font-size: rem-calc(18);
+			font-weight: $font-weight-bold;
+			line-height: 1.25;
+			margin: 0 0 $content-spacing;
+
+			@media #{$medium-up} {
+				font-size: rem-calc(18);
+			}
+
+		}
 	}
 }

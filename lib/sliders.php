@@ -3,8 +3,7 @@
 // Flickity/ACF homepage image slider
 function dmc_hero_slider() {
 
-	if ( have_rows( 'dmc_hero_sliders' ) ) : ?>
-		<?php
+	if ( have_rows( 'dmc_hero_sliders' ) ) :
 		while ( have_rows( 'dmc_hero_sliders' ) ) :
 			the_row();
 
@@ -13,23 +12,34 @@ function dmc_hero_slider() {
 			?>
 
 			<div class="carousel-cell">
+				<div class="dmc-stack-layout">
 
-				<a href="<?php echo esc_url( $slide_link ); ?>">
-					<div class="home-hero" style="background-image: url('<?php the_sub_field( 'dmc_slide_image' ); ?>')">
+					<div class="slider-content">
+						<h1>
+							<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
+						</h1>
 
-						<div class="slider-meta">
-							<h1>
-								<?php the_sub_field( 'dmc_slide_main_tagline' ); ?>
-							</h1>
-							<?php
-							if ( get_sub_field( 'dmc_slide_second_tagline' ) ) :
-								the_sub_field( 'dmc_slide_second_tagline' );
-							endif;
+						<?php
+						if ( get_sub_field( 'dmc_slide_second_tagline' ) ) : ?>
 							?>
-						</div>
-					</div>
-				</a>
+							<p>
+								<?php the_sub_field( 'dmc_slide_second_tagline' ); ?>
+							</p>
 
+							<a href="<?php echo esc_url( $slide_link ); ?>">
+								Button text here
+							</a>
+
+							<?php
+						endif;
+						?>
+					</div>
+
+					<img src="<?php the_sub_field( 'dmc_slide_image' ); ?>/img/mb-banner-new.jpg" alt="" class="stack-hero-feature desktop-only" />
+
+					<img src="<?php the_sub_field( 'dmc_slide_image_mobile' ); ?>/img/mb-banner-new.jpg" class="stack-hero-feature mobile-only">
+
+				</div>
 			</div>
 
 			<?php

@@ -5,6 +5,10 @@
 
 	<div class="dmc-max-three calls">
 
+		<!-- <div class="logo">
+			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?> logo" title="<?php bloginfo( 'name' ); ?>">
+		</div> -->
+
 		<div class="item">
 			<h4>
 				<?php echo esc_html( bloginfo( 'name' ) ); ?>
