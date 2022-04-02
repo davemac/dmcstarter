@@ -1,0 +1,206 @@
+
+@import 'global';
+
+//
+// Foundation Visibility Classes
+//
+$include-accessibility-classes: true !default;
+$include-legacy-visibility-classes: true !default;
+
+// Media Class Names
+//
+// Visibility Breakpoints
+$visibility-breakpoint-sizes:
+  small,
+  medium,
+  large,
+  xlarge,
+  xxlarge;
+
+$visibility-breakpoint-queries:
+  unquote($small-up),
+  unquote($medium-up),
+  unquote($large-up),
+  unquote($xlarge-up),
+  unquote($xxlarge-up);
+
+@mixin visibility-loop {
+  @each $current-visibility-breakpoint in $visibility-breakpoint-sizes {
+    $visibility-inherit-list: ();
+    $visibility-none-list: ();
+
+    $visibility-visible-list: ();
+    $visibility-hidden-list: ();
+
+    @each $visibility-comparison-breakpoint in $visibility-breakpoint-sizes {
+      @if index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) < index($visibility-breakpoint-sizes, $current-visibility-breakpoint) {
+        // Smaller than current breakpoint
+
+        $visibility-inherit-list: append($visibility-inherit-list, unquote(
+          '.hide-for-#{$visibility-comparison-breakpoint}-only, .show-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-none-list: append($visibility-none-list, unquote(
+          '.show-for-#{$visibility-comparison-breakpoint}-only, .hide-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-visible-list: append($visibility-visible-list, unquote(
+          '.hidden-for-#{$visibility-comparison-breakpoint}-only, .visible-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-hidden-list: append($visibility-hidden-list, unquote(
+          '.visible-for-#{$visibility-comparison-breakpoint}-only, .hidden-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+
+        // Foundation 4 compatibility:
+        // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
+        // for small, medium, and large breakpoints only
+        @if $include-legacy-visibility-classes and index((small, medium, large), $visibility-comparison-breakpoint) != false {
+          $visibility-inherit-list: append($visibility-inherit-list, unquote(
+            '.hide-for-#{$visibility-comparison-breakpoint}, .hide-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-none-list: append($visibility-none-list, unquote(
+            '.show-for-#{$visibility-comparison-breakpoint}, .show-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-visible-list: append($visibility-visible-list, unquote(
+            '.hidden-for-#{$visibility-comparison-breakpoint}, .hidden-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-hidden-list: append($visibility-hidden-list, unquote(
+            '.visible-for-#{$visibility-comparison-breakpoint}, .visible-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+
+        }
+
+      } @else if index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) > index($visibility-breakpoint-sizes, $current-visibility-breakpoint) {
+        // Larger than current breakpoint
+
+        $visibility-inherit-list: append($visibility-inherit-list, unquote(
+          '.hide-for-#{$visibility-comparison-breakpoint}-only, .hide-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-none-list: append($visibility-none-list, unquote(
+          '.show-for-#{$visibility-comparison-breakpoint}-only, .show-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-visible-list: append($visibility-visible-list, unquote(
+          '.hidden-for-#{$visibility-comparison-breakpoint}-only, .hidden-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-hidden-list: append($visibility-hidden-list, unquote(
+          '.visible-for-#{$visibility-comparison-breakpoint}-only, .visible-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+
+        // Foundation 4 compatibility:
+        // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
+        // for small, medium, and large breakpoints only
+        @if $include-legacy-visibility-classes and index((small, medium, large), $visibility-comparison-breakpoint) != false {
+          $visibility-inherit-list: append($visibility-inherit-list, unquote(
+            '.hide-for-#{$visibility-comparison-breakpoint}, .show-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-none-list: append($visibility-none-list, unquote(
+            '.show-for-#{$visibility-comparison-breakpoint}, .hide-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-visible-list: append($visibility-visible-list, unquote(
+            '.hidden-for-#{$visibility-comparison-breakpoint}, .visible-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-hidden-list: append($visibility-hidden-list, unquote(
+            '.visible-for-#{$visibility-comparison-breakpoint}, .hidden-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+
+        }
+
+      } @else {
+        // Current breakpoint
+
+        $visibility-inherit-list: append($visibility-inherit-list, unquote(
+          '.show-for-#{$visibility-comparison-breakpoint}-only, .show-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-none-list: append($visibility-none-list, unquote(
+          '.hide-for-#{$visibility-comparison-breakpoint}-only, .hide-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-visible-list: append($visibility-visible-list, unquote(
+          '.visible-for-#{$visibility-comparison-breakpoint}-only, .visible-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+        $visibility-hidden-list: append($visibility-hidden-list, unquote(
+          '.hidden-for-#{$visibility-comparison-breakpoint}-only, .hidden-for-#{$visibility-comparison-breakpoint}-up'
+        ), comma);
+
+        // Foundation 4 compatibility:
+        // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
+        // for small, medium, and large breakpoints only
+        @if $include-legacy-visibility-classes and index((small, medium, large), $visibility-comparison-breakpoint) != false {
+          $visibility-inherit-list: append($visibility-inherit-list, unquote(
+            '.show-for-#{$visibility-comparison-breakpoint}, .show-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-none-list: append($visibility-none-list, unquote(
+            '.hide-for-#{$visibility-comparison-breakpoint}, .hide-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-visible-list: append($visibility-visible-list, unquote(
+            '.visible-for-#{$visibility-comparison-breakpoint}, .visible-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+          $visibility-hidden-list: append($visibility-hidden-list, unquote(
+            '.hidden-for-#{$visibility-comparison-breakpoint}, .hidden-for-#{$visibility-comparison-breakpoint}-down'
+          ), comma);
+
+        }
+      }
+    }
+
+    /* #{$current-visibility-breakpoint} displays */
+    @media #{nth($visibility-breakpoint-queries, index($visibility-breakpoint-sizes, $current-visibility-breakpoint))} {
+      #{$visibility-inherit-list} {
+        display: inherit !important;
+      }
+      #{$visibility-none-list} {
+        display: none !important;
+      }
+      @if $include-accessibility-classes != false {
+        #{$visibility-visible-list} {
+          @include element-invisible-off;
+        }
+        #{$visibility-hidden-list} {
+          @include element-invisible;
+        }
+      }
+
+    }
+  }
+}
+
+@include visibility-loop;
+
+/* Orientation targeting */
+.show-for-landscape,
+.hide-for-portrait { display: inherit !important; }
+.hide-for-landscape,
+.show-for-portrait { display: none !important; }
+
+@media #{$landscape} {
+  .show-for-landscape,
+  .hide-for-portrait { display: inherit !important; }
+  .hide-for-landscape,
+  .show-for-portrait { display: none !important; }
+
+}
+
+@media #{$portrait} {
+  .show-for-portrait,
+  .hide-for-landscape { display: inherit !important; }
+  .hide-for-portrait,
+  .show-for-landscape { display: none !important; }
+
+}
+
+/* Touch-enabled device targeting */
+.show-for-touch { display: none !important; }
+.hide-for-touch { display: inherit !important; }
+.touch .show-for-touch { display: inherit !important; }
+.touch .hide-for-touch { display: none !important; }
+
+
+/* Screen reader-specific classes */
+.show-for-sr {
+  @include element-invisible;
+}
+.show-on-focus {
+  @include element-invisible;
+
+  &:focus,
+  &:active {
+    @include element-invisible-off;
+  }
+}

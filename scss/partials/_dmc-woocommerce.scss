@@ -521,7 +521,7 @@
 				font-size: rem-calc(26);
 				line-height: 1.1;
 				font-weight: $font-weight-medium;
-				margin-bottom: $content-spacing/4;
+				margin-bottom: calc($content-spacing/4);
 
 				@media #{$medium-up} {
 					font-size: rem-calc(36);
@@ -554,14 +554,14 @@
 				color: $body-font-color;
 				font-size: rem-calc(16);
 				font-weight: $font-weight-medium;
-				padding-right: $content-spacing/2;
+				padding-right: calc($content-spacing/2);
 				content: 'From: ';
 			}
 		}
 
 		form.cart {
 			margin: $content-spacing 0 0;
-			padding: $content-spacing/2;
+			padding: calc($content-spacing/2);
 			background: rgba(0, 0, 0, 0.15);
 
 			@media #{$medium-up} {
@@ -732,7 +732,7 @@
 	.cart-contents-count {
 		display: flex;
 		position: relative;
-		padding: rem-calc(5) $content-spacing/1.5;
+		padding: rem-calc(5) calc($content-spacing/1.5);
 		color: #fff;
 		background-color: $cart-color;
 		font-weight: $font-weight-bold;

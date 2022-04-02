@@ -9,10 +9,7 @@ require_once get_template_directory() . '/lib/clean-admin.php';
 // enqueue vendor scripts and styles
 require_once get_template_directory() . '/lib/enqueue.php';
 
-// load Foundation specific functions eg top-bar
-require_once get_template_directory() . '/lib/foundation.php';
-
-// filter default WordPress menu classes, add Foundation classes and clean wp_nav_menu markup
+// filter default WordPress menu classes, add classes and clean wp_nav_menu markup
 require_once get_template_directory() . '/lib/nav.php';
 
 /* Custom post types */

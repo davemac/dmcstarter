@@ -5,25 +5,25 @@
 	"private": true,
 	"devDependencies": {
 		"@lodder/grunt-postcss": "^3.1.1",
-		"autoprefixer": "^10.4.2",
-		"fs-extra": "^10.0.0",
+		"autoprefixer": "^10.4.4",
+		"fs-extra": "^10.0.1",
 		"grunt": "^1.4.1",
 		"grunt-bower-concat": "^1.0.0",
 		"grunt-cache-bust": "^1.7.0",
 		"grunt-contrib-clean": "^2.0.0",
 		"grunt-contrib-copy": "^1.0.0",
-		"grunt-contrib-uglify": "^5.0.1",
+		"grunt-contrib-uglify": "^5.1.0",
 		"grunt-contrib-watch": "^1.1.0",
-		"grunt-modernizr": "^3.0.2",
+		"grunt-modernizr": "^3.0.3",
 		"grunt-rsync": "^3.0.0",
 		"grunt-sass": "^3.1.0",
 		"grunt-sassyclean": "^0.1.8",
 		"jit-grunt": "^0.10.0",
-		"node-sass": "^7.0.1",
-		"postcss": "^8.4.6"
+		"postcss": "^8.4.12",
+		"sass": "^1.49.11"
 	},
 	"dependencies": {
-		"npm-check-updates": "^12.3.0"
+		"npm-check-updates": "^12.5.5"
 	},
 	"browserslist": [
 		"> 1%"

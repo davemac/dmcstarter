@@ -1,6 +1,6 @@
 .single-post {
 	article {
-		padding: $content-spacing / 3;
+		padding: calc($content-spacing/3);
 		background-color: $bg-light;
 
 		@media #{$medium-up} {
@@ -33,7 +33,7 @@
 			justify-content: space-between;
 			align-items: center;
 			margin-top: $content-spacing;
-			padding: $content-spacing/2.5 $content-spacing/1.5;
+			padding: calc($content-spacing/2).5 calc($content-spacing/1.5);
 			border-top: 1px solid $primary-color;
 			border-bottom: 1px solid $primary-color;
 			background-color: #f3f3f3;

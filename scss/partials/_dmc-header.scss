@@ -96,10 +96,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: $content-spacing/2;
+	padding: calc($content-spacing/2);
 
 	@media #{$medium-up} {
-		padding: $content-spacing/2 $content-spacing;
+		padding: calc($content-spacing/2) $content-spacing;
 	}
 
 	.custom-logo-link {

@@ -61,7 +61,7 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 
 		#header & {
 			margin-right: 0;
-			margin-left: $content-spacing/2;
+			margin-left: calc($content-spacing/2);
 
 			@media #{$medium-up} {
 				margin-left: $content-spacing;
@@ -75,7 +75,7 @@ vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
 			width: $icon-size*2;
 			text-decoration: none;
 			line-height: 1;
-			padding: $icon-size/2;
+			padding: calc($icon-size/2);
 
 			&::before {
 				color: #fff;
@@ -120,7 +120,7 @@ div.sharedaddy {
 				justify-content: space-between;
 				align-items: center;
 				min-width: rem-calc(120);
-				margin-top: $content-spacing/2 !important;
+				margin-top: calc($content-spacing/2) !important;
 
 				@media #{$medium-up} {
 					margin-top: 0 !important;

@@ -1,8 +1,6 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "dmc-starter-vendor",
   "dependencies": {
-    "foundation": "zurb/bower-foundation",
-    "fontawesome": "~4.7.0",
     "flickity": "^2.2.1"
   }
 }

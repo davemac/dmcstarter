@@ -16,7 +16,7 @@ function dmcstarter_enqueue_scripts() {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		// add Foundation and vendor scripts files in the footer
+		// add vendor scripts files in the footer
 		wp_enqueue_script( 'dmcstarter-js', get_template_directory_uri() . '/js/bower.min.js', array( 'jquery' ), 'false', true );
 
 		// contact page

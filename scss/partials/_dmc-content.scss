@@ -22,7 +22,7 @@
 
 .content-holder {
 	max-width: $row-width;
-	margin: 0 $content-spacing/2;
+	margin: 0 calc($content-spacing/2);
 
 	@media #{$medium-up} {
 		margin: 0 auto;
@@ -31,7 +31,7 @@
 	&.full-width {
 		max-width: initial;
 		width: 100%;
-		padding: $content-spacing $content-spacing/2 $content-spacing*2;
+		padding: $content-spacing calc($content-spacing/2) $content-spacing*2;
 
 		@media #{$medium-up} {
 			padding: $content-spacing*3 $content-spacing $content-spacing*5;
@@ -130,7 +130,7 @@
 		p {
 			margin: 0 0 rem-calc(5) 0;
 			color: #000;
-			font-family: $font-family-serif;
+			font-family: $font-family-sans-serif;
 			font-size: rem-calc(14);
 			font-style: italic;
 			text-indent: rem-calc(10);
@@ -153,7 +153,7 @@
 	}
 
 	h4 {
-		font-family: $font-family-serif;
+		font-family: $font-family-sans-serif;
 		font-size: rem-calc(14);
 		font-style: italic;
 		font-weight: $font-weight-bold;
@@ -200,13 +200,13 @@
 		line-height: 2.8;
 		text-align: center;
 		color: rgba(65, 65, 65, 0.9);
-		margin: 0 $content-spacing/2 $content-spacing/1.5;
-		// padding: $content-spacing/2 $content-spacing;
+		margin: 0 calc($content-spacing/2) calc($content-spacing/1.5);
+		// padding: calc($content-spacing/2) $content-spacing;
 		text-transform: uppercase;
 		background-color: #f5f5f5;
 
 		@media #{$medium-up} {
-			margin: 0 $content-spacing/2;
+			margin: 0 calc($content-spacing/2);
 		}
 
 		@media #{$large-up} {

@@ -7,28 +7,8 @@ module.exports = function(grunt) {
         postcss: '@lodder/grunt-postcss',        // for private modules.
     });
 
-	var jsFoundation = [
-		'bower_components/foundation/js/foundation/foundation.js',
-		// 'bower_components/foundation/js/foundation/foundation.abide.js',
-		// 'bower_components/foundation/js/foundation/foundation.accordion.js',
-		// 'bower_components/foundation/js/foundation/foundation.alert.js',
-		// 'bower_components/foundation/js/foundation/foundation.clearing.js',
-		// 'bower_components/foundation/js/foundation/foundation.dropdown.js',
-		// 'bower_components/foundation/js/foundation/foundation.equalizer.js',
-		// 'bower_components/foundation/js/foundation/foundation.interchange.js',
-		// 'bower_components/foundation/js/foundation/foundation.joyride.js',
-		// 'bower_components/foundation/js/foundation/foundation.magellan.js',
-		'bower_components/foundation/js/foundation/foundation.offcanvas.js',
-		// 'bower_components/foundation/js/foundation/foundation.orbit.js',
-		// 'bower_components/foundation/js/foundation/foundation.reveal.js',
-		// 'bower_components/foundation/js/foundation/foundation.slider.js',
-		// 'bower_components/foundation/js/foundation/foundation.tab.js',
-		// 'bower_components/foundation/js/foundation/foundation.tooltip.js',
-		// 'bower_components/foundation/js/foundation/foundation.topbar.js'
-	];
-
 	// required for grunt-sass 'implementation' option
-	const sass = require('node-sass');
+	const sass = require('sass');
 
 	grunt.config( 'targethost', ( function() {
 		var target = grunt.option('target') || 'localhost', domain;
@@ -81,7 +61,7 @@ module.exports = function(grunt) {
 			options: {
 				implementation: sass,
 				sourceMap: true,
-				includePaths: ['bower_components/foundation/scss']
+				includePaths: ['scss/functions']
 			},
 			dist: {
 				options: {
@@ -207,14 +187,6 @@ module.exports = function(grunt) {
 
 		// build vendor.js file from specific bower dependencies
 		bower_concat: {
-			foundation: {
-				dest: {
-					dest: 'js/foundation.js',
-				},
-				include: [
-					'foundation',
-				]
-			},
 			others: {
 				dest: {
 					js: 'js/vendor.js',
@@ -252,7 +224,7 @@ module.exports = function(grunt) {
 					compress: true
 				},
 				files: {
-					'js/bower.min.js': [jsFoundation, 'js/app.js', 'js/vendor.js']
+					'js/bower.min.js': ['js/app.js', 'js/vendor.js']
 				}
 			},
 		},

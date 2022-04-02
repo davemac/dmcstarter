@@ -82,7 +82,7 @@
 
 		h1 {
 			color: #fff;
-			margin: 0 auto $content-spacing/2;
+			margin: 0 auto calc($content-spacing/2);
 			font-size: rem-calc(48);
 			font-weight: $font-weight-bold;
 			line-height: 1.1;

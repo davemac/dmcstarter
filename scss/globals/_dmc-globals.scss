@@ -35,7 +35,12 @@ $cart-color: #009657;
 body {
 	color: $body-font-color;
 	font-family: $body-font-family;
-	background-color: $bg-light;
+	font-style: normal;
+	font-weight: normal;
+	line-height: $base-line-height; // browser default of 150%
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
 }
 
 h1,
@@ -47,6 +52,7 @@ h6 {
 	color: $header-font-color;
 	font-family: $header-font-family;
 	font-weight: $font-weight-medium;
+	margin-top: 0;
 	margin-bottom: $content-spacing;
 }
 
