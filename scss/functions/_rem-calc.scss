@@ -1,9 +1,11 @@
+@use 'sass:math';
+
 $rem-base: 16px;
 
 // strips the unit of measure and returns it
 @function strip-unit($num) {
    //  @return $num / ($num * 0 + 1);
-    @return $num / ( calc( $num * 0 ) + 1 );
+    @return math.div($num, calc($num * 0) + 1)
 }
 
 

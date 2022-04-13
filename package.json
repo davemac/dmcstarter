@@ -7,7 +7,7 @@
 		"@lodder/grunt-postcss": "^3.1.1",
 		"autoprefixer": "^10.4.4",
 		"fs-extra": "^10.0.1",
-		"grunt": "^1.4.1",
+		"grunt": "^1.5.2",
 		"grunt-bower-concat": "^1.0.0",
 		"grunt-cache-bust": "^1.7.0",
 		"grunt-contrib-clean": "^2.0.0",
@@ -20,10 +20,10 @@
 		"grunt-sassyclean": "^0.1.8",
 		"jit-grunt": "^0.10.0",
 		"postcss": "^8.4.12",
-		"sass": "^1.49.11"
+		"sass": "^1.50.0"
 	},
 	"dependencies": {
-		"npm-check-updates": "^12.5.5"
+		"npm-check-updates": "^12.5.9"
 	},
 	"browserslist": [
 		"> 1%"
