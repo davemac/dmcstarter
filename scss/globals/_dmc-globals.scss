@@ -28,16 +28,16 @@ $global-radius: 8px;
 
 $cart-color: #009657;
 
-// text-rendering: optimizeSpeed;
-// -webkit-font-smoothing: antialiased;
-// -moz-osx-font-smoothing: grayscale;
+a[href^="tel:"] {
+	text-decoration: none;
+}
+
 
 body {
 	color: $body-font-color;
 	font-family: $body-font-family;
 	font-style: normal;
 	font-weight: normal;
-	line-height: $base-line-height; // browser default of 150%
 	margin: 0;
 	padding: 0;
 	background-color: #fff;
@@ -52,7 +52,6 @@ h6 {
 	color: $header-font-color;
 	font-family: $header-font-family;
 	font-weight: $font-weight-medium;
-	margin-top: 0;
 	margin-bottom: $content-spacing;
 }
 
@@ -154,6 +153,13 @@ h4 {
 	}
 }
 
+h1,
+h2 {
+	&.section-heading {
+		margin-top: 0;
+		margin-bottom: $content-spacing*2;
+	}
+}
 
 .text-center {
 	text-align: center;

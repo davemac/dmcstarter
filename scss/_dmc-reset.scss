@@ -1,0 +1,68 @@
+// based mn https: //www.joshwcomeau.com/css/custom-css-reset/
+
+// Use a more-intuitive box-sizing model.
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+// allows percentage-based heights
+html,
+body {
+	height: 100%;
+	font-size: 100%;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: inline-block;
+	max-width: 100%;
+	// vertical-align: middle;
+}
+
+//  Remove built-in form typography styles
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+textarea {
+	height: auto;
+	min-height: 50px;
+}
+
+select {
+	width: 100%;
+}
+
+// Avoid text overflows
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+// Create a root stacking context
+#root,
+#__next {
+	isolation: isolate;
+}

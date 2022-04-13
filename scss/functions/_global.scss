@@ -1,19 +1,10 @@
 @import 'functions';
 
-// The default font-size is set to 100% of the browser style sheet (usually 16px)
-// for compatibility with browser-based text zoom or user-set defaults.
-
-$base-font-size: 100% !default;
-
-// $base-line-height is 24px while $base-font-size is 16px
-$base-line-height: 1.5 !default;
-
 // @mixins
 //
 // We use this to add a glowing effect to block elements
 // $selector - Used for selector state. Default: focus, Options: hover, active, visited
-// $fade-time - Default: 300ms
-// $glowing-effect-color - Default: fade-out($primary-color, .25)
+
 @mixin block-glowing-effect($selector:focus, $fade-time:300ms, $glowing-effect-color:fade-out($primary-color, .25)) {
 	transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
 
@@ -45,9 +36,6 @@ $base-line-height: 1.5 !default;
 	overflow: visible;
 	clip: auto;
 }
-
-// We use this to control font-smoothing
-$font-smoothing: antialiased !default;
 
 // Media Query Ranges
 $small-breakpoint: em-calc(640) !default;
@@ -93,64 +81,3 @@ $retina: ("#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
 $small: $small-up;
 $medium: $medium-up;
 $large: $large-up;
-
-
-// Must be 100% for off canvas to work
-html,
-body {
-	height: 100%;
-}
-
-// Set box-sizing globally to handle padding and border widths
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
-
-html,
-body {
-	font-size: $base-font-size;
-}
-
-// Grid Defaults to get images and embeds to work properly
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-// Hide visually and from screen readers
-.hide {
-	display: none;
-}
-
-// Hide visually and from screen readers, but maintain layout
-.invisible {
-	visibility: hidden;
-}
-
-// Font smoothing
-// Antialiased font smoothing works best for light text on a dark background.
-// Apply to single elements instead of globally to body.
-// Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
-.antialiased {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-// Get rid of gap under images by making them display: inline-block; by default
-img {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-// Make sure textarea takes on height automatically
-textarea {
-	height: auto;
-	min-height: 50px;
-}
-
-// Make select elements 100% width by default
-select {
-	width: 100%;
-}

@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		// theme directory name
-		theme: 'spiritnew',
+		theme: 'dmcstarter',
 
 		// check which sass partials are not being used
 		sassyclean: {
