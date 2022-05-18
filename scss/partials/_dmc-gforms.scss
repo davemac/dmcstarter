@@ -1,33 +1,27 @@
 #content .gform_wrapper {
 	margin-bottom: 2rem;
-
-	.home & {
-		width: 100%;
-	}
+	padding: $content-spacing;
+	background-color: #eee;
 
 	.top_label .gfield_label {
-		color: $primary-color;
-		font-size: rem-calc(15);
-		font-weight: 400;
-		margin-top: 1rem;
-		margin-bottom: 0;
+		color: $third-color;
 	}
 
-	.gfield_required {
-		position: absolute;
-		color: #c30;
-		font-size: rem-calc(32);
-		font-weight: $font-weight-bold;
-		line-height: 1;
-
-		&::after {
-			position: absolute;
-			top: 3px;
-			left: 20px;
-			font-size: rem-calc(12);
-			font-weight: $font-weight-normal;
-			content: '(required)';
+	.gsection {
+		&:not(:first-of-type) {
+			padding-top: $content-spacing;
 		}
+
+		.gsection_title {
+			color: $secondary-color;
+			margin-bottom: 0;
+		}
+	}
+
+	fieldset {
+		// &.gfield--width-full {
+		margin: calc($content-spacing/2) 0 0;
+		// }
 	}
 
 	input[type='text'],
@@ -42,7 +36,7 @@
 		font-size: rem-calc(18);
 		margin: 0;
 		padding: rem-calc(5);
-		border: 1px solid scale-color($secondary-color, $lightness: 65%);
+		border: 1px solid scale-color($third-color, $lightness: 65%);
 		border-radius: $global-radius;
 
 		&:focus {
@@ -94,6 +88,7 @@
 
 	&.gf_browser_chrome,
 	&.gf_browser_safari {
+
 		.ginput_complex .ginput_right select,
 		select.gfield_select {
 			-webkit-appearance: none;
@@ -127,15 +122,6 @@
 		}
 	}
 
-	input[type='button'] {
-		&#gf_coupon_button {
-			font-size: rem-calc(14);
-			margin: 0 0 0 1rem;
-			padding: 10px 15px;
-			border-radius: $global-radius;
-		}
-	}
-
 	.dmc-read-only {
 		margin-top: 0;
 
@@ -144,75 +130,11 @@
 		}
 	}
 
-	// removes sub labels
-	// #input_1_1_3_container,
-	// #input_1_1_6_container,
-	// #input_1_2_1_container,
-	// #input_1_2_2_container,
-	// #input_1_3_1_container,
-	// #input_1_3_3_container,
-	// #input_1_3_4_container,
-	// #input_1_3_5_container {
-	//     label {
-	//         display: none;
-	//     }
-	// }
-
-	.gfield_checkbox li {
-		margin: 0 0 1rem 0;
+	.gfield_checkbox label {
+		font-size: rem-calc(16);
+		margin-left: rem-calc(5);
 	}
 
-	ul.gfield_checkbox li input[type='checkbox'] {
-		margin: 3px 0 0;
-		font-size: 2rem;
-	}
-
-	.gfield_price {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-		background-color: $silver;
-		border-top: 3px solid $primary-color;
-
-		&.gfield_total {
-			margin-top: 0;
-			border-top: none;
-			border-bottom: 3px solid $primary-color;
-		}
-
-		.ginput_product_price_label {
-			display: none;
-			font-weight: 700;
-			font-family: $header-font-family;
-			font-size: rem-calc(22);
-		}
-
-		.ginput_product_price,
-		.ginput_container_total {
-			color: $primary-color;
-			font-weight: $font-weight-bold;
-			font-family: $header-font-family;
-			font-size: rem-calc(42);
-
-			&::after {
-				padding-left: 0.5rem;
-				font-size: rem-calc(17);
-				content: 'inc GST';
-			}
-		}
-
-		.ginput_product_price {
-			font-size: rem-calc(32);
-		}
-	}
-
-	.gform_button {
-
-	}
-
-	.paypal-types {
-		float: right;
-		width: 40%;
-	}
 }
 
 .gform_confirmation_wrapper {
