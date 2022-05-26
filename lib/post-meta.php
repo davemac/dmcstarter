@@ -82,9 +82,8 @@ function dmc_display_post_type_label() {
 
 
 function dmc_display_post_tax_terms() {
-	global $post;
-	$taxonomy_name = get_object_taxonomies( $post );
-	$post_terms    = wp_get_object_terms( $post->ID, $taxonomy_name[0] );
+	$taxonomy_name = get_object_taxonomies( 'post' );
+	$post_terms    = get_the_terms( get_the_ID(), $taxonomy_name[0] );
 	$raw_termlist  = '';
 	$termlist      = '';
 	$separator     = ', ';
@@ -122,18 +121,23 @@ function dmc_display_post_tax_terms() {
 
 
 function dmc_get_post_tax_single_topic() {
-	global $post;
-	$taxonomy_pull = get_object_taxonomies( $post );
-	if ( $taxonomy_pull ) {
+
+	$taxonomy_pull = get_object_taxonomies( 'post' );
+
+	if ( $taxonomy_pull ) :
+
 		$current_tax_name_slug = $taxonomy_pull[0];
-		$post_terms            = wp_get_object_terms( $post->ID, $current_tax_name_slug );
+		$post_terms            = get_the_terms( get_the_ID(), $current_tax_name_slug );
 		$output                = '';
 		// $output = $post_terms_test[0]->slug;
-		foreach ( $post_terms as $term ) {
+
+		foreach ( $post_terms as $term ) :
 			$output .= $term->slug . ' ';
-		}
+		endforeach;
+
 		return $output;
-	}
+
+	endif;
 }
 
 

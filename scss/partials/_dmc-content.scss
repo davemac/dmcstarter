@@ -1,4 +1,12 @@
 .container {
+	max-width: $row-width;
+	margin: 0 auto;
+	padding: 0 $content-spacing/2;
+
+	@media #{$medium-up} {
+		padding: 0;
+	}
+
 	section {
 		padding: $content-spacing 0;
 
