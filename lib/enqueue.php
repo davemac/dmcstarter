@@ -7,14 +7,14 @@ Enqueue CSS and Scripts
 // enque WP and vendor scripts
 function dmcstarter_enqueue_scripts() {
 
-	if ( ! is_admin() ) {
+	if ( ! is_admin() ) :
 		// modernizr (customised from Gruntfile.js)
 		// wp_enqueue_script( 'dmcstarter-modernizr', get_template_directory_uri() . '/js/modernizr-custom.min.js', array(), '3.5.0', false );
 
 		// only add WP comment-reply.min.js if threaded comments are on an it's a post of some type
-		if ( get_option( 'thread_comments' ) && is_singular() ) {
+		if ( get_option( 'thread_comments' ) && is_singular() ) :
 			wp_enqueue_script( 'comment-reply' );
-		}
+		endif;
 
 		// add vendor scripts files in the footer
 		wp_enqueue_script( 'dmcstarter-js', get_template_directory_uri() . '/js/bower.min.js', array( 'jquery' ), 'false', true );
@@ -46,7 +46,8 @@ function dmcstarter_enqueue_scripts() {
 		// if ( is_singular( 'dmc-courses' ) ) {
 		// 	wp_enqueue_script( 'addevent', 'https://addevent.com/libs/atc/1.6.1/atc.min.js', '', true );
 		// }
-	}
+
+	endif;
 
 }
 add_action( 'wp_enqueue_scripts', 'dmcstarter_enqueue_scripts' );

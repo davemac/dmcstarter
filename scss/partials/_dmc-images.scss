@@ -50,15 +50,25 @@ img.aligncenter {
 
 // Fix gallery images display
 
-.gallery {
-	dt,
-	dl {
-		display: inline-block;
+*[id^='gallery-'] {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem-calc(10);
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	.gallery-item {
+		margin: 0;
+		flex: 0 1 40%;
+
+		@media #{$medium-up} {
+			flex: 0 1 auto;
+		}
 	}
 
-	dl {
-		margin-left: rem-calc(9);
-		margin-right: rem-calc(9);
+	dd {
+		font-size: rem-calc(14);
+		line-height: 1.1;
 	}
 }
 
