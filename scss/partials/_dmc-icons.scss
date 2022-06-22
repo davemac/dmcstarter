@@ -1,95 +1,54 @@
-// http://codepen.io/thecssguru/pen/mJpeJe
+// https: //codepen.io/davemac/pen/BaYgoJV
 
-/// Set size of icon
-$icon-size: 1.2rem;
+$socials: twitter #00acee "\e800",
+	facebook #3b5998 "\e801",
+	instagram #3f729b "\e802",
+	foursquare #25a0ca "\e803",
+	soundcloud #ff7700 "\e804",
+	youtube #c4302b "\e805",
+	vimeo #43baff "\e806",
+	dribbble #ea4c89 "\e807",
+	rss #ee802f "\e808",
+	github #171515 "\e809",
+	tumblr #34526f "\e80a",
+	linkedin #007fb1 "\e80b",
+	gplus #dd4b39 "\e80c",
+	stackexchange #f47920 "\e80d";
 
-/// Social media map
-/// Font Awesome icons and background colors, add by FA class name
-$fa: (facebook: (icon: '\f09a', bgcolor: #3b5998),
-twitter: (icon: '\f099', bgcolor: #00aced),
-google-plus: (icon: '\f0d5', bgcolor: #dd4b39),
-linkedin: (icon: '\f0e1', bgcolor: #007bb6),
-youtube: (icon: '\f167', bgcolor: #b00),
-pinterest: (icon: '\f0d2', bgcolor: #cb2027),
-flickr: (icon: '\f16e', bgcolor: #ff0084),
-instagram: (icon: '\f16d', bgcolor: #517fa4),
-email: (icon: '\f003', bgcolor: $primary-color),
-calendar: (icon: '\f073', bgcolor: $primary-color),
-vimeo: (icon: '\f27d', bgcolor: #1ab7ea),
-);
-
-/// Creates Mixin to use any Font Awesome Class Icon Name in your $fa Map
-
-@mixin social__names($name) {
-
-	&--#{$name} {
-		transition: all 0.25s ease-in-out;
-		background: map-get(map-get($fa, $name), bgcolor);
+.socials {
+	a {
+		width: rem-calc(48);
+		height: rem-calc(48);
+		font-size: rem-calc(24);
+		display: inline-block;
+		margin-right: rem-calc(10);
+		border-radius: rem-calc(50);
+		font-family: "scicons";
+		font-style: normal;
+		font-weight: normal;
+		text-decoration: none !important;
+		line-height: 1;
 		color: #fff;
+		transition: background-color .2s linear, color .2s linear;
 
-		&::before {
-			content: map-get(map-get($fa, $name), icon);
-		}
+		@each $type in $socials {
+			&.icon-#{nth($type, 1)} {
+				background-color: nth($type, 2);
 
-		&:hover {
-			// background: lighten(map-get(map-get($fa, $name), bgcolor), 10%);
-			background: map-get(map-get($fa, $name), bgcolor);
-		}
-	}
-}
+				&:before {
+					width: inherit;
+					height: inherit;
+					display: table-cell;
+					content: nth($type, 3);
+					text-align: center;
+					vertical-align: middle;
+				}
 
-/// Simple Mixin to loop through all of the Social Site Names and Output them
-
-@mixin social() {
-	@each $item,
-		$name in $fa {
-		@include social__names($item);
-	}
-}
-
-/// Social Media Wrap (flexbox)
-
-.social {
-	&__wrap {
-		display: flex;
-		justify-content: flex-start;
-	}
-
-	&__item {
-		// width: $icon-size;
-		margin-right: $content-spacing;
-
-		#header & {
-			margin-right: 0;
-			margin-left: calc($content-spacing/2);
-
-			@media #{$medium-up} {
-				margin-left: $content-spacing;
+				&:hover {
+					background-color: #fff;
+					color: nth($type, 2);
+				}
 			}
-		}
-
-		a {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: $icon-size*2;
-			text-decoration: none;
-			line-height: 1;
-			padding: calc($icon-size/2);
-
-			&::before {
-				color: #fff;
-				font-family: FontAwesome, sans-serif;
-				font-size: $icon-size;
-			}
-		}
-	}
-
-	&__link {
-		@include social(); /// Creates all icons dynamically
-
-		&--text {
-			display: none;
 		}
 	}
 }
