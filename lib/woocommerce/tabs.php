@@ -45,9 +45,7 @@ function dmc_woo_ingredients_tab_content() {
 	if ( get_field( 'dmc_ingredients' ) ) :
 		?>
 		<div class="extra_content dmc-prod-meta">
-			<p>
-				<?php the_field( 'dmc_ingredients' ); ?>
-			</p>
+			<?php the_field( 'dmc_ingredients' ); ?>
 		</div>
 		<?php
 	endif;
@@ -57,9 +55,7 @@ function dmc_woo_nutrition_tab_content() {
 	if ( get_field( 'dmc_nutrition' ) ) :
 		?>
 		<div class="extra_content dmc-prod-meta">
-			<p>
-				<?php the_field( 'dmc_nutrition' ); ?>
-			</p>
+			<?php the_field( 'dmc_nutrition' ); ?>
 		</div>
 		<?php
 	endif;
@@ -69,9 +65,7 @@ function dmc_woo_prepare_tab_content() {
 	if ( get_field( 'dmc_prepare' ) ) :
 		?>
 		<div class="extra_content dmc-prod-meta">
-			<p>
-				<?php the_field( 'dmc_prepare' ); ?>
-			</p>
+			<?php the_field( 'dmc_prepare' ); ?>
 		</div>
 		<?php
 	endif;
@@ -81,10 +75,8 @@ function dmc_woo_feeding_tab_content() {
 	if ( get_field( 'dmc_feeding' ) ) :
 		?>
 		<div class="extra_content dmc-prod-meta">
-			<p>
-				<?php the_field( 'dmc_feeding' ); ?>
-			</p>
-		</div>
+			<?php the_field( 'dmc_feeding' ); ?>
+	</div>
 		<?php
 	endif;
 }

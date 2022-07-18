@@ -1,0 +1,45 @@
+:root {
+	--star-size: 26px;
+	--star-color: #fff;
+	--star-background: #fc0;
+}
+
+.dmc-stars {
+	--percent: calc(var(--rating) / 5 * 100%);
+
+	display: inline-block;
+	font-size: var(--star-size);
+	font-family: Times; // make sure ★ appears correctly
+	line-height: 1;
+
+	&::before {
+		content: '★★★★★';
+		letter-spacing: 3px;
+		background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+.rating-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem-calc(10);
+
+	.rating-tag {
+		font-size: rem-calc(14);
+		line-height: 1;
+		display: flex;
+		padding: rem-calc(5) rem-calc(10);
+		justify-content: center;
+		align-items: center;
+		border: 1px solid $primary-color;
+	}
+}
+
+.single-dmc-building .content-holder.building-meta {
+	&.building-ratings {
+		padding: $content-spacing;
+	}
+}
+

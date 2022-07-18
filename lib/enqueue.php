@@ -33,19 +33,8 @@ function dmcstarter_enqueue_scripts() {
 
 		endif;
 
-		// wp_register_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), false, true );
-
-		// if ( is_front_page() || is_post_type_archive( 'jetpack-portfolio' ) ) {
-		// 	wp_register_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), false, true );
-		// 	wp_enqueue_script( 'isotope-init', get_template_directory_uri() . '/js/isotope-init.js', array( 'isotope' ), '3.0', true );
-		// }
-
 		// wp_enqueue_style( 'magnific-css', get_template_directory_uri() . '/css/magnific-popup.css' );
 		// wp_enqueue_script( 'magnific-init', get_template_directory_uri() . '/js/magnific-init.js', array( 'magnific' ), true );
-
-		// if ( is_singular( 'dmc-courses' ) ) {
-		// 	wp_enqueue_script( 'addevent', 'https://addevent.com/libs/atc/1.6.1/atc.min.js', '', true );
-		// }
 
 	endif;
 
