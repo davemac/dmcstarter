@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         postcss: '@lodder/grunt-postcss',        // for private modules.
     });
 
-	// required for grunt-sass 'implementation' option
+	// required for dart-sass 'implementation' option
 	const sass = require('sass');
 
 	grunt.config( 'targethost', ( function() {
