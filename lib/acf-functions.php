@@ -38,6 +38,18 @@ function dmc_filter_acf_relationship( $args, $field, $post_id ) {
 add_filter( 'acf/fields/relationship/query', 'dmc_filter_acf_relationship', 10, 3 );
 
 
+function dmc_show_age_acf_relationship_results( $title, WP_Post $post, $field_arr ) {
+
+	$posted_at = get_post_time( 'U', false, $post->ID );
+	$now = current_time( 'timestamp' );
+	$diff = human_time_diff( $posted_at, $now );
+
+	return $title . sprintf( ' (%s ago)', $diff );
+
+}
+add_filter( 'acf/fields/relationship/result', 'dmc_show_age_acf_relationship_results', 10, 3 );
+
+
 // displays ACF dmc_featured_content repeater fields
 function dmc_display_acf_featured_content() {
 	if ( have_rows( 'dmc_featured_content' ) ) :
