@@ -21,45 +21,23 @@ jQuery(function ($) {
 
 	});
 
-	$('.homepage-slider').flickity({
-		// watchCSS: true,
-		wrapAround: true,
-		freeScroll: true,
-		freeScrollFriction: 0.04,
-		lazyLoad: true,
-		pageDots: false,
-	});
+	// $('.homepage-slider').flickity({
+	// 	// watchCSS: true,
+	// 	wrapAround: true,
+	// 	freeScroll: true,
+	// 	freeScrollFriction: 0.04,
+	// 	lazyLoad: true,
+	// 	pageDots: false,
+	// });
 
-	$('.testimonial-slider').flickity({
-		// watchCSS: true,
-		cellAlign: 'left',
-		wrapAround: true,
-		groupCells: true,
-		// freeScroll: true,
-		// freeScrollFriction: 0.08,
-		selectedAttraction: 0.01,
-		friction: 0.15,
-		lazyLoad: true,
-		// prevNextButtons: false,
-		// pageDots: false
-	});
-
-	$('.posts-slider').flickity({
-		// watchCSS: true,
-		cellAlign: 'left',
-		wrapAround: true,
-		freeScroll: true,
-		freeScrollFriction: 0.04,
-		lazyLoad: true,
-	});
-
-	$('.product-slider').flickity({
-		// watchCSS: true,
-		wrapAround: true,
-		freeScroll: true,
-		freeScrollFriction: 0.04,
-		lazyLoad: true
-	});
+	// $('.posts-slider').flickity({
+	// 	// watchCSS: true,
+	// 	cellAlign: 'left',
+	// 	wrapAround: true,
+	// 	freeScroll: true,
+	// 	freeScrollFriction: 0.04,
+	// 	lazyLoad: true,
+	// });
 
 	// smooth scroll element into view
 	function scrollTo(selector) {

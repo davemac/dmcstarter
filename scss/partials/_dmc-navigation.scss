@@ -1,5 +1,4 @@
 .top-bar-section {
-	background-color: $secondary-color;
 
 	ul.main-menu {
 		display: flex;
@@ -43,18 +42,16 @@
 				}
 			}
 
-			// &:last-child {
-			// 	padding-right: rem-calc(10) rem-calc(18);
-			// }
-
 			a {
 				display: block;
 				white-space: nowrap;
-				padding: rem-calc(16) rem-calc(22);
-				color: #fff;
-				font-size: rem-calc(16);
-				font-weight: $font-weight-bold;
+				padding: rem-calc(16);
+				color: $primary-color;
+				font-size: rem-calc(18);
+				font-weight: $font-weight-normal;
 				line-height: 1;
+				text-decoration: none;
+				text-transform: uppercase;
 			}
 		}
 
@@ -66,21 +63,19 @@
 		.current-menu-item > a,
 		.current-menu-ancestor > a,
 		li.active a {
-			color: $primary-color;
-			background-color: $secondary-color;
+			color: $secondary-color;
 		}
 
-		.single-product & li.menu-item-shop > a,
-		.post-type-archive-product & li.menu-item-shop > a,
-		.tax-product_cat & li.menu-item-shop a,
-		.woocommerce-cart & li.menu-item-shop a,
-		.woocommerce-checkout & li.menu-item-shop a,
+		.single-product & li.menu-item-1080 > a,
+		.post-type-archive-product & li.menu-item-1080 > a,
+		.tax-product_cat & li.menu-item-1080 a,
+		.woocommerce-cart & li.menu-item-1080 a,
+		.woocommerce-checkout & li.menu-item-1080 a,
 		.parent-pageid-19 & li.menu-item-about a,
 		.single-post & li.menu-item-blog a,
 		.category & li.menu-item-blog a,
 		.date & li.menu-item-blog a {
-			color: $primary-color;
-			background-color: $secondary-color;
+			color: $secondary-color;
 		}
 
 		// First level item arrows

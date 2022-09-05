@@ -55,7 +55,9 @@ function dmcstarter_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'dmc-article-hero', 580, 450 );
 	add_image_size( 'dmc-logo', 400, 50 ); // for site logo @2x
-	add_image_size( 'dmc-hero', 1440, 600 );
+	add_image_size( 'dmc-hero', 1360, 500 );
+	add_image_size( 'dmc-hero-two-third', 900, 400 );
+	add_image_size( 'dmc-hero-one-third', 450, 400 );
 
 	// rss feed
 	add_theme_support( 'automatic-feed-links' );

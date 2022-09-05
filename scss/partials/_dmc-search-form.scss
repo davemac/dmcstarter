@@ -1,5 +1,5 @@
 #searchform {
-	max-width: rem-calc(980);
+	max-width: rem-calc(260);
 	width: 100%;
 	padding: 0 rem-calc(16);
 
@@ -24,16 +24,17 @@
 	}
 
 	input[type='text'] {
-		width: 100%;
+		width: 90%;
 		min-height: rem-calc(35);
-		padding: 0 rem-calc(48) 0 rem-calc(24);
-		font-size: rem-calc(18);
+		padding: 0 rem-calc(48) 0 rem-calc(7);
+		font-size: rem-calc(14);
 		font-weight: $font-weight-normal;
 		line-height: 2;
+		border: 1px solid $secondary-color;
+		border-radius: $global-radius;
 
 		&::placeholder {
-			color: #ccc;
-			opacity: 0.66;
+			color: $bg-light;
 		}
 
 		&:placeholder-shown {
@@ -41,112 +42,23 @@
 		}
 
 		&:focus {
-			border: 1px solid scale-color($primary-color, $lightness: 18%);
+			border: 1px solid scale-color($secondary-color, $lightness: 18%);
 		}
 	}
 
 	input[type='submit'] {
 		position: absolute;
-		top: 8px;
-		right: 8px;
-		width: rem-calc(25);
-		height: rem-calc(25);
+		right: 0;
+		width: rem-calc(65);
+		height: 100%;
 		text-indent: -999px;
-		background-image: url(../img/ic-search-dark.png);
+		background-image: url(../img/ic-search.svg);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: contain;
+		background-size: rem-calc(32);
+		background-color: $secondary-color;
 		border: none;
+		border-radius: 0 $global-radius $global-radius 0;
 		z-index: 9;
 	}
 }
-
-
-// .search-container {
-// 	position: relative;
-// 	display: inline-block;
-// 	margin: 0 rem-calc(50);
-// 	height: 50px;
-// 	width: 50px;
-// 	vertical-align: bottom;
-
-// 	.mglass {
-// 		display: inline-block;
-// 		pointer-events: none;
-// 		font-weight: $font-weight-bold;
-// 		transform: rotate(-45deg);
-// 	}
-
-// 	.searchbutton {
-// 		display: inline-flex;
-// 		align-items: center;
-// 		justify-content: center;
-// 		position: absolute;
-// 		font-size: rem-calc(24);
-// 		width: 100%;
-// 		margin: 0;
-// 		padding: 0;
-// 		margin: 0 2px;
-// 		padding-left: 32px;
-// 		padding-right: 32px;
-// 		height: 50px;
-// 		line-height: 50px;
-// 		text-align: center;
-// 		color: $secondary-color;
-// 		text-decoration: none;
-// 		cursor: pointer;
-// 		-moz-user-select: none;
-// 		-webkit-user-select: none;
-// 		-ms-user-select: none;
-// 		user-select: none;
-
-// 		&:hover {
-// 			transition-duration: 0.4s;
-// 			color: $primary-color;
-// 		}
-// 	}
-
-// 	.search:focus+.searchbutton {
-// 		transition-duration: 0.4s;
-// 		background-color: $bg-light-opacity;
-// 		color: $primary-color;
-// 	}
-
-// 	.search {
-// 		position: absolute;
-// 		left: 49px;
-// 		/* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
-// 		font-size: rem-calc(18);
-// 		outline: none;
-// 		border: none;
-// 		padding: 0;
-// 		width: 0;
-// 		height: 100%;
-// 		z-index: 10;
-// 		transition-duration: 0.4s;
-// 		background-color: $bg-light-alt;
-// 	}
-
-// 	.search:focus {
-// 		width: 363px;
-// 		/* Bar width+1px */
-// 		padding: 0 16px 0 0;
-// 	}
-
-// 	.expandright {
-// 		left: auto;
-// 		right: 49px;
-// 		/* Button width-1px */
-// 	}
-
-// 	.expandright:focus {
-// 		padding: 0 0 0 16px;
-// 	}
-
-// 	#searchsubmit {
-// 		all: unset;
-// 		cursor: pointer;
-// 		font-size: 1px;
-// 	}
-
-// }

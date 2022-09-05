@@ -4,7 +4,7 @@ get_header();
 
 	<section class="page-hero" <?php dmc_display_featured_img_bg( 6 ); ?>>
 		<h1 class="page-title">
-			<?php echo get_the_title( 6 ); ?>
+			<?php echo get_the_title( 7 ); ?>
 		</h1>
 	</section>
 

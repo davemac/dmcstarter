@@ -14,11 +14,11 @@ module.exports = function(grunt) {
 		var target = grunt.option('target') || 'localhost', domain;
 
 		if ( grunt.option('target') === 'production' ) {
-		   domain = 'dmcstarter-l';
+		   domain = 'copperline-l';
 		} else if (grunt.option('target') === 'staging') {
-			// domain = 'dmcstarter-s';
+			domain = 'copperline-s';
 		// } else {
-		//     domain = 'https://dmcstarter.localhost';
+		//     domain = 'https://copperline.localhost';
 		}
 		return domain;
 	})());
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		// theme directory name
-		theme: 'dmcstarter',
+		theme: 'copperline',
 
 		// check which sass partials are not being used
 		sassyclean: {

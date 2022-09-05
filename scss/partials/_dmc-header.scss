@@ -1,10 +1,5 @@
 .contain-to-grid {
 	max-width: 100%;
-	background-color: $secondary-color;
-
-	.home & {
-		background-color: $secondary-color;
-	}
 }
 
 .skiplink {
@@ -30,90 +25,28 @@
 	}
 }
 
-.info-strip {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-flow: column;
-	padding: 0 rem-calc(10);
-	background-color: $primary-color;
-
-	@media #{$medium-up} {
-		flex-flow: row wrap;
-		height: rem-calc(40);
-		padding: rem-calc(10) rem-calc(15);
-	}
-
-	@media #{$large-up} {
-		padding: 0 rem-calc(30);
-	}
-
-	a {
-		color: #fff;
-	}
-
-	.contacts {
-		display: flex;
-		width: 100%;
-		justify-content: space-between;
-
-		@media #{$medium-up} {
-			width: auto;
-		}
-
-		a {
-			font-weight: $font-weight-medium;
-
-			@media #{$large-up} {
-				margin-right: $content-spacing;
-			}
-
-			&::before {
-				font-family: FontAwesome, sans-serif;
-				font-size: rem-calc(18);
-			}
-
-			.dmc-hide {
-				display: none;
-
-				@media #{$large-up} {
-					display: inline-block;
-				}
-			}
-		}
-	}
-
-	.controls {
-		display: none;
-
-		@media #{$large-up} {
-			display: block;
-		}
-	}
-}
-
 .brand-strip {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: calc($content-spacing/2);
+	max-width: $row-width;
+	margin: 0 auto;
+	padding: rem-calc(7) calc($content-spacing/2) rem-calc(5);
+	background-color: #fff;
 
 	@media #{$medium-up} {
 		padding: calc($content-spacing/2) $content-spacing;
 	}
 
-	.custom-logo-link {
+	.custom-logo {
 		display: block;
 		width: 100%;
-		max-width: rem-calc(260);
-	}
+		height: rem-calc(26.5);
 
-	a,
-	p {
-		margin: 0;
-		color: #fff;
-		font-size: rem-calc(15);
-		font-weight: $font-weight-medium;
+		@media #{$medium-up} {
+			height: rem-calc(42.5);
+			width: rem-calc(218);
+		}
 	}
 
 	.social__wrap {
@@ -125,18 +58,22 @@
 }
 
 .dmc-quicklinks {
-	display: flex;
+	align-items: center;
 	margin: 0;
+	padding: 0;
 	list-style: none;
 
-	> * {
-		margin-left: $content-spacing;
+	@media #{$large-up} {
+		display: flex;
+		align-items: center;
 	}
 
-	li:last-of-type {
-		a {
-			font-weight: $font-weight-bold;
-			text-transform: uppercase;
-		}
+	a:not(.button) {
+		font-size: rem-calc(13);
+	}
+
+	a.button {
+		margin-left: rem-calc(15);
+		border-radius: $global-radius  !important;
 	}
 }

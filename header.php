@@ -17,36 +17,15 @@
 
 <header class="contain-to-grid" id="header">
 
-	<div class="info-strip">
-
-		<div class="contacts">
-			<?php get_template_part( 'lib/socials' ); ?>
-			<a href="tel:+6131300000" class="icon-call">
-				1300 000
-			</a>
-		</div>
-
-		<div class="controls">
-			<?php
-			require_once get_template_directory() . '/searchform.php';
-
-			wp_nav_menu(
-				array(
-					'theme_location' => 'utility',
-					'container'      => false,
-					'depth'          => 1,
-					'items_wrap'     => '<ul class="dmc-quicklinks">%3$s</ul>',
-				)
-			);
-
-			// dmc_woocommerce_show_cart_indicator();
-			?>
-
-		</div>
-
-	</div>
-
 	<div class="brand-strip">
+
+		<nav class="tab-bar show-for-small-only">
+			<div class="right-small">
+				<button class="menu-toggle left-off-canvas-toggle menu-icon" id="menu-toggle" aria-expanded="false">
+					Menu
+				</button>
+			</div>
+		</nav>
 
 		<div class="sitename">
 			<a href="#content" class="skiplink hide-for-small-only">
@@ -58,7 +37,6 @@
 		</div>
 
 		<div class="mainnav">
-			<!-- Starting the Top-Bar -->
 			<nav class="top-bar hide-for-small-only" data-topbar role="navigation">
 				<section class="top-bar-section">
 					<?php
@@ -68,13 +46,6 @@
 							'container'      => false,
 							'depth'          => 3,
 							'items_wrap'     => '<ul class="main-menu">%3$s</ul>',
-							// 'walker'         => new dmcstarter_walker(
-							// 	array(
-							// 		'in_top_bar' => true,
-							// 		'item_type'  => 'li',
-							// 		'menu_type'  => 'main-menu',
-							// 	)
-							// ),
 						)
 					);
 					?>
@@ -82,13 +53,20 @@
 			</nav>
 		</div>
 
-		<nav class="tab-bar show-for-medium-down">
-			<div class="right-small">
-				<button class="menu-toggle right-off-canvas-toggle menu-icon" id="menu-toggle" aria-expanded="false">
-					Menu
-				</button>
-			</div>
-		</nav>
+		<?php
+		require_once get_template_directory() . '/searchform.php';
+
+		wp_nav_menu(
+			array(
+				'theme_location' => 'utility',
+				'container'      => false,
+				'depth'          => 1,
+				'items_wrap'     => '<ul class="dmc-quicklinks">%3$s</ul>',
+			)
+		);
+
+		// dmc_woocommerce_show_cart_indicator();
+		?>
 
 	</div>
 
